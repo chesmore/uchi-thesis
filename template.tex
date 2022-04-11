@@ -1,0 +1,126 @@
+\documentclass{ucetd}
+\usepackage{subfigure,epsfig,amsfonts}
+\usepackage[sort&compress,numbers]{natbib}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
+\usepackage{mathrsfs}
+% \usepackage{cancel}
+
+\usepackage{sectsty}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{color,soul}
+% \usepackage[colorinlistoftodos]{todonotes}
+\usepackage{lipsum}
+
+% \usepackage{tikz}
+% \usepackage{circuitikz}
+% \usepackage{tikz-timing}
+% \usetikzlibrary{arrows.meta,decorations.pathmorphing,decorations.pathreplacing,positioning,shapes,fadings}
+
+%Modify directory for loading graphics
+\graphicspath{{figures/}}
+%Extra
+\usepackage{filecontents}
+\usepackage{bm}
+\usepackage{braket}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{verbatim}
+\usepackage{physics}
+\usepackage{dsfont}
+\usepackage{pdflscape}
+\usepackage{adjustbox}
+\usepackage{blkarray}
+\usepackage{colortbl}
+\usepackage{hyperref}
+% \usepackage{adjustbox}
+% \usepackage{cancel}
+\usepackage{rotating}
+
+\renewcommand{\bibname}{References}
+
+
+
+
+
+%% Use these commands to set biographic information for the title page:
+\title{your thesis title here}
+\author{your name here}
+\department{Pritzker School of Molecular Engineering}
+\division{Pritzker School of Molecular Engineering}
+\degree{Doctor of Philosophy}
+\date{Month and Year of Graduation}  % date of degree awarding, not the date of the defense
+
+%% Use these commands to set a dedication and epigraph text
+\dedication{Dedication text}
+%\epigraph{Epigraph Text}
+
+\usepackage{caption}
+%\captionsetup{font=footnotesize}
+\usepackage{pdfpages}
+
+\begin{document}
+
+
+
+\maketitle
+
+\makecopyright
+\makededication
+%\makeepigraph
+
+%% Make the various tables of contents
+\tableofcontents
+\cleardoublepage
+\phantomsection
+\listoffigures
+\cleardoublepage
+\phantomsection
+\listoftables
+\newpage
+
+\begin{center}
+    \textit{This thesis represents the motivations, results, and conclusions from the following works}:
+    \\
+    \begin{enumerate}
+
+        \item[] 
+    \end{enumerate}
+
+\end{center}
+\newpage
+ 
+\acknowledgments
+\begin{center}
+    \textit{XYZ...}
+\end{center}
+
+XYZ
+
+\abstract
+Abstract
+
+
+\mainmatter
+
+\include{Chapters/introduction}
+\include{Chapters/instruments}
+\include{Chapters/so_lat_ot}
+\include{Chapters/so_lat}
+\include{Chapters/science}
+
+\appendix
+
+\include{Appendices/AppendixA}
+
+
+
+\bibliographystyle{unsrt}
+\bibliography{thebibliography.bib}
+
+
+\end{document}
