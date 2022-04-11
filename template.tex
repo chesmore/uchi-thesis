@@ -8,6 +8,10 @@
 \usepackage{mathrsfs}
 % \usepackage{cancel}
 
+% Following 2 lines silence the \underline warnings.
+\usepackage{silence}
+\WarningFilter{latex}{Command}
+
 \usepackage{sectsty}
 \usepackage{float}
 \usepackage{graphicx}
@@ -23,7 +27,7 @@
 %Modify directory for loading graphics
 \graphicspath{{figures/}}
 %Extra
-\usepackage{filecontents}
+% \usepackage{filecontents}
 \usepackage{bm}
 \usepackage{braket}
 \usepackage{setspace}
@@ -109,6 +113,9 @@ Abstract
 
 \include{Chapters/introduction}
 \include{Chapters/instruments}
+\include{Chapters/mma}
+\include{Chapters/silicon}
+\include{Chapters/feeds}
 \include{Chapters/so_lat_ot}
 \include{Chapters/so_lat}
 \include{Chapters/science}
