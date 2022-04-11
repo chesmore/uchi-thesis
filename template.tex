@@ -16,18 +16,11 @@
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{color,soul}
-% \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{lipsum}
-
-% \usepackage{tikz}
-% \usepackage{circuitikz}
-% \usepackage{tikz-timing}
-% \usetikzlibrary{arrows.meta,decorations.pathmorphing,decorations.pathreplacing,positioning,shapes,fadings}
 
 %Modify directory for loading graphics
 \graphicspath{{figures/}}
 %Extra
-% \usepackage{filecontents}
 \usepackage{bm}
 \usepackage{braket}
 \usepackage{setspace}
@@ -41,21 +34,15 @@
 \usepackage{blkarray}
 \usepackage{colortbl}
 \usepackage{hyperref}
-% \usepackage{adjustbox}
-% \usepackage{cancel}
 \usepackage{rotating}
 
 \renewcommand{\bibname}{References}
 
-
-
-
-
 %% Use these commands to set biographic information for the title page:
 \title{your thesis title here}
-\author{your name here}
-\department{Pritzker School of Molecular Engineering}
-\division{Pritzker School of Molecular Engineering}
+\author{Grace E. Chesmore}
+\department{Department of Physics}
+\division{Physical Sciences Division}
 \degree{Doctor of Philosophy}
 \date{Month and Year of Graduation}  % date of degree awarding, not the date of the defense
 
@@ -69,12 +56,10 @@
 
 \begin{document}
 
-
-
 \maketitle
 
 \makecopyright
-\makededication
+% \makededication
 %\makeepigraph
 
 %% Make the various tables of contents
@@ -92,18 +77,16 @@
     \\
     \begin{enumerate}
 
-        \item[] 
+        \item[X] \textit{The Simons Observatory: Characterizing the Large Aperture Telescope Receiver with Radio Holography}. G. E. Chesmore, et al. Applied Optics, 2022.
+        \item[\cite{Chesmore:21}] \textit{The Simons Observatory: HoloSim-ML: machine learning applied to the efficient analysis of radio holography measurements of complex optical systems}. G. E. Chesmore, et al. Applied Optics, 2021.
+        \item[\cite{Xu_2021}] \textit{The Simons Observatory: Metamaterial Microwave Absorber (MMA) and its Cryogenic Applications}. Z. Xu, G. E. Chesmore, et al. Applied Optics, 2021.
+        \item[\cite{ches18}] \textit{Reflectometry Measurements of the Loss Tangent in Silicon at Millimeter Wavelengths}. G. E. Chesmore, et al. Proceedings from the 8th ESA Workshop on Millimetre-Wave Technology and Applications, 2018.
     \end{enumerate}
 
 \end{center}
 \newpage
  
-\acknowledgments
-\begin{center}
-    \textit{XYZ...}
-\end{center}
 
-XYZ
 
 \abstract
 Abstract
@@ -118,7 +101,8 @@ Abstract
 \include{Chapters/feeds}
 \include{Chapters/so_lat_ot}
 \include{Chapters/so_lat}
-\include{Chapters/science}
+\include{Chapters/actbeams}
+\include{Chapters/conclusion}
 
 \appendix
 
@@ -128,6 +112,8 @@ Abstract
 
 \bibliographystyle{unsrt}
 \bibliography{thebibliography.bib}
+
+\acknowledgments
 
 
 \end{document}
