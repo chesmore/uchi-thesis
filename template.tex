@@ -11,7 +11,7 @@
 % Following 2 lines silence the \underline warnings.
 \usepackage{silence}
 \WarningFilter{latex}{Command}
-
+\DeclareMathOperator{\sinc}{sinc}
 \usepackage{sectsty}
 \usepackage{float}
 \usepackage{graphicx}
@@ -40,7 +40,8 @@
 \renewcommand{\bibname}{References}
 
 %% Use these commands to set biographic information for the title page:
-\title{your thesis title here}
+\title{Optical Design and Analysis of Next Generation Instruments for Measurements of the Cosmic Microwave Background
+}
 \author{Grace E. Chesmore}
 \department{Department of Physics}
 \division{Physical Sciences Division}
@@ -49,8 +50,10 @@
 
 %% Use these commands to set a dedication and epigraph text
 \dedication{Dedication text}
-%\epigraph{Epigraph Text}
-
+% deducation text 
+\epigraph{“...”}
+% “Those who can make you believe absurdities, can make you commit atrocities.”
+% ― Voltaire
 \usepackage{caption}
 %\captionsetup{font=footnotesize}
 \usepackage{pdfpages}
@@ -61,7 +64,7 @@
 
 \makecopyright
 % \makededication
-%\makeepigraph
+% \makeepigraph
 
 %% Make the various tables of contents
 \tableofcontents
@@ -77,8 +80,7 @@
     \textit{This thesis represents the motivations, results, and conclusions from the following works}:
     \\
     \begin{enumerate}
-
-        \item[X] \textit{The Simons Observatory: Characterizing the Large Aperture Telescope Receiver with Radio Holography}. G. E. Chesmore, et al. Applied Optics, 2022.
+        \item[\cite{chesmore2022}] \textit{The Simons Observatory: Characterizing the Large Aperture Telescope Receiver with Radio Holography}. G. E. Chesmore, et al. Applied Optics, 2022.
         \item[\cite{Chesmore:21}] \textit{The Simons Observatory: HoloSim-ML: machine learning applied to the efficient analysis of radio holography measurements of complex optical systems}. G. E. Chesmore, et al. Applied Optics, 2021.
         \item[\cite{Xu_2021}] \textit{The Simons Observatory: Metamaterial Microwave Absorber (MMA) and its Cryogenic Applications}. Z. Xu, G. E. Chesmore, et al. Applied Optics, 2021.
         \item[\cite{ches18}] \textit{Reflectometry Measurements of the Loss Tangent in Silicon at Millimeter Wavelengths}. G. E. Chesmore, et al. Proceedings from the 8th ESA Workshop on Millimetre-Wave Technology and Applications, 2018.
@@ -86,11 +88,12 @@
 
 \end{center}
 \newpage
- 
-
 
 \abstract
-Abstract
+The Cosmic Microwave Background (CMB) carries the imprints of the conditions in the early universe and the large-scale structure it has traversed as it travels to our telescopes. This radiation from the early universe serves as a window into the physics of our universe. From the CMB, we can study primordial gravitational waves, large scale structure formation, sum of neutrino masses, dark energy, dark matter, and fundamental physics. Achieving these ambitious science goals requires equally ambitious instrumentation.
+CMB-S4 and ongoing stage 3 ground-based CMB experiments are designed to observe the CMB temperature and polarization signals to an unprecedented sensitivity. A combination of three Large Aperture Telescopes (LATs) and eighteen Small Aperture Telescopes (SATs) will measure the temperature and polarization anisotropy of the CMB with $\approx$500,000 background noise-limited detectors operating at $\approx$100\,mK, covering frequencies from $\approx$20 to $\approx$300\,GHz.
+
+In order to measure the tiniest signals of the CMB, we must control optical systematics and advance detector sensitivity to unprecedented levels. I will discuss the techniques to control optical systematics, design highly sensitive detectors and feedhorn arrays, and characterize their performance. Using a holography imaging setup as a beam mapper, I will evaluate the performance of the optical properties of novel absorbers I developed, and beam map a complete cryogenic optical system. I developed software to model these systems,  including hardware imperfections, demonstrating how systematics propagate into measurements; the software also uses machine learning to correct such systematic errors by correcting alignment of mirrors. 
 
 
 \mainmatter
@@ -99,22 +102,58 @@ Abstract
 \include{Chapters/instruments}
 \include{Chapters/mma}
 \include{Chapters/silicon}
-\include{Chapters/feeds}
 \include{Chapters/so_lat_ot}
 \include{Chapters/so_lat}
 \include{Chapters/actbeams}
+\include{Chapters/act_pt2}
 \include{Chapters/conclusion}
 
 \appendix
-
-\include{Appendices/AppendixA}
-
-
+\include{Appendices/AppHolography}
+\include{Appendices/AppPol}
 
 \bibliographystyle{unsrt}
 \bibliography{thebibliography.bib}
 
 \acknowledgments
+
+
+
+To my Newport High School teachers:  Thank you, Casey Appel, for never giving up on me as I struggled with the concepts in your physics class.  Wendell Brown, you made a safe space for physics nerds.  I will never forget your mantra: "Physics is everywhere!"  Thank you, Melissa Baker, for truly being the coolest science teacher of all time.  I'm so impressed by your forethought to create a nanotechnologies class for high schoolers.  I think your fire for science inspired me to lean into my own interests in science and jump into physics in college;  I don't think I would have made that choice without you as an example.
+
+To my Santa Clara University advisors: Gary Sloan, thank you for breaking protocol and letting me (a freshman!) join the machining course.  Machining was one of the most empowering experiences of my early career and set the foundation for my career as an instrumentalist.  Thank you Dr. Kesten for advocating for me as I applied for REU programs.  Your guidance during application season was instrumental in my getting in anywhere.  And lastly, thank you to Dr. Rich Barber (a.k.a. Barber... I will never call you "Rich") for being the greatest advisor to me, Kyle, and Mitch.  
+
+\begin{itemize}
+
+    \item Santa Clara U: \begin{itemize}
+ 
+        \item Kesten
+
+        \item Sara Youlton
+    \end{itemize}
+    \item U Michigan: \begin{itemize}
+        \item Myron Campbell
+        \item Hannah Ruth
+        \item Liz, Nora, Jazmine, Jessica
+    \end{itemize}
+    \item lab: \begin{itemize}
+        \item co-advisors: sara, adri
+        \item LATRt team: katie, carlos, shreya, tommy, joey, taylor, ezekiel, 
+    \end{itemize}
+    \item UChicago Friends \begin{itemize}
+        \item Tim Gwen, Paul and science policy group
+        \item kavi, arijana, abby, patty.
+        \item putri
+    \end{itemize}
+    \item Family: \begin{itemize}
+        \item Mom and dad, louis and emma
+        \item ariana and caitlin
+        \item Bentley and Ashtyn
+        \item Auntie Ann and Uncle Peter
+        \item Matteo
+    \end{itemize}
+
+\end{itemize}
 
 
 \end{document}

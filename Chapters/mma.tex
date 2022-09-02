@@ -58,16 +58,16 @@ The optical measurements were conducted at room temperature. A consideration in 
 \subsection{Optical Hardware}
 \begin{figure}
     \centering
-    \includegraphics[width = .6\textwidth]{Figures/refl_setup.pdf}
-    \caption{Optical measurement setup sketch. The orange lines represent the beam as it travels from the source feed-horn, collimated off of the first mirror and to the sample. After being reflected/scattered by the second mirror, the beam is focused into the receiver to be measured. Incident ($\theta_I$) and receiver ($\theta_R$) angles are controlled by a motor for measuring different angles of incidence and scattered power.}
+    \includegraphics[width = .7\textwidth]{Figures/refl_setup.pdf}
+    \caption{Optical measurement setup sketch. The orange lines represent the beam as it travels from the source feed-horn, collimated off of the first mirror and to the sample. After being reflected/scattered by the second mirror, the beam is focused into the receiver to be measured. Incident ($\theta_i$) and receiver ($\theta_r$) angles are controlled by a motor for measuring different angles of incidence and scattered power.}
     \label{fig:optical_setup}
 \end{figure}
 In our measurement setup, a source emits a millimeter-wave through a feed-horn toward a parabolic mirror, which then reflects a plane wave toward the sample, at an angle of incidence controlled by a rotary stage. The signal reflected off the sample propagates to a second mirror, followed by the receiver feed-horn~\cite{ches18}. The sketch of the setup is shown in Fig. \ref{fig:optical_setup}. Eccosorb HR-10 sheets are placed on surrounding surfaces to reject multipath propagation. The alignment of the receiver is controlled with a three-axis stage. The tilt of the sample is controlled with a three-point micrometer mount.
 
-\begin{figure}
+\begin{figure}[t]
     \centering
-    \includegraphics{example-image-a}
-    \caption{Caption}
+    \includegraphics[width = .95\textwidth]{Figures/refl_isometric.pdf}
+    \caption{The correlation receiver setup diagram. A splitter sends one signal from a millimeter-wave source to a Pacific Millimeter harmonic mixer, while sending the same signal to be modulated by the device under test. The reference and modulated signal are mixed with an LO with an offset frequency $f_{\textrm{offset}}$ from the millimeter wave source. The two Pacific Millimeter harmonic mixers extract interference information caused by $f_{\textrm{offset}}$ and sends this to the ROACH-2 field programmable gate array (FPGA) board where the two signals are correlated.}
     \label{fig:holog_ref_setup}
 \end{figure}
 
@@ -85,7 +85,7 @@ For comparison, we acquired the Tessellating Terahertz RAM from TK Instruments. 
 
 \begin{figure}
     \centering
-\includegraphics[width = .6\textwidth]{Figures/flat_sample.pdf}
+\includegraphics[width = .8\textwidth]{Figures/flat_sample.pdf}
     \caption{MMA measurement sample. MMA tiles are individually bolted into a 3D-printed plate such that each absorbing surface sits flat to form a 30.5$\times$30.5\,cm testing surface.}
     \label{fig:front_tiles}
 \end{figure}
@@ -109,7 +109,7 @@ The scattered power off the surface of the sample is determined by measuring the
     \label{fig:scatter}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \begin{tabularx}{0.45\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
     \hline
@@ -153,9 +153,9 @@ Given the vast potential in customization, the MMA tiles provides a viable solut
 
 The metamaterial absorber (MMA) provides an effective, novel, and low-cost solution to absorb millimeter-wave radiation at cryogenic temperatures. Once the injection mold is manufactured, the tiles are mass-produced at low cost (< 1/10 of conventional methods) with a thousands-per-month production rate. Both the initial mold machining and injection molding were performed completely by an external shop, without any involvement from the research group. In addition, the technology also enables a high level of customization in the design. For future cryostat development, customized tiles can be designed and manufactured in this way to achieve the enhanced absorption properties, while fitting the geometry of specific cryostat designs.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=0.7\textwidth]{Figures/square_tiles.pdf}
+    \includegraphics[width=0.8\textwidth]{Figures/square_tiles.pdf}
     \caption{Manufactured square tiles. The 2.5\,cm $\times$ 2.5\,cm flat tiles are also manufactured via injection molding with the same pyramidal structure on the absorbing surface. The main photo on the bottom shows two square tiles from the front and the back. Major features on the tiles were denoted as well. A microscope photo of the pyramids is shown on the top left. The photo shows sharp features of the pyramids, which are only 0.6-mm wide and 1.5-mm tall. The pyramids show sharper features compared to the ones in the tilted tiles (Fig.~\ref{fig:real_tile}). That is because the square tiles are smaller with a simpler shape, which facilitates the manufacturing process.}
     \label{fig:square_tiles}
 \end{figure}

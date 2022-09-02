@@ -2,7 +2,11 @@
 \label{ch:si}
 \section{Introduction}
 Dielectric loss and its associated thermal emission is a key driver for sensitivity in millimeter wave receivers. A low loss implies low emission from a material, therefore limiting thermal noise propagating through to the detector. The
-contribution to the thermal noise due to loss,  $T_{\text{sys}}$, can be calculated as $T_{\text{sys}}=T_{\text{comp}}(L-1)$, where $T_{\text{comp}}$ is the physical temperature of the component, $L=\exp(2\pi n \tan(\delta)/\lambda_0)$ is the optical loss, $n$ is the index of refraction, $\tan(\delta)$ is the loss tangent, $t$ is the sample thickness, and $\lambda_0$ is the free-space wavelength. The noise due to loss can be reduced in two ways: lowering the temperature of the component, and using materials with lower intrinsic loss. 
+contribution to the thermal noise due to loss,  $T_{\text{sys}}$, can be calculated as:
+\begin{equation}
+    T_{\text{sys}}=T_{\text{comp}}(L-1)
+\end{equation}
+where $T_{\text{comp}}$ is the physical temperature of the component, $L=\exp(2\pi n \tan(\delta)/\lambda_0)$ is the optical loss, $n$ is the index of refraction, $\tan(\delta)$ is the loss tangent, $t$ is the sample thickness, and $\lambda_0$ is the free-space wavelength. The noise due to loss can be reduced in two ways: lowering the temperature of the component, and using materials with lower intrinsic loss. 
 
 Many millimeter wave experiments use cold optical components to minimize noise contributions due to this thermal
 emission. However, in many cases, it is advantageous to include warm silicon components in optical designs. For example,
@@ -88,7 +92,7 @@ The error bars of loss values are calculated with two methods. The first method 
 
 The index of refraction of neutron and intrinsic silicon are nearly identical, with $n =3.415$ for neutron-irradiated silicon, and $n =3.412$ for the intrinsic silicon samples. The neutron-irradiated sample has $\tan(\delta) = 2.8\times10^{-4}$, while the intrinsic silicon is nearly an order of magnitude better, with $\tan(\delta)= 1.5 \times 10^{-5}$. See Table~\ref{tab:silicon} for a summary of the measured and inferred properties.
 
-The reason for the higher loss in the neutron-irradiated sample is unclear, as the loss tangent should improve for materials with higher resistivity if dominated by the conduction loss term. As the resistivities of the neutron-irradiated and unmodified intrinsic silicon samples were measured by Topsil to be $>100k\Omega-cm$ and $>50k\Omega-cm$, respectively, the expectation is that the neutron-irradiated sample should have less loss. One possible explanation is that the lattice defects introduced by neutron irradiation contribute to the loss.
+The reason for the higher loss in the neutron-irradiated sample is unclear, as the loss tangent should improve for materials with higher resistivity if dominated by the conduction loss term. As the resistivities of the neutron-irradiated and unmodified intrinsic silicon samples were measured by Topsil to be $>100\,k\Omega-cm$ and $>50k\,\Omega-cm$, respectively, the expectation is that the neutron-irradiated sample should have less loss. One possible explanation is that the lattice defects introduced by neutron irradiation contribute to the loss.
 
 The resulting values for $\tan(\delta)$ from fits to our measurements of the unmodified intrinsic silicon sample are comparable to those reported in Parshin et al. 1995~\cite{parshin}. Further, our measured low loss in intrinsic silicon demonstrates it can be a compelling material for use in warm optics. Krupka et al.~\cite{KRUPKA201676} also report a $\tan(\delta) \approx 1.2\times10^{-5}$ for proton-irradiated silicon, which is lower by more than $3\sigma$ than our measurements of intrinsic silicon, but on the same order of magnitude. Our work shows promise for the use of intrinsic silicon for room-temperature optical components, such as those required for the lower bands of the Atacama Large Millimeter/Sub-millimeter Array (ALMA) and potential future CMB experiments.
 
