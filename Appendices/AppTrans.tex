@@ -1,0 +1,104 @@
+\chapter{Harmonic Transform of the Beam} % Main appendix title
+\label{app:trans} 
+
+Here we show the derivation to convert our beam $B(\theta)$ to its spherical transform $b_\ell$. The spherical harmonics are functions defined on the sphere as
+\begin{equation}
+    Y_l^m(\theta,\phi) = P_l^m(\cos\theta)\exp{i m\phi} \; ,
+\end{equation}
+where $P_l^m$ are the Legendre polynomials normalized for spherical harmonics, $\ell$ and $m$ are multipoles, and $\theta$ and $\phi$ are standard sky coordinates. The Legendre polynomials are defined as:
+\begin{equation}
+    P_l^m(x) = (-1)^m\sqrt{\frac{2l+1}{4\pi}}\sqrt{\frac{(l-\abs{m})!}{(l+\abs{m})!}}(1-x^2)^{\abs{m}/2}\frac{d^{\abs{m}}}{dx^{\abs{m}}}P_l(x) \; .
+\end{equation}
+
+The spherical harmonics are orthonormal, and thus obey the relation
+\begin{equation}
+    \int_0^{2\pi}\int_0^{\pi} Y_l^m(\theta,\phi)\overline{Y_{l'}^{m'}}(\theta,\phi) \sin\theta \; d\theta\; d\phi = \delta_{ll'}\delta_{mm'} \; ,
+\end{equation}
+where $\overline{z}$ is the complex conjugate of $z$ and $\delta_{ij}$ is the Kronecker symbol.
+
+In a spherical harmonic transform, we compute the coefficients $f_{l}^{m}$ used to express a function $f (\theta,\phi)$ as
+\begin{equation}
+    f(\theta,\phi) = \sum_{l=0}^{\infty}\sum_{m=-l}^{l}f_{l}^{m} Y_l^m(\theta,\phi) \; .
+\end{equation} 
+The coefficients can be computed using the equation 
+\begin{subequations}
+\begin{align}
+    f_{l}^{m} &= \int_{0}^{2\pi}\int_{0}^{\pi} f(\theta,\phi) \overline{Y_l^m}(\theta,\phi)\sin\theta \; d\theta\; d\phi   \\
+    & = \int_{0}^{2\pi}\int_{0}^{\pi} f(\theta,\phi) P_{l}^{m}(\cos\theta)\exp{-im\phi} \sin\theta\; d\theta\; d\phi \; .
+\end{align}
+\end{subequations}
+If $f (\theta,\phi)$ is independent of $\phi$ (as is the case for our beam), then we can write $f (\theta,\phi)$ = $f (\theta)$ and the equation above becomes
+\begin{equation}
+    f_{l}^{m}= \int_{0}^{2\pi}\exp{-im\phi}d\phi\int_{0}^{\pi} f(\theta) P_{l}^{m}(\cos\theta) \sin\theta\; d\theta \; .
+\end{equation}
+The integral over $\phi$ then simplifies to 
+\begin{equation}
+    \int_0^{2\pi} e^{-im\phi}\; d\phi = 2\pi \delta_{m0}\; .
+\end{equation}
+So $f_l^m$ is only non-zero for $m=0$, in which case we have 
+\begin{subequations}
+\begin{align}
+    f_l^0 & =  2\pi\int_0^{\pi}f(\theta)P_l(\cos\theta)\sin\theta \; d\theta\\
+    & = 2\pi \int_{-1}^{1}f(\theta)P_l (\cos\theta) \; d\cos \theta\; .
+\end{align}
+\end{subequations}
+This is the equation for the Legendre polynomial transform, presented as a means of converting the radial beam profile $B(\theta)$ to the harmonic transform $B_{\ell}$. 
+
+% However, this can be time-consuming to compute. For small beams such as ours, it is not necessary to work in the curved sky regime. We instead perform a 2D Fourier transform, which effectively becomes a Hankel transform, as shown below. The difference between the Hankel and Legendre polynomial transforms is less than a factor of $4\times 10^{-5}$ between $\ell=0$ and $\ell=10,000$ and the Hankel transform is much faster to compute. 
+
+% Now let's consider the 2D Fourier transform of a function $f(x,y)$, 
+% \begin{equation}
+%     F(k_x,k_y) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)\exp{-i(xk_x+ yk_y)}\;dx\; dy \; .
+% \end{equation}
+% Introducing the polar coordinates
+% \begin{equation*}
+%     \begin{split}
+%     x = \theta\cos\phi \hspace{0.5cm}& \hspace{0.5cm} y = \theta\sin\phi\\
+%     k_x = k\cos\psi \hspace{0.5cm}& \hspace{0.5cm} k_y = k\sin\psi
+%     \end{split}
+% \end{equation*}
+% where $\theta$ and $\phi$ here correspond to the $\theta$ and $\phi$ in spherical coordinates used throughout the paper, we then have, in the flat sky approximation,
+% \begin{equation}
+%         F(k\cos\psi,k\sin\psi) \equiv \mathcal{F}(k,\psi) = \int_{0}^{\infty}\int_{0}^{2\pi}f(\theta,\phi)\exp{-i\theta k(\cos\phi\cos\psi + \sin\phi\sin\psi)} \theta\; d\theta\; d\phi \; .
+% \end{equation}
+
+% If our function is circularly symmetric, so independent of $\phi$ (as is the case for our beam model), we have ${f (x,y) = \mathit{f} (\theta,\phi) = {f} (\theta)}$ and the equation above becomes
+
+% \begin{subequations}
+% \begin{align}
+%         \mathcal{F}(k,\psi) & = \int_0^{\infty}\theta f(\theta) \int_0^{2\pi}\exp{-i\theta k (\cos\phi\cos\psi + \sin\phi\sin\psi)}\; d\theta\; d\phi\\ 
+%         & = \int_0^{\infty}\theta f(\theta) \int_0^{2\pi}\exp{-i\theta k \cos(\phi-\psi)}\; d\theta\; d\phi \\
+%         & = \int_0^{\infty}\theta f(\theta) \int_0^{2\pi}\exp{-i\theta k \cos\alpha}\; d\theta\; d\alpha\\
+%         & = \int_0^{\infty}\theta f(\theta)\; 2 \int_0^{\pi}\exp{-i\theta k \cos\alpha}\; d\theta\; d\alpha \; .
+% \end{align}
+% \end{subequations}
+
+
+% Using the integral representation 
+% \begin{equation}
+%     J_n(z) = \frac{(-i)^n}{\pi}\int_0^{\pi} \exp{i z \cos \varphi}\cos(n\varphi)\;d\varphi
+% \end{equation}
+% for the Bessel functions $J_n$ of the first kind, we have
+% \begin{equation}
+%     J_0(z) = \frac{1}{\pi} \int_0^{\pi} \exp{i z \cos\varphi}\; d\varphi \; ,
+% \end{equation}
+% and so the final expression for the 2D Fourier transform of a circularly symmetric function $f(\theta)$ may be written as
+% \begin{subequations}
+% \begin{align}
+%     \mathcal{F}(k) &= 2\pi \int_0^{\infty}\theta f(\theta) J_0(-\theta k)\; d\theta\\
+%     & = 2\pi \int_0^{\infty}\theta f(\theta) J_0(\theta k)\; d\theta \; ,
+% \end{align}
+% \end{subequations}
+% which is a Hankel transform of order zero, and where the last line follows from the identity $J_n(-z) = J_n(z)$ for integer $n$.
+
+% In order to compute the harmonic transform of our beam profile, we evaluate the expression above separately for the three main terms in our beam profile fit: the core term (composed of the sum of basis functions), the scattering term, and the $1/\theta^3$ asymptotic term. The integrals for the core and scattering terms are computed numerically, but we derive an analytic expression for the integral of the $1/\theta^3$ term, shown below.
+
+% Given a fit amplitude $\alpha$, the Hankel transform for the $1/\theta^3$ term may be written as
+% \begin{equation}
+%     \mathcal{F}_{1/\theta^3}(k) = \alpha \int_0^{\infty} \theta\Big(\frac{1}{\theta^3} \Big)  J_0(\theta\ell)\; d\theta\; = \alpha \int_0^{\infty} \frac{J_0(\theta\ell)}{\theta^2}  \; d\theta\; .
+% \end{equation}
+% The analytic expression we use for this integral is 
+% \begin{equation}
+%     \int \frac{J_0(\theta\ell)}{\theta^2}  \; d\theta  = \ell \Big[ J_1(\theta \ell) - J_0(\theta \ell)\Big(\frac{\theta^2\ell^2+1}{\theta\ell} \Big)- \frac{\pi\theta\ell}{2}\Big(H_0(\theta\ell)J_1(\theta\ell)-H_1(\theta\ell)J_0(\theta\ell) \Big)\Big] \; ,
+% \end{equation}
+% where $H_n(x)$ is the Struve function.

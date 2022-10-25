@@ -1,17 +1,16 @@
-% Appendix Template
+\chapter{Holography Receiver Polarization Through the Large Aperture Telescope Optics Tube} 
+\label{app:pol} 
+Using the holography experiment, we obtain measurements for the cross-polarization of the LATR tester, including holography linearly polarized source, dielectric polarizing grid, optics tube, and holography receiver.  In order to model the polarization response in the setup, we employ Mueller matrix math to modulate the Stokes parameters of the signal throughout the setup.  
 
-\chapter{Holography Receiver Polarization Through the Large Aperture Telescope Optics Tube} % Main appendix title
-\label{app:pol} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
-
-Here, I derive each component of the polarization modulation using Mueller matrix notation~\cite{MUELLER}.  This model is used to fit the measured response through a polarized grid in the LATR tester optics tube, using the same holography receiver.  The electric field measured by the detector $\vec{E}_{\text{det}}$ can be modelled as a series of polarization modulations: 
+Here, we derive each component of the polarization modulation using Mueller matrix notation~\cite{MUELLER}.  This model is then fit to the measured response through the polarized grid in the LATR tester optics tube, using the same holography receiver.  The power measured by the detector $P_{d}$ can be modelled as a series of polarization modulations: 
 \begin{equation}
-    \vec{P}_{\text{out}}(\theta) = \vec{S}_{\text{det}}(\phi_{\text{det}},\epsilon)\cdot \vec{M}_{\text{OT}}\cdot \vec{M}_{\text{grid}}(\theta,\eta_{g})\cdot \vec{S}_{\text{source}}
+    P_{\text{d}}(\theta) = \vec{S}_{d}(\phi_{d},\epsilon)\cdot \vec{M}_{\text{OT}}\cdot \vec{M}_{g}(\theta,\eta_{g})\cdot \vec{S}_{s}
     \label{eq:holo_model}
 \end{equation}
-where the source emits the field $\vec{E}_{\text{source}}$, which is then modulated by the grid $\vec{M}_{\text{grid}}$.  The field then enters the optics tube $\vec{M}_{\text{OT}}$ and is measured by the detector $\vec{M}_{\text{det}}$.  These data were used to quantify the grid efficiency $\eta_{\text{Grid}}$, the cross-polarization of the instrument $CP$, and the tilt-offset of the holography detector $\theta_{\text{det}}$.
-
+where the source emits the Stokes parameters $\vec{S}_{s}$, which is then modulated by the grid $\vec{M}_{g}$.  The field then enters the optics tube $\vec{M}_{\text{OT}}$ and is measured by the detector $\vec{M}_{d}$.  These data were used to quantify the grid efficiency $\eta_{g}$, the cross-polarization of the instrument $\epsilon$ (this can be complex), and the tilt-offset of the holography detector $\phi_{d}$.  We are fitting our data to this model, where we fit the 3 parameters $\epsilon$, $\eta_{g}$, and $\phi_{d}$.
 \section{General Notation}
 \subsection{Stokes Parameters}
+First, let's define our basis of Stokes parameters and how they physically relate to our setup.  The Stokes parameters are:
 \begin{equation}
 \begin{split}
     I & = |E_x|^2 + |E_y|^2 \\
@@ -20,13 +19,12 @@ where the source emits the field $\vec{E}_{\text{source}}$, which is then modula
     V & = i(E_x E_y^* - E_x^*E_y) \\
 \end{split}
 \end{equation}
-
 \subsection{Jones into Mueller Matrix}
-Convert from Jones to Mueller matrices with:
+To derive the model, we employ Mueller matrix notation.  We often start by modeling a component by its Jones matrix, then converting to its Mueller matrix to interact with the Stokes parameters of the setup. Therefore, here I review this conversion.  Converting the Jones matrix $J$ to Mueller matrix $M$:
 \begin{equation}
     M = A(J\otimes J^*)A^{-1}
 \end{equation}
-where
+with the $A$ matrix:
 \begin{equation}
     A = \begin{bmatrix}
     1 & 0 & 0 & 1\\
@@ -41,13 +39,8 @@ where
     1 & -1 & 0 & 0\\
   \end{bmatrix}
 \end{equation}
-
-
-
-\section{Mueller Matrices}
-
-Here we list the individual matrices which make up the full model of the measurement.  We use Mueller matrices to modulate the polarization of the holography source $\vec{S}_{co,cr}$.  To rotate into a given component's coordinate system, we employ the Mueller rotation matrix:
-
+\subsection{Rotation}
+We often need to convert our Stokes parameter matrix into an instrument's local coordinate system in order to determine how that instrument will modulate our signal.  Therefore, we will often use the rotation matrix:
 \begin{equation}
    M_{\text{rot}}= \begin{bmatrix}
     1 & 0 & 0 & 0 \\
@@ -56,33 +49,40 @@ Here we list the individual matrices which make up the full model of the measure
     0 & 0 & 0 & 1
     \end{bmatrix}
 \end{equation}
+\section{Mueller Matrices}
+
+Here we list the individual matrices which make up the full model of the measurement.  We use Mueller matrices to modulate the polarization of the holography source $\vec{S}_{co,cr}$.  
 
 \subsection{Polarized Source}
-The holography source is linearly polarized (TM-mode).  We model the source as a general polarized source.  The Stokes parameters of a linearly polarized source along the $\theta=0^\circ$ axis:
+The Stokes parameters of a general polarized source are expressed by a matrix $\vec{S}$:
+\begin{equation}\vec{S} = 
+    \begin{bmatrix}
+    I & Q & U & V
+    \end{bmatrix}^T
+\end{equation}
+The holography source, specifically, is linearly polarized (TM-mode) (meaning we only include the $I$ and $Q$ Stokes parameters).  The Stokes parameters of a linearly polarized source along the $\theta=0^\circ$ axis:
 \begin{equation}\vec{S}_{co} = 
     \begin{bmatrix}
     1 & 1 & 0 & 0
     \end{bmatrix}^T
 \end{equation}
-    
 The second source polarization was obtained by adding a waveguide twist directly onto the source's output, prior to the rectangular horn.  Therefore, the Stokes parameters of the source in the $\theta=90^\circ$ axis is modeled as:
 \begin{equation}\vec{S}_{cr} = 
     \begin{bmatrix}
     1 & -1 & 0 & 0
     \end{bmatrix}^T
 \end{equation}
-
 \subsection{Polarizing Grid}
 The signal is first modulated by the polarized grid prior to entering the optics tube.  The purpose of the grid is to transmit one polarization and reflect the other.  However, in the case of an imperfect polarizing grid, some of the $2^{nd}$ polarization may also transmit (a fraction of the $1^{st}$ polarization).  Therefore, we define the Jones matrix as the following, where the majority of the signal along the $x$-axis is transmitted ($t_x > t_y$):
 \begin{equation}
-    J_{\text{grid}} = \begin{bmatrix}
+    J_{g} = \begin{bmatrix}
     t_x & 0 \\
     0 & t_y\\
   \end{bmatrix}
 \end{equation}
 where $t_x\approx 1$ and $t\approx 0 $.  Now, as before, we convert to the grid's Mueller matrix:
 \begin{equation}
-    M_{\text{grid}} =\frac{1}{2} \begin{bmatrix}
+    M_{g} =\frac{1}{2} \begin{bmatrix}
     |t_x|^2 + |t_y|^2 & |t_x|^2 - |t_y|^2 & 0& 0\\
     |t_x|^2 - |t_y|^2 & |t_x|^2 + |t_y|^2& 2\Re{(t_x t_y^*)}& -2\Im{(t_x t_y^*)}\\
     0 & 0& 2\Im{(t_x t_y^*)}& 2\Re{(t_x t_y^*)}\\
@@ -90,20 +90,16 @@ where $t_x\approx 1$ and $t\approx 0 $.  Now, as before, we convert to the grid'
 \end{equation}
 The efficiency of our wire grid is defined by the transmission through the $x$-axis $t_x$. We want to determine the grid efficiency from our data, so we can re-write our Mueller matrix as:
 \begin{equation}
-    M_{\text{grid}} =\frac{1}{2} \begin{bmatrix}
+    M_{g} =\frac{1}{2} \begin{bmatrix}
     1 & \eta_g & 0& 0\\
     \eta_g & 1& 1-\eta_g^2 & -\sqrt{1-\eta_g^2}\\
     0 & 0& \sqrt{1-\eta_g^2}& \sqrt{1-\eta_g^2}\\
   \end{bmatrix}
 \end{equation}
-
 Lastly, we rotate the grid via the $M_{\text{rot}}(\theta)$ matrices:
-
 \begin{equation}
-    M_{\text{grid}}(\theta,\eta_{g}) = M_{\text{rot}}^T(\theta) \cdot M_{\text{grid}}(\eta_{g})\cdot M_{\text{rot}}(\theta)
+    M_{g}(\theta,\eta_{g}) = M_{\text{rot}}^T(\theta) \cdot M_{g}(\eta_{g})\cdot M_{\text{rot}}(\theta)
 \end{equation}
-
-
 \subsection{Generic Instrument}
 \begin{equation}
     J = \begin{bmatrix}
@@ -111,9 +107,7 @@ Lastly, we rotate the grid via the $M_{\text{rot}}(\theta)$ matrices:
     0 & A e^{i\phi}\\
   \end{bmatrix}
 \end{equation}
-
 Converting this to a Mueller matrix yields:
-
 \begin{equation}
     M_{\text{IP}} = \frac{1}{2}\begin{bmatrix}
     1+A^2 & 1-A^2 & 0& 0\\
@@ -122,9 +116,7 @@ Converting this to a Mueller matrix yields:
     0 & 0 & -2A\sin\phi & 2A\cos\phi
   \end{bmatrix}
 \end{equation}
-
 We define the instrument's polarization as $\lambda_P = \frac{1}{2}\sqrt{1-A^2}$.  Here's we only consider $\phi=0$ or else we would find $A<1$, which isn't physical in our setup.  Our Mueller matrix becomes:
-
 \begin{equation}
     M_{\text{IP}} = \frac{1}{2}\begin{bmatrix}
     1-\lambda_P & \lambda_P & 0& 0\\
@@ -133,36 +125,37 @@ We define the instrument's polarization as $\lambda_P = \frac{1}{2}\sqrt{1-A^2}$
     0 & 0 & 0 & \sqrt{1-2\lambda_P}
   \end{bmatrix}
 \end{equation}
-
 Our model for instrument polarization is aligned along a specific axis, so we need to rotate this matrix into the appropriate local coordinate system via the rotation matrix $M_{rot}$.
-
 \subsection{Detector}
-
 We model the detector as an imperfect polarizer, to include any small cross-polarization from the receiver:
 \begin{equation}
-    J_{\text{det}} = \begin{bmatrix}
+    J_{d} = \begin{bmatrix}
     1 & 0 \\
     0 & \epsilon\\
   \end{bmatrix}
 \end{equation}
-
-The Mueller matrix then becomes:
+where $\epsilon = \epsilon_0(\cos\delta + i\sin\delta)$.  The Mueller matrix then becomes:
 \begin{equation}
-    M_{\text{det}} = \begin{bmatrix}
-    1 & 0 \\
-    0 & \epsilon\\
+    M_{d} = \frac{1}{2}\begin{bmatrix}
+    1+\epsilon_0^2 & 1-\epsilon_0^2 & 0 & 0\\
+    1-\epsilon_0^2 & 1+\epsilon_0^2 & 0 & 0\\
+    1 & 0 & 2\epsilon_0\cos\delta & 2\epsilon_0\sin\delta\\
+    1 & 0 & -2\epsilon_0\sin\delta & 2\epsilon_0\cos\delta\\
   \end{bmatrix}
 \end{equation}
+To simplify this down to one parameter, we define $\epsilon_0^2 = \chi$.  We rewrite our Mueller matrix then as:
 
-We need to rotate this polarization matrix by the tilt of the detector $\phi$ via:
 \begin{equation}
-    \vec{E}_{\text{det}} = M_{\text{det}}\cdot M_{\text{rot}}(\phi)
+    M_{d} = \frac{1}{2}\begin{bmatrix}
+    1+\chi & 1-\chi & 0 & 0\\
+    1-\chi & 1+\chi & 0 & 0\\
+    1 & 0 & 2\sqrt{\chi} & 0\\
+    1 & 0 & 0 & 2\sqrt{\chi}\\
+  \end{bmatrix}
 \end{equation}
-
 Because the power out from the detector $P_{\text{out}}$ is the $I$ component of the Stoke's parameters, we then get the final $\vec{S}_{\text{out}}$ with:
-
 \begin{equation}
-    \vec{S}_{\text{det}} = \begin{bmatrix}
+    \vec{S}_{d} = \begin{bmatrix}
     1 & 0 & 0 & 0
-  \end{bmatrix} \cdot M_{\text{det}} \cdot M_{\text{rot}}(\phi)
+  \end{bmatrix} \cdot M_{d} \cdot M_{\text{rot}}(\phi)
 \end{equation}

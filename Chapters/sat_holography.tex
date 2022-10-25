@@ -1,0 +1,118 @@
+\chapter{The Simons Observatory: Characterizing the Small Aperture Telescope with Radio Holography}
+\label{ch:sat_holo}
+This chapter presents holography measurements of the Simons Observatory Small Aperture Telescope at the University of California, San Diego, and preliminary characterization of its optical performance.
+\section{Introduction}
+The Simons Observatory (SO) will employ three Small Aperture Telescopes (SATs) to measure the largest angular scales visible from the Atacama Desert in Chile.  One SAT has an aperture diameter of 0.42\,m and will measure roughly 10\% with more than 300,000 bolometer detectors across the three SATs~\cite{2020SPIE11445E..7LK}.  Each SAT contains two frequency bands; Mid-Frequency bands are centered at 93 and 145\,GHz, Ultra-High-Frequency bands are centered at 225 and 280\,GHz, and Low-Frequency bands are centered at 27 and 39\,GHz.  
+
+We present the laboratory testing of the MF Small Aperture Telescope using the technique of near-field radio holography.  "Holography" refers to the measurement of the complex monochromatic electric field wavefront using the interference between a modulated and reference signal.  Radio holography takes advantage of the antenna theory relationship: the far-field radiation pattern of a reflector antenna is the Fourier Transformation of the field distribution in the aperture plane of the antenna~\cite{alma_holog}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width = .95\textwidth]{Figures/sat_optics.pdf}
+    \caption{Left: Cross-section of the Small Aperture Telescope (SAT) optics tube.  Right: SAT cryostat used in holography testing.}
+    \label{fig:sat_optics}
+\end{figure}
+
+Near-field holography of the SAT maps the wavefront emerging from the cryostat.  Using Fresnel diffraction (FD)~\cite{Goodman2005-ne}, these measured fields can be propagated to determine the far-field beam pattern of the telescope fed by this feedhorn receiver.  Moreover, these beams are useful for the identification and mitigation of optical problems within the receiver (i.e. optical aberrations, focus, scattered power, etc.).  These measurements enable a detailed verification of system-level optical performance prior to the deployment of a receiver on a telescope.
+
+In Section~\ref{sec:sat_optics_tube} we describe the optical design and components of the SO SAT optics tube.  In Section~\ref{sec:satot_meas_method} we describe the measurement approach including the cryogenic receiver (\ref{sec:satot_meas_method}.\ref{sec:sat_cryo_rec}) and holography hardware (\ref{sec:satot_meas_method}.\ref{sec:sat_meas_hardware}) required for measuring beam maps (full details can be found in Appendix~\ref{sec:appendix_hardware}).  In Section~\ref{sec:sat_results} we present the measured beam maps.   Section~\ref{sec:sat_prop_fields} discusses analysis methods to propagate the measured beams into the far-field using FD.  We conclude with a discussion of future applications of this approach in Section~\ref{sec:sat_discussion}.  
+\section{SO Small Aperture Telescope Optics Tubes Design}
+\label{sec:sat_optics_tube}
+
+\section{Measurement Approach}
+\label{sec:satot_meas_method}
+Here, we describe the hardware in two sections: 1) a cryogenic optics tube and 2) the holography system comprised of a source, correlation receiver, and motion system.
+\subsection{Cryogenic System}
+\label{sec:sat_cryo_rec}
+The optics tube is housed in the SAT cryostat\cite{2020SPIE11445E..7LK}.  The cryostat holds and cools the optics tube and provides support for detector readout.  This setup supports up to seven detector arrays~\ref{fig:sat_fpa}.   In the test configuration, all bolometric arrays~\cite{2022arXiv220104507H} are filled in the focal plane, and three holography arrays are added to the edges of the focal plane, each separated by $120^{\circ}$. 
+\begin{figure}
+    \centering
+    \includegraphics[width = \textwidth]{Figures/sat_fpa.pdf}
+    \caption{SAT Focal Plane.  The two holography receivers are outlined in red, separated by $120^{\circ}$.  Two receivers are installed for redundancy, but also served as a useful tool when characterizing systematics (such as "ghosting", or spurious signal in the beam maps, and polarization effects).}
+    \label{fig:sat_fpa}
+\end{figure}
+The holography detectors consist of a feedhorn  identical to that used for the bolometric detectors, but with standard wave guide flanges at the outputs. A receiver consisting of a round to rectangular wave guide transition and a harmonic mixer is attached to this feed array.  The mixer was designed to operate from 70-110 GHz, but was found to operate satisfactorily up to 170 GHz. For operational simplicity, we used this mixer over our full frequency range from 80-170\,GHz.
+
+A second identical receiver was also connected for redundancy.  Two 0-18\,GHz coaxial connections were made from the receiver to connectors at the cryostat wall.  These coaxes are heat sunk at various stages between the focal plane, which was operated at 4\,K while doing holography, and the 300\,K cryostat wall.  A separate cool down was used to measure the loss along these coaxial feed lines.  The loss  was found to be 23\,dB at the LO frequency (10-13\,GHz).  Accurate knowledge of the loss along the feed lines is critical for providing the correct amount of power to the mixers in the focal plane.  The loss at the interference frequencies (IF) (100\,MHz) is significantly lower and not critical to the function of this system.
+
+\subsection{Holography System}
+\label{sec:sat_meas_hardware}
+
+Figure~\ref{fig:setup} shows a schematic overview of the LATR tester (LATRt) holography hardware (identical correlator electronics used in the SAT holography measurements).  Two millimeter-wave sources are used to measure the full SO MF band: F90 (80-120\,GHz) and F150 (130-170\,GHz).  Only one is mounted at a given time.  These sources are broadcast into the receiver using standard gain feed horns held close to the window ($\approx10$\,cm).
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width = \textwidth]{Figures/sat_exp.png}
+    \caption{Lab photos of the holography setup on the SAT.  Left: The holography source, covered in a sheet of eccosorb to control scattering, is centered above the SAT window and points directly into the SAT.  Right:  The holography electronics sit on a cart next to the SAT readout.}
+    \label{fig:sat_hardware}
+\end{figure}
+
+A motorized two-dimensional stage holds the source and is mounted on a support structure above the SAT.  During a measurement, the source (frequency is fixed) is moved over a $80\times80$\,cm range with 1\,cm steps (black arrows in Figure~\ref{fig:setup}).  One map takes roughly 2 hours to complete.
+
+A common local oscillator (LO2 in Figure~\ref{fig:setup}) is fed to two harmonic mixers: 1) picked off from the source and 2) at the output of the cryogenic receiver.  The IF signal from both mixers in the ~0-100\,MHz band is amplified and passed to a digital correlator (Casper ROACH2 ~\cite{roach2}) which computes the complex correlation between the two signals~\cite{ches18}.  The FPGA on the ROACH2 board outputs the amplitude and the phase of the correlated output, subdivided into a number of 100\,kHz wide bins.  Only the bin associated with the IF frequency is used in subsequent analysis.  The software to program and analyze output from the FPGA is made public on the \textit{McMahonCosmologyGroup} GitHub page in a package called \verb|holog-exp|~\cite{holog-exp}.  Appendix~\ref{app:holog} provides further details to the hardware of the holography setup.
+
+ \begin{figure}
+    \centering
+    \includegraphics[width = .47\textwidth]{Figures/sat_radbin.png}
+    \includegraphics[width = .47\textwidth]{Figures/sat_fwhm.png}
+    \caption{Left: Preliminary near-field beam shape of the SAT in MF-1.  Beams are averaged over all frequencies measured, and the averaged beam is then radially averaged to get the near-field beam profile.  Right: Preliminary beam sizes of the SO SAT in MF-1.  Far-field beams measured with holography (blue) are radially binned and the FWHM is obtained from the resulting 1D beam profile.  Simulations are obtained using a diffractive optics simulation, and plotted are where the measured beam sizes are within 5 and 10\%.}
+    \label{fig:sat_fwhm}
+\end{figure}
+
+\section{Results and Interpretation}
+\label{sec:sat_results}
+
+\subsection{Near-Field Beam Maps}
+Figure~\ref{fig:sat_beams} and ~\ref{fig:sat_phases} show the measured power and phase of the beam maps, respectively, at each frequency.   A variable attenuator at the output of the source was used to optimize the amount of signal entering the optics tube, to ensure power was not too high such that the measurement was saturated, but to also ensure the signal was high enough for signal-to-noise greater than 35\,dB.
+
+The shape of the main beam was found to be in good agreement with simulations at all frequencies.  The phase indicates ....  
+
+\begin{equation}
+\begin{bmatrix}
+ E_x^{'} \\
+ E_y^{'}
+ \end{bmatrix} = 
+\begin{bmatrix}
+ \cos(\theta) & \sin(\theta) \\
+ -\sin(\theta) & \cos(\theta)
+ \end{bmatrix}
+\begin{bmatrix}
+ E_x \\
+ E_y
+ \end{bmatrix}
+ \end{equation}
+
+ \begin{figure*}[ht!]
+    \centering
+    \includegraphics[width = .75\textwidth]{Figures/farfield_sat.pdf}
+    \caption{Preliminary far-fields of the SAT optics tube in the MF-1.}
+    \label{fig:farfields_sat}
+\end{figure*}
+
+\subsection{Propagation of Fields}
+\label{sec:sat_prop_fields}
+
+The performance of the SAT optical system is assessed in detail by using the amplitude and phase of the measured beams to calculate the far-field.  This is carried out by using the Fourier relationship between the near-field $E(x,y)$ and far-field $B(\theta_x,\theta_y)$ beams \cite{McIntosh2016,alma_holog}:
+\begin{equation}
+    B(\theta_x,\theta_y) = \int_{\text{aperture}} E(x,y) e^{ i \frac{2\pi}{\lambda} (\theta_x x + \theta_y y )} dx dy 
+\end{equation}
+where the complex electric field $E(x,y)$ is integrated over the area of the aperture, and $\lambda$ is the wavelength.
+
+The resulting far-fields are shown in Figure~\ref{fig:farfields_sat}.  These comparisons show that the holography data are consistent with the predicted F90 FWHM is XX(YY) arcmin and with low ellipticity.
+
+
+\section{Conclusion}
+\label{sec:sat_discussion}
+\begin{figure}
+    \centering
+    \includegraphics[width=.75\textwidth]{Figures/sat_beams.pdf}
+    \caption{Normalized power of Small Aperture Telescope beams.}
+    \label{fig:sat_beams}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.75\textwidth]{Figures/sat_phase.pdf}
+    \caption{Phase (wrapped) of Small Aperture Telescope beams.}
+    \label{fig:sat_phases}
+\end{figure}

@@ -2,6 +2,7 @@
 \usepackage{subfigure,epsfig,amsfonts}
 \usepackage[sort&compress,numbers]{natbib}
 \usepackage{amsmath}
+\usepackage{bm}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{braket}
@@ -34,8 +35,16 @@
 \usepackage{blkarray}
 \usepackage{colortbl}
 \usepackage{hyperref}
-\usepackage{rotating}
+% \usepackage{rotating}
 \newcommand{\dg}{$^{\circ}$} 
+% \usepackage[colorlinks=true,linkcolor=red,citecolor=blue]{hyperref}
+% \usepackage{hypcap}
+% \usepackage[autostyle]{csquotes}
+% \usepackage{physics}
+% \usepackage{bbold}
+% \usepackage{array}
+\usepackage{multirow}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
 
 \renewcommand{\bibname}{References}
 
@@ -103,32 +112,34 @@ In order to measure the tiniest signals of the CMB, we must control optical syst
 \include{Chapters/mma}
 \include{Chapters/silicon}
 \include{Chapters/so_lat_ot}
+\include{Chapters/sat_holography}
 \include{Chapters/so_lat}
 \include{Chapters/actbeams}
-\include{Chapters/act_pt2}
 \include{Chapters/conclusion}
 
 \appendix
 \include{Appendices/AppHolography}
 \include{Appendices/AppPol}
-
+\include{Appendices/AppACT}
+\include{Appendices/AppTrans}
 \bibliographystyle{unsrt}
 \bibliography{thebibliography.bib}
 
 \acknowledgments
 
-
-
-To my Newport High School teachers:  Thank you, Casey Appel, for never giving up on me as I struggled with the concepts in your physics class.  Wendell Brown, you made a safe space for physics nerds.  I will never forget your mantra: "Physics is everywhere!"  Thank you, Melissa Baker, for truly being the coolest science teacher of all time.  I'm so impressed by your forethought to create a nanotechnologies class for high schoolers.  I think your fire for science inspired me to lean into my own interests in science and jump into physics in college;  I don't think I would have made that choice without you as an example.
-
-To my Santa Clara University advisors: Gary Sloan, thank you for breaking protocol and letting me (a freshman!) join the machining course.  Machining was one of the most empowering experiences of my early career and set the foundation for my career as an instrumentalist.  Thank you Dr. Kesten for advocating for me as I applied for REU programs.  Your guidance during application season was instrumental in my getting in anywhere.  And lastly, thank you to Dr. Rich Barber (a.k.a. Barber... I will never call you "Rich") for being the greatest advisor to me, Kyle, and Mitch.  
-
 \begin{itemize}
 
+\item lab: \begin{itemize}
+        \item jeff
+        \item co-advisors: sara, adri katie, pato
+        \item LATRt team: carlos, shreya, tommy, joey, maya, taylor, ezekiel
+        \item UCSD team: Remy Joe Michael JB Max
+        \item SO friends: Sanah, Lauren Sanders, Alex, Nadia, Anna Kofman, Jenna,
+    \end{itemize}
     \item Santa Clara U: \begin{itemize}
- 
         \item Kesten
-
+        \item Barber
+        \item Gary
         \item Sara Youlton
     \end{itemize}
     \item U Michigan: \begin{itemize}
@@ -136,19 +147,15 @@ To my Santa Clara University advisors: Gary Sloan, thank you for breaking protoc
         \item Hannah Ruth
         \item Liz, Nora, Jazmine, Jessica
     \end{itemize}
-    \item lab: \begin{itemize}
-        \item co-advisors: sara, adri
-        \item LATRt team: katie, carlos, shreya, tommy, joey, taylor, ezekiel, 
-    \end{itemize}
-    \item UChicago Friends \begin{itemize}
+    
+    \item UChicago\begin{itemize}
         \item Tim Gwen, Paul and science policy group
-        \item kavi, arijana, abby, patty.
-        \item putri
+        \item kavi, arijana, abby, shreya karia patty.
     \end{itemize}
     \item Family: \begin{itemize}
         \item Mom and dad, louis and emma
-        \item ariana and caitlin
         \item Bentley and Ashtyn
+        \item ariana and caitlin
         \item Auntie Ann and Uncle Peter
         \item Matteo
     \end{itemize}

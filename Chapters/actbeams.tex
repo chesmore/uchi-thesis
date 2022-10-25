@@ -1,29 +1,230 @@
-\chapter{The Atacama Cosmology Telescope: Beam Polarization and Point Source Analysis}
+\chapter{The Atacama Cosmology Telescope: point source analysis of beams for DR6}
 \label{ch:actbeams}
 \section{Introduction}
-\label{sec:sec_act}
+\label{sec:act_intro}
+
+
+The Atacama Cosmology Telescope (ACT) is a 6\,m off-axis Gregorian telescope located at an altitude of 5190\,m in the Atacama Desert of northern Chile. It is designed for millimeter wavelength observations of the cosmic microwave background (CMB) at arcminute resolution.  The telescope and receiver are described in \cite{fowler_2007} and \cite{thornton_2016} respectively. 
+
+This paper describes the ACT point source beams for its sixth data release, referred to as DR6. This data release includes temperature and polarization data collected by ACT between 2017 and 2020, covering XXX regions of the sky spanning roughly 18,000?? deg$^2$, in frequency bands centered on 98 and 220 GHz \citep{thornton_2016}.
+
+The DR6 data were obtained using three dichroic detector arrays, PA4, operating at 150 and 220 GHz, PA5, operating at 98 and 150 GHz, and PA6, operating at 150 and 220 GHz.  The three array positions are not identical optically. Each year of data is referred to as a season (S17--S20).  The DR6 data products and some of their analyses are presented in  \cite{XXX}, \cite{aiola_2020},... 
+
+The paper is organized as follows. 
+In \S\ref{sec:obs} we describe the observations and catalog used to stack point sources and characterize the ACT beams.  In \S\ref{sec:maps} we explain the stacking process, starting from an input map and producing a stacked beam profile.  In \S\ref{sec:pipe} we describe the steps of the map simulation pipeline, then going from simulated point-source maps to a model of the ACT beams and their covariance.  \S\ref{sec:pol} investigates the stacked polarization beams.  Finally, in \S\ref{sec:disc} we discuss assumptions made in the analysis and future directions for ACT beam characterization.
 
 \section{Observations}
+\label{sec:obs}
 
-\section{Map Preparation}
+To characterize the telescope's beam to sufficiently large angles, observations of high signal-to-noise point-source measurements are required.  In past seasons of ACT data releases, planets served as the best candidates for beam characterization of the telescope~\cite{2021arXiv211212226L}.  Specifically, observations of Uranus achieve adequate signal-to-noise without exceeding the dynamic range of the instrument and thus has been treated as a point source.
 
-\section{Beam Pipeline}
-\subsection{Stamp Selection and Processing}
-\subsection{Bias}
+\section{Stacked Map-Making}
+\label{sec:maps}
+Here we walk through the stacking process from input map to beam profile.
 
-\section{Simulated Maps}
-\subsection{CMB and Foregrounds}
-\subsection{Point Source Map}
-\subsection{Noise}
+\subsection{Naughty Beams}
+\label{subsec:filt}
 
-\section{Radial Profiles}
-\section{Results}
-\section{Radial Profile Covariance Matrix}
-\section{Window Functions}
+\subsection{Bias From Stacking}
+\label{subsec:tf}
+
+To study this bias, a set of simulated observations are processed through the stacking process. 
+\begin{figure*}
+    \centering
+    \includegraphics[width=.6\linewidth]{example-image-a}
+    \caption{Example of a simulated map used to characterize the mapping bias. 
+    % This example is for S16 PA2 at 150 GHz. (Left) The input 2D beam model. (Center) One simulated observation. (Right) The difference between the \enquote{input} beam model (left) and the map of the \enquote{output} simulated observation (center).
+    % Note that in each case the color scale is a symmetrical log scale\footnote{A symmetrical log scale is logarithmic in both the positive and negative directions, with a small linear range around zero to avoid having values tend to infinity (\url{https://matplotlib.org/stable/api/scale_api.html\#matplotlib.scale.SymmetricalLogScale}).} in dB (with a linear threshold of $-$50 dB for the input and output maps and $-$45 dB for the difference map) and negative values are enclosed by parentheses. Here the target region where the atmosphere was estimated and removed during the map-making process was chosen to have a radius of $16^{\prime}$. The large-scale residuals seen are mostly constant within this target region of the map. The slight asymmetry in the beam (which may be safely ignored for DR4, as explained in \S\ref{subsec:asym}) is due primarily to the positions of the telescope's optics tubes in the focal plane.
+    }
+    \label{fig:bias_maps}
+    \vspace{1em}
+\end{figure*}
+An example of a map of a simulated observation is shown in Figure~\ref{fig:bias_maps}. Radial profiles are constructed by taking the azimuthal average of the input beam model and the mean output of the simulated observations. 
+
+
+\begin{figure}
+\vspace{1em}
+    \centering
+    \includegraphics[width=.6\linewidth]{example-image-a}
+    \caption{The average radial profile of the simulated observations for PA5 at 150 GHz, comparing the azimuthal averages of the \enquote{input} 2D beam model and the beam of the \enquote{output} stacked point sources. 
+    % The vertical dashed line indicates the $16^{\prime}$ radius target region of the map within which the atmosphere was estimated and subtracted. (For the Uranus maps used to characterize the beam, a $12^{\prime}$ radius target region is used, but the qualitative conclusions we draw here still apply.) Other than the small (roughly $-$40 to $-$30 dB) variations near the beam center, the difference is well approximated by a constant offset in the region from 3.5$^{\prime}$ to 10.0$^{\prime}$ where we fit for it. As described in \S\ref{subsec:trans_covmat}, we adjust our beam covariance matrices to account for possible uncertainty due to variations in the range over which we fit the offsets, exploring the three independent ranges of 3.5$^{\prime}$--5.0$^{\prime}$, 5.0$^{\prime}$--7.0$^{\prime}$, and 7.0$^{\prime}$--10.0$^{\prime}$.
+    }
+    \label{fig:bias_plot}
+    \vspace{1em}
+\end{figure}
+
+\section{Simulation Pipeline}
+\label{sec:pipe}
+
+\subsection{Simulating a point source map}
+\label{subsec:mapsel}
+
+
+The number of point sources used for the beam analysis versus the total number of point sources in the catalog is shown in Figure~\ref{fig:obs_summary} and Table \ref{tab:mapsel}. 
+\begin{figure}
+\vspace{1em}
+    \centering
+    \includegraphics[width=.6\linewidth]{example-image-c}
+    \caption{Distribution of the total number of point sources that were in the catalog (faded colors) and ultimately became part of the final beam analysis (solid colors) for all arrays combined, shown by observing seasons from 2017--19. 
+    % The shaded regions between 0 UTC and 11 UTC, as well as 23 and 24 UTC, demarcate the ACT nighttime dataset (note that local time at the observing site fluctuates between UTC-3 and UTC-4). See Table~\ref{tab:mapsel} for a summary of the number of observations used vs total for each detector array and season.
+    }
+    \label{fig:obs_summary}
+    \vspace{1em}
+\end{figure}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}
+\caption{Summary of point sources in stack - number used/total.}
+\centering
+\begin{tabular}{ | C{2.5em} | C{2.8em} | C{3.8em} | C{2.7em} | C{2.7em} | }
+\hline
+Array\vspace{0.1em} & Band (GHz) & Season\vspace{0.1em} & Used\vspace{0.1em} & Total\vspace{0.1em}\\
+\hline
+\multirow{3}{*}{PA4} & \multirow{3}{*}{220} & S17 & - & -\\
+ &  & S18 & - & - \\
+ &  & S19 & - & - \\
+ \hline
+\multirow{3}{*}{PA4} & \multirow{3}{*}{150} & S17 & - & -\\
+ &  & S18 & - & - \\
+ &  & S19 & - & -- \\
+\hline
+\multirow{3}{*}{PA5} & \multirow{3}{*}{150} & S17 &- &-\\
+ & & S18 & - & -\\
+ & & S19 & - &-\\
+\hline
+\multirow{2}{*}{PA6} & \multirow{2}{*}{150} & S17 & - & - \\
+ & & S18 & - & - \\
+  & & S19 & - & - \\
+\hline
+\multirow{2}{*}{PA5} & \multirow{2}{*}{90} & S17 & - & -\\
+ & & S18 & - & -\\
+  & & S19 & - & -\\
+\hline
+\multirow{2}{*}{PA6} & \multirow{2}{*}{98} & S17 & - & - \\
+ & & S18 & - & - \\
+  & & S19 & - & - \\
+\hline
+\end{tabular}
+\label{tab:mapsel}
+\vspace{1em}
+\end{table}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=6.5cm]{example-image-a}
+    \includegraphics[width=6.5cm]{example-image-b}
+    \caption{Two examples of resulting beams from stacked point sources.  Top: PAX F090 beam and Bottom: PAX F150 beam...}
+    \label{fig:example_maps}
+    \vspace{1em}
+\end{figure}
+
+The amplitudes from these fits are used to normalize the beam profiles to have peak values of unity. We also estimate the noise level in each map by computing the standard deviation of the pixel values outside the target region (the XXX$^{\prime}$ radius area centered on the planet, described in \S\ref{subsec:filt}).
+
+\pagebreak
+\subsection{Radial Profile Fitting}
+\label{subsec:prof_fit}
+
+\subsubsection{Radial Profiles}
+\label{subsubsec:prof}
+
+Each map, with a target region of radius 30$^{\prime}$, is binned into a symmetrized radial profile with bins of width YYY$^{\prime\prime}$ out to a radius of 30$^{\prime}$. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=7.5cm]{example-image-a}
+    \caption{Example of the offset fit for the radial profile of one Uranus observation for S14 PA2 at 150 GHz. The points are found by taking the azimuthal average of the map for each radial bin. Uncertainties on these points are not computed.
+    The curve is the best-fit model $\alpha/\theta^3+\beta$, where in this case $\alpha=0.08934$ and ${\beta=0.00012}$.
+    }
+    \label{fig:offset_fit}
+    \vspace{1em}
+\end{figure}
+
+\subsubsection{Radial Profile Covariance Matrix}
+\label{subsubsec:prof_covmat}
+
+
+The shrinkage technique works by combining an empirical estimate of the covariance matrix $\mathbf{S}$ (a high-dimensional estimate of the underlying covariance with little or no bias) with a model $\mathbf{T}$ (a low-dimensional estimate which may be biased but has much smaller variance) to minimize the total mean squared error (sum of bias squared and variance) with respect to the true underlying covariance: 
+\begin{equation}
+\label{eq:shrink_cov}
+    \mathbf{C} = \widehat{\lambda}^{*}\mathbf{T} + (1-\widehat{\lambda}^{*})\mathbf{S} \; .
+\end{equation}
+Here $\widehat{\lambda}^{*}$ is the parameter (often referred to as shrinkage intensity) that determines the contribution of each matrix. In our case, the covariance matrix $\mathbf{S}$ is an unbiased empirical estimate of the covariance, the sample covariance matrix, and the model matrix $\mathbf{T}$ is given by the diagonal of $\mathbf{S}$:
+\begin{equation}
+\label{eq:target}
+    T_{ij} = 
+    \begin{cases}
+    S_{ii} & \text{if $i=j$}\\
+    0 & \text{if $i \neq j$} \; ,
+    \end{cases}
+\end{equation}
+a common choice.
+We analytically calculate the optimal combination of the low and high dimensional estimates by determining $\widehat{\lambda}^{*}$ from $\mathbf{S}$:
+\begin{equation}
+    \hat{\lambda}^* = \frac{\sum_{i\neq j}\widehat{\mathrm{Var}}(S_{ij})}{\sum_{i\neq j} S_{ij}^2}\; ,
+\end{equation}
+where $\widehat{\mathrm{Var}}(S_{ij})$ is an estimate of the variance of each covariance matrix element. The derivation of $\widehat{\lambda}^{*}$ can be found in Appendix~\ref{app:act}. For the analysis presented here, $\widehat{\lambda}^{*}$ ranges from 0.24 to 1.
+
+
+\subsection{Beam Window Functions}
+\label{subsec:window}
+
+In spherical harmonic space, the beam information is encoded in the harmonic transform $b_{\ell}$ and the window function $w_{\ell} = b_{\ell}^2$, which describes the instrument's response to different multipoles, $\ell$. This window function is an essential component of the DR4 power spectrum analysis in \cite{choi_2020}.
+
+The harmonic transform $b_{\ell}$ is the Legendre transform, or more accurately the Legendre polynomial transform, of the beam radial profile:
+\begin{equation}
+b_{\ell} = \frac{2\pi}{\Omega}\int_{-1}^{1} B(\theta)P_{\ell}(\cos\theta)\; d(\cos\theta) \; .
+\label{eq:legendre}
+\end{equation}
+For small beams such as that of ACT, this is effectively a Fourier transform. The derivation of the Legendre transform and details about how the transform is computed are presented in Appendix~\ref{app:trans}.
+
+We use $b_{\ell}$ instead of $B_{\ell}$ to indicate the division by $\Omega$, which normalizes $b_{\ell}$ to unity at $\ell = 0$ (since $P_0 = 1$). $B_{\ell} = \Omega b_{\ell}$ has units of $\mathrm{sr}$, whereas $b_{\ell}$ is dimensionless. We extrapolate the model beyond the fit radius of 10$^{\prime}$ when computing the transform.
+This is necessary to capture the low-$\ell$ part of the window function, and to account for the part of the beam solid angle that is beyond the range we fit.
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=.5\linewidth]{example-image-a}
+    % \caption{Instantaneous beam transforms and their uncertainties for the S15 data, for all the detector arrays. The uncertainties are strongly correlated between multipoles. For context when looking at this figure along with Figure~\ref{fig:inst_beams}, in the mapping from angle to multipole ($\ell \simeq \pi/\theta$), 1$^{\prime}$ corresponds to $\ell \simeq 10800$, 1.8$^{\prime}$ corresponds to $\ell \simeq 6000$, and 10.8$^{\prime}$ corresponds to $\ell \simeq 1000$.}
+    \label{fig:inst_tforms}
+    \vspace{1em}
+\end{figure*}
+
+A subset of the beam transforms from DR6 is shown in Figure~\ref{fig:inst_tforms}. 
+
+% A similar figure in \cite{aiola_2020} shows window functions, $b_{\ell}^2$, which are used to correct the power spectra. For a given array and season, if the beam transforms for PA1 and PA2 are, respectively, $b_{\ell}^{\mathrm{PA1}}$ and $b_{\ell}^{\mathrm{PA2}}$, then for the auto-power spectrum of the PA1 or PA2 maps the window functions are $(b_{\ell}^{\mathrm{PA1}})^2$ and $(b_{\ell}^{\mathrm{PA2}})^2$, and for the cross-spectrum of the PA1 and PA2 maps the window function is $b_{\ell}^{\mathrm{PA1}}b_{\ell}^{\mathrm{PA2}}$. 
+
+
+\subsection{Additional Corrections}
+\label{subsec:add_corr}
+\subsection{Beam Transform Covariance Matrix}
+\label{subsec:trans_covmat}
+
 
 \section{Polarization}
+\label{sec:pol}
+
 \subsection{Main Beam}
-\subsection{Polarized side-lobes}
+\label{subsec:pol_main}
+
+Measurements of Uranus in polarization at visible and near-infrared wavelengths have shown that its disk-integrated polarization is less than $0.05\%$ \citep{schmid}. While we are not aware of any similarly precise data at  millimeter wavelengths, it is expected that the relevant scattering effects in the planetary atmosphere would be much weaker, resulting in net polarization levels considerably lower than the measurement cited above. Measurements by \textit{Planck} at 100 and 143 GHz place 68\% (95\%) confidence upper limits on the polarization fraction of Uranus at 2.6\% (3.6\%) and 1.5\% (2.0\%), respectively \citep{planck_planets}.
+
+Since we do not expect Uranus to be significantly polarized in the bands observed by ACT, we interpret any polarization response measured from Uranus as being due to temperature-to-polarization (T-to-P) leakage. 
+\begin{equation}
+\label{eq:trans_e_b}
+    \{\tilde{E}(\ell), \tilde{B}(\ell)\} = -2\pi\int \{\tilde{Q}_r(\theta),\tilde{U}_r(\theta) \} J_2(\ell\theta)\;\theta\;d\theta \; .
+\end{equation}
+
+
+\subsection{Leakage Correction}
+\label{subsec:pol_corr}
 
 \section{Discussion}
-\section{Conclusion}
+\label{sec:disc}
+
+\subsection{Beam Products}
+\label{subsec:prods}
+
+\subsection{Conclusion}
+\label{subsec:concl}
+
+In this paper, we have presented the analysis of the ACT beams for DR6, which includes data from 2017--19. ...
