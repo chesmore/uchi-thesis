@@ -36,6 +36,18 @@ Figure~\ref{fig:fpa} shows the holography receiver readout at the back of the op
 As introduced in Section~\ref{sec:results}.~\ref{sec:prop_fields}, the holography source emits from a rectangular feedhorn, and therefore result in a convolution of the electromagnetic field from the optics tube with the field pattern on the feedhorn aperture.  Convolving the simulated fields increases the F90(150) far-field beam by 12.2(4.7)\% and results in horizontal and vertical diffraction spikes in the raw far-field calculation~\cite{Goodman2005-ne}.
 
 We carry out the forward modelling by building a simulation of the optics tube beam pattern at the measurement plane.  This model includes an empirical model of the scattering of the optics tube with the hexagonal outline to model the boundary of the optics tube window, and a similar amplitude and phase to what is measured.  The resulting simulated F90(150) beam matched the measured FWHP beam width within in 1.73(0.7)\%.  The simulation also had the horizontal and vertical diffraction spikes in the far-field due to the impact of the convolution with the holography source feed pattern~\cite{Goodman2005-ne}.  The full forward modelling process is shown in Figure~\ref{fig:forward_model}.
+
+For visualization purposes, these spikes are removed by subtracting a model $D(\theta_x,\theta_y)$ (amplitude of the electric field) consisting of a $\sinc$ function with a Gaussian width along its narrow direction equal to the beam width (Eq.~\ref{eq:model_conv}), where $\theta_x$ and $\theta_y$ are elevation and azimuth, and we fit the 2 parameters $\sigma_{\theta_x}$ and $\sigma_{\theta_y}$.  This model is based on the predicted Fraunhofer diffraction pattern from a rectangular aperture~\cite{Goodman2005-ne} (e.g., the feed) and was shown to match the simulations.
+\begin{equation}
+    D(\theta_x,\theta_y) = \exp^{-(\theta_x^2/4\sigma_{\theta_x}^2 +\theta_y^2/4\sigma_{\theta_y}^2 )}\sinc{\theta_x}\sinc{\theta_y}
+    \label{eq:model_conv}
+\end{equation}
+The holography measurements showed scattering from within the optics tube (hexagonal shape at ~-20\,dB in Figure~\ref{fig:beam_measurements_all}).  To understand how this scattering propagates through the telescope, we add a scattering term (with both amplitude and phase) to the simulated beam, and then propagate this beam into the far-field.  We also investigate how the side-lobes measured outside the main beam (Fig.~\ref{fig:beam_measurements_all}) propagate into the far-field (Fig.~\ref{fig:scattering_forward}).  Reflections are known to be a problem in near-field beam mapping~\cite{2020JLTP..199..156Y,7740846,387181}.  However, the inferred amplitude of the probe is small, and we do not correct for reflections.  The side-lobe spreads out and is localized to 2 meters from the center of the primary and secondary mirrors, and then leads to a $0.85^{\circ}$ diffuse structure on the sky that is at the $\approx -15$\,dBi level.
+
+\section{Measurement Requirements}
+\label{sec:err_prop}
+Here, we discuss the measurement requirements to meet specific far-field grid resolution and range from near-field data.  Near-field beams with three signal-to-noise levels are propagated into the far-field (for 90\, and 150\,GHz near-field beams); we simulate the near-fields to have 20, 40, and 60\,dB signal-to-noise.  The signal-to-noise propagated to the secondary illumination and far-field is listed in Table~\ref{tab:fft_sn}. 
+
 \begin{table}[ht]
 \centering
 \begin{tabular}{|c|c|c|c|c|}
@@ -43,28 +55,21 @@ We carry out the forward modelling by building a simulation of the optics tube b
 F\,[GHz] & \multicolumn{3}{c|}{S/N [dB]}\\
 & NF& Sec.& FF\\
 \hline
- 90      & 0 & 20.3  & 32.8\\
-         & 20& 21.7 & \\
-         & 40& 37.0 & \\
-         & 60& 45.4 & \\
- 150     & 0 & 15.0 & 32.3 \\
-         & 20& 18.0 & 39.3\\
-         & 40& 35.5 & 43.8\\
-         & 60& 46.0 & 43.8\\
+ 90      
+         & 20& 21.7 & 40.0 \\
+         & 40& 37.0 & 43.9 \\
+         & 60& 45.4 & 43.9 \\
+ 150     
+         & 20& 18.0 & 39.3 \\
+         & 40& 35.5 & 43.8 \\
+         & 60& 46.0 & 43.8 \\
  \hline
 \end{tabular}
-\caption{Near-field measurement signal-to-noise and resulting far- side-lobe power (at the secondary illumination and into the far-field).}
+\caption{Near-field simulated measurement signal-to-noise and resulting simulated side-lobe power (at the secondary illumination and into the far-field).  Signal-to-noise is calculated as the standard deviation of the signal outside an 8.5\,cm radius of the peak-normalized beam (same resolution as Table~\ref{tab:fft_grid}).}
 \label{tab:fft_sn}
 \end{table}
-For visualization purposes, these spikes are removed by subtracting a model $D(\theta_x,\theta_y)$ (amplitude of the electric field) consisting of a $\sinc$ function with a Gaussian width along its narrow direction equal to the beam width (Eq.~\ref{eq:model_conv}), where $\theta_x$ and $\theta_y$ are elevation and azimuth, and we fit the 2 parameters $\sigma_{\theta_x}$ and $\sigma_{\theta_y}$.  This model is based on the predicted Fraunhofer diffraction pattern from a rectangular aperture~\cite{Goodman2005-ne} (e.g., the feed) and was shown to match the simulations.
-\begin{equation}
-    D(\theta_x,\theta_y) = \exp^{-(\theta_x^2/4\sigma_{\theta_x}^2 +\theta_y^2/4\sigma_{\theta_y}^2 )}\sinc{\theta_x}\sinc{\theta_y}
-    \label{eq:model_conv}
-\end{equation}
-The holography measurements showed scattering from within the optics tube (hexagonal shape at ~-20\,dB in Figure~\ref{fig:beam_measurements_all}).  To understand how this scattering propagates through the telescope, we add a scattering term (with both amplitude and phase) to the simulated beam, and then propagate this beam into the far-field.  We also investigate how the side-lobes measured outside the main beam (Fig.~\ref{fig:beam_measurements_all}) propagate into the far-field (Fig.~\ref{fig:scattering_forward}).  Reflections are known to be a problem in near-field beam mapping~\cite{2020JLTP..199..156Y,7740846,387181}.  However, the inferred amplitude of the probe is small, and we do not correct for reflections.  The side-lobe spreads out and is localized to 2 meters from the center of the primary and secondary mirrors, and then leads to a $0.85^{\circ}$ diffuse structure on the sky that is at the $\approx -15$\,dBi level.
-\section{Measurement Requirements}
-\label{sec:err_prop}
-Here, we discuss the measurement requirements to meet specific far-field resolution from near-field data.  Near-field beams with four signal-to-noise levels are propagated into the far-field (for 90\, and 150\,GHz near-field beams); we simulate the near-fields to have 0, 20, 40, and 60\,dB signal-to-noise.  The signal-to-noise propagated to the secondary illumination and to the far-field is listed in Table~\ref{tab:fft_sn}. 
+
+When planning the near-field scan, we consider the resolution and how the near-field grid propagates into the plane of the secondary, due to the Fourier relationship between near- and far-fields (Eq.~\ref{eq:fft}), and into the telescope's far-field through the modeling described in Section~\ref{sec:prop_fields}. Table~\ref{tab:fft_grid} summarizes the scan size and resolutions and resulting far-field size and resolution grids used in the holography measurements presented here.
 \begin{table}[htb]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|}

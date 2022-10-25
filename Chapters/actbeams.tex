@@ -181,15 +181,15 @@ For small beams such as that of ACT, this is effectively a Fourier transform. Th
 We use $b_{\ell}$ instead of $B_{\ell}$ to indicate the division by $\Omega$, which normalizes $b_{\ell}$ to unity at $\ell = 0$ (since $P_0 = 1$). $B_{\ell} = \Omega b_{\ell}$ has units of $\mathrm{sr}$, whereas $b_{\ell}$ is dimensionless. We extrapolate the model beyond the fit radius of 10$^{\prime}$ when computing the transform.
 This is necessary to capture the low-$\ell$ part of the window function, and to account for the part of the beam solid angle that is beyond the range we fit.
 
-\begin{figure*}
-    \centering
-    \includegraphics[width=.5\linewidth]{example-image-a}
-    % \caption{Instantaneous beam transforms and their uncertainties for the S15 data, for all the detector arrays. The uncertainties are strongly correlated between multipoles. For context when looking at this figure along with Figure~\ref{fig:inst_beams}, in the mapping from angle to multipole ($\ell \simeq \pi/\theta$), 1$^{\prime}$ corresponds to $\ell \simeq 10800$, 1.8$^{\prime}$ corresponds to $\ell \simeq 6000$, and 10.8$^{\prime}$ corresponds to $\ell \simeq 1000$.}
-    \label{fig:inst_tforms}
-    \vspace{1em}
-\end{figure*}
+% \begin{figure*}
+%     \centering
+%     \includegraphics[width=.5\linewidth]{example-image-a}
+%     % \caption{Instantaneous beam transforms and their uncertainties for the S15 data, for all the detector arrays. The uncertainties are strongly correlated between multipoles. For context when looking at this figure along with Figure~\ref{fig:inst_beams}, in the mapping from angle to multipole ($\ell \simeq \pi/\theta$), 1$^{\prime}$ corresponds to $\ell \simeq 10800$, 1.8$^{\prime}$ corresponds to $\ell \simeq 6000$, and 10.8$^{\prime}$ corresponds to $\ell \simeq 1000$.}
+%     \label{fig:inst_tforms}
+%     \vspace{1em}
+% \end{figure*}
 
-A subset of the beam transforms from DR6 is shown in Figure~\ref{fig:inst_tforms}. 
+% A subset of the beam transforms from DR6 is shown in Figure~\ref{fig:inst_tforms}. 
 
 % A similar figure in \cite{aiola_2020} shows window functions, $b_{\ell}^2$, which are used to correct the power spectra. For a given array and season, if the beam transforms for PA1 and PA2 are, respectively, $b_{\ell}^{\mathrm{PA1}}$ and $b_{\ell}^{\mathrm{PA2}}$, then for the auto-power spectrum of the PA1 or PA2 maps the window functions are $(b_{\ell}^{\mathrm{PA1}})^2$ and $(b_{\ell}^{\mathrm{PA2}})^2$, and for the cross-spectrum of the PA1 and PA2 maps the window function is $b_{\ell}^{\mathrm{PA1}}b_{\ell}^{\mathrm{PA2}}$. 
 
