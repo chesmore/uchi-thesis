@@ -48,7 +48,6 @@ The optics tube is housed in a test cryostat called the LATR tester \cite{Harrin
 The holography array consists of a feedhorn array identical to that used for the bolometric detectors, but with standard wave guide flanges at the outputs. A receiver consisting of a round to rectangular wave guide transition and a harmonic mixer is attached to this feed array.  The mixer was designed to operate from 70-110 GHz, but was found to operate satisfactorily up to 170 GHz. For operational simplicity, we used this mixer over our full frequency range from 80-170\,GHz.
 A second identical receiver was also connected for redundancy, but not used in the measurements described here.   Two 0-18\,GHz coaxial connections were made from the receiver to connectors at the cryostat wall.  There are heat sinks spaced along the coaxial cables between the focal plane, which was operated at 4\,K while doing holography, and the 300\,K cryostat wall.  A separate cool down was used to measure the loss along these coaxial feed lines.  The loss  was found to be 23\,dB at the LO frequency (10-13\,GHz).  Accurate knowledge of the loss along the feed lines is critical for providing the correct amount of power to the mixers in the focal plane.  The loss at the intermediate frequencies (IF) (100\,MHz) is significantly lower and not critical to the function of this system.
 
-
 \begin{figure}
     \centering
     \includegraphics[width = .95\textwidth]{Figures/LATRt_isometric.pdf}
@@ -72,14 +71,17 @@ A common local oscillator (LO2 in Figure~\ref{fig:setup}) is fed to two harmonic
     \label{fig:nearfields}
 \end{figure}
 
-\begin{figure*}[ht]
-    \centering
-    \includegraphics[width = .95\textwidth]{Figures/MF_amp.pdf}
-    \includegraphics[width = .95\textwidth]{Figures/MF_phi.pdf}
+\begin{figure}[H]
+  \centering
+  \savebox{\myimage}{\rule{550pt}{150pt}}% Image to be included
+  \rotatebox{90}{% Rotate 90 CCW
+    \begin{minipage}{\wd\myimage}
+      \includegraphics[width = .95\textwidth]{Figures/MF_amp.pdf}
+      \includegraphics[width = .95\textwidth]{Figures/MF_phi.pdf}
     \caption{Holography beam map measurements in the mid-frequency band.  Top: Power at each measured frequency (peak-normalized in each map). The hexagonal side-lobes in the power beam maps are higher in power than the signal-to-noise of the system (45\,dB).  Bottom: Wrapped phase at each measured frequency.}
-
     \label{fig:beam_measurements_all}
-\end{figure*}
+    \end{minipage}}
+\end{figure}
 
 \section{Results and Interpretation}
 \label{sec:results}

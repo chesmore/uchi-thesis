@@ -81,6 +81,7 @@ where we normalize the energy density $\epsilon$ by the critical density $\epsil
     \Omega(t) = \frac{\epsilon(t)}{\epsilon_c(t)}
 \end{equation}
 The $\Lambda$CDM model assumes a flat $\Omega(t)=1$ universe, comprised of baryonic $\Omega_b h^2$ and cold dark matter $\Omega_c h^2$ densities.
+
 \noindent
 \textbf{Fluid Equation}:  Energy conservation can also be applied to describe the dynamics of the universe via the first law of thermodynamics (Eq.~\ref{eq:thermo1}).  This implies the sum of gravitational potential and kinetic energy of expansion is conserved~\cite{ryden_2016}.
 \begin{equation}
@@ -97,6 +98,7 @@ Solving the fluid equation (with $P=w\epsilon$) yields the equation of state:
     \epsilon \propto a^{-3-3w}
 \end{equation}
 with the time-independent $w$~\cite{weinberg_cosmo}.  For example, in the case of a cold matter dominated universe (e.g. dust, $P = 0$) $\epsilon\propto a^{-3}$, and in a hot matter universe (e.g. radiation, $P=\epsilon/3$) $\epsilon\propto a^{-4}$.
+
 \noindent
 \textbf{Acceleration Equation}: Combining the first two equations, which constrain an energy conserved universe, yields the acceleration equation describing how our universe expands over time.  
 \begin{equation}
@@ -178,7 +180,7 @@ Since the detection by Penzias and Wilson in 1965, the cosmology community has m
 
 The Cosmic Background Explorer (COBE) was the first to measure the CMB power spectrum from space.  Since COBE, the measurement of the black-body of the CMB has increased in precision, with experiments like WMAP, Planck, for example.  The South Pole Telescope and the Atacama Cosmology Telescope, two ground-based telescopes, have pushed the measurement further with increased resolution mapping of the sky.
 
-Now going for polarization signal...
+In the coming years, cosmologists aim to detect the tiniest signals of the polarized CMB.  An ongoing challenge in cosmology instrumentation has been characterizing the polarization spectra of the CMB.  Specifically, the B-mode polarization of the CMB offers a unique window into early-universe physics~\cite{}.  Because scalar perturbations generate E-mode polarization, a measurement of the B-mode polarization directly quantifies the scalar-to-tensor ratio $r$.
 
 Who has detected the lensed B-mode. 
 
@@ -270,6 +272,8 @@ In Chapter~\ref{ch:mma}, I present an overview of the meta-material absorbers us
 The characterization of optical components is continued in Chapter~\ref{ch:si}, where I characterize the reflectivity and loss tangent measured in the W-band (80-125\,GHz) and D-band (125-180\,GHz) in two samples of float zone silicon with intrinsic stoichiometry - one irradiated by neutrons, which increases the resistivity by introducing crystalline defects, and the other unperturbed.  I find the loss tangent $\tan\delta$ of $2.8\times10^{-4}$ and $1.5\times10^{-5}$ for neutron-irradiated silicon and intrinsic silicon, respectively, both with an index of refraction of 3.41.  The results demonstrate the applicability of silicon as a warm optical component in millimeter-wave receivers.  The depth of the reflection nulls provides a sensitive measurement of dielectric losses.
 
 In Chapter~\ref{ch:ot_holo}, I present near-field radio holography measurements of the SO LATR optics.  These measurements demonstrate that radio holography of complex millimeter-wave optical systems comprising cryogenic lenses, filters, and feed horns can provide detailed characterization of wave propagation before deployment.  I used the measured amplitude and phase, at 4\,K, of the receiver near-field beam pattern to predict two key performance parameters: 1) the amount of scattered light that will spill past the telescope to 300\,K and 2) the beam pattern expected from the receiver when fielded on the telescope.  These cryogenic measurements informed the removal of a filter, which led to improved optical efficiency and reduced side-lobes at the exit of the receiver.  This is the first time such parameters have been confirmed in the lab prior to deployment of a new receiver.
+
+Chapter~\ref{ch:sat_holo} presents additional near-field radio holography measurements, this time on the Small Aperture Telescope (SAT) optics tube.  Using the identical holography setup as described in Chapter~\ref{ch:ot_holo}, I present preliminary characterization of the SAT's optical performance; more spefically, I predict two key performance parameters: 1) the beam profile in the near-field and 2) the far-field beam pattern of the telescope expected from the receiver.
 
 Chapter~\ref{ch:holosim} presents Holosim-ML: a Python code for beam simulation and analysis of radio holography data from complex optical systems.  This code uses machine learning to efficiently determine the position of hundreds of mirror adjusters on multiple mirrors with few micrometer accuracy.  I apply this approach to the example of the Simons Observatory 6\,m telescope.
 
