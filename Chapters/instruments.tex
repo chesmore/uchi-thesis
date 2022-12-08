@@ -1,7 +1,7 @@
 \chapter{Instrument Overview}
 \label{ch:instruments}
 
-We are in the age of precision cosmology, and measurements of the CMB spectra continue to improve in sensitivity.  Now, to measure the CMB polarization anisotropies, scientists are pushing forward the sensitivity of the instruments by increasing detector numbers, improving detector sensitivity, and controlling optical systematics, to name a few.  For example, the Atacama Cosmology Telescope (ACT), a ground-based cosmology experiment, used roughly 3000 bolometric detectors.  The Simons Observatory is scaling its detector count up to more than 50,000 bolometric detectors in order to improve mapping speed and sensitivity.  Looking ahead, the CMB-S4 collaboration, the next-generation cosmology project, plans to scale up even further: to roughly 500,000 detectors.  This, along with the many other improvements in instrumentation, aim to detect the smallest signals of the CMB polarization spectra.
+We are in the age of precision cosmology, and measurements of the CMB spectra continue to improve in sensitivity.  Now, to measure the CMB polarization anisotropies, scientists are pushing forward the sensitivity of the instruments by increasing detector numbers, improving detector sensitivity, and controlling optical systematics, to name a few.  For example, the Atacama Cosmology Telescope (ACT), a ground-based cosmology experiment, used roughly 3000 bolometric detectors.  The Simons Observatory is scaling its detector count up to more than 50,000 bolometric detectors in order to improve mapping speed and sensitivity.  Looking ahead, the CMB-S4 collaboration, a next-generation cosmology project, plans to scale up even further: to roughly 500,000 detectors.  This, along with the many other improvements in instrumentation, aim to detect the smallest signals of the CMB polarization spectra.
 
 In this chapter, I describe two ground-based cosmology experiments covered in this work: the Atacama Cosmology Telescope (ACT), an operational cosmology experiment~\cite{act_inst}, and the Simons Observatory (SO), the next-generation cosmology experiment~\cite{so19}. 
 
@@ -13,47 +13,44 @@ In this chapter, I describe two ground-based cosmology experiments covered in th
     \label{fig:act_so_site}
 \end{figure}
 
-The Atacama Cosmology Telescope (ACT) is a millimeter-wave telescope located on Cerro Toco in the Atacama Desert of Chile.  The full ACT is shown in Figure~\ref{fig:act_site}.  Figure~\ref{fig:act_inst} shows the ray-trace of ACT's off-axis Gregorian geometry with two reflectors which guide photons into the receiver cabin.  Within the receiver cabin, three optics tubes re-image the Gregorian focus onto the detector arrays~\cite{thornton_2016}.
+The Atacama Cosmology Telescope (ACT) is a millimeter-wave telescope located on Cerro Toco in the Atacama Desert of Chile at an altitude of 5190\,m.  The full ACT is shown in Figure~\ref{fig:act_site}.  Since its first observations in 2007, the telescope has seen two major instrumentation upgrades: 1) ACTPol and 2) Advanced ACT.  In Chapter~\ref{ch:actbeams}, I present the characterization of the ACT mid-frequency beams using point-source stacking.  From the stacking, I also determine polarization leakage in the maps.
+
+The Advanced ACT, or "AdvACT", is an upgrade to ACT's three detector arrays and their optics.  Filters and lenses were replaced to operate with the four new multichroic arrays.  This upgrade mapped the CMB in bands from 28\,GHz to 280\,GHz, and mapped approximately half of the sky.  Along with improved angular resolution (1.4' at 150\,GHz and 7.1' at 28\,GHz), the detectors improved polarization and temperature sensitivity due to twice the original number of detectors.
+
+Figure~\ref{fig:act_inst} shows the ray-trace of ACT's off-axis Gregorian geometry with two reflectors which guide photons into the receiver cabin; the 6\,m primary is made of 71 adjustable aluminum panels and the 2\,m secondary is made of 11 adjustable aluminum panels.  The off-axis optical design minimizes scattered power and therefore drastically improves detector sensitivity~\cite{fowler_2007}.  Within the receiver cabin, three cryogenic optics tubes re-image the sky onto the detector arrays~\cite{thornton_2016}.  Light first enters through a 6.4\,mm-thick ultra-high molecular weight polyethylene window, followed by a series of Infra-red (IR) blocking filters at 300\,K, 40\,K, and 4\,K, which reflect out-of-band signal in order to reduce loading on the detectors.  The focal plane of the optics tube is cooled to 100\,mK.   Table~\ref{tab:act} summarizes the optical properties of the ACTPol instrument.
+
+
 
 \begin{figure}
     \centering
-    \includegraphics[width = .7\textwidth]{Figures/act_inst_close.jpeg}
+    \includegraphics[width = .9\textwidth]{Figures/act_inst_close.jpeg}
     \caption{The Atacama Cosmology Telescope, surrounded by its outer ground screen. The inner co-moving screen further shields the instrument from any stray-light.  One can see the top of the primary mirror behind the co-moving screen.}
     \label{fig:act_site}
 \end{figure}
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width = .8\textwidth]{Figures/act_inst.pdf}
+    \includegraphics[width = .9\textwidth]{Figures/act_inst.pdf}
     \caption{Ray-trace diagram of the Atacama Cosmology Telescope~\cite{act_inst}.  The telescope is an off-axis Gregorian with two reflectors: the primary is 6\,m in diameter and the secondary 2\,m.  The rays trace into the Millimeter Bolometer Array Camera (MBAC) cryostat which houses the telescope's detectors.}
     \label{fig:act_inst}
 \end{figure}
 
-Paragraph about the receiver cabin...
-
-Paragraph about the optical properties... FWHM... bands... 
-
-Since its first observations in 2007, the telescope has seen two major instrumentation upgrades: 1) ACTPol and 2) Advanced ACT.  In Chapter~\ref{ch:actbeams}, I present the characterization of the ACT beam using point-source stacking.  From the stacking, I also determine polarization leakage in the maps.
-
-\begin{table}[t]
+\begin{table}[b]
     \centering
     \begin{tabular}{|l|l|l|l|} \hline
         \textbf{ Parameter} &  \textbf{PA4 F150} &  \textbf{PA5 F090}  &  \textbf{PA6 F090}  \\ \hline \hline
         Number of Bolometers & 510 & 510 & 510\\\hline
         Center Frequency (GHz) & 150\,GHz & 90\,GHz & 90\,GHz\\\hline
         Base Temperature & 100\,mK & 100\,mK & 100\,mK\\\hline
-        % Angular Resolution & 1 arcmin &1 arcmin &1 arcmin\\\hline
-        % Solid Angle & & &\\\hline
+        Angular Resolution [arcmin] &  1.32 arcmin &1 arcmin & 2.00\\\hline
+        Solid Angle & & &\\\hline
         % Sky Coverage & & &\\\hline
     \end{tabular} \caption{ACT Key Characteristics.}
     \label{tab:act}
 \end{table}
-
 \section{The Simons Observatory}
 
 SO will test cosmic inflation during the early universe, characterize the primordial perturbations, measure the effective number of relativistic species and the sum of the neutrino masses, and improve our understanding of galaxy evolution and the era of cosmic reionization~\citep{so19,so_science}. 
-
-The CMB serves as a backlight for large-scale structure, therefore providing insights into gravitational lensing, and ...
 
 The resolution of SO will result in a catalog of extragalactic sources, including active galactic nuclei (AGN), dusty star-forming galaxies, and transient sources including Gamma Ray Burst (GRB) afterglows~\cite{so_science}.  SO expects to catalog 10,000-15,000 AGN sources at flux-densities above 7\,mJy~\cite{Tucci_2011}.  The low frequency coverage of SO will compliment comparison work with other catalogs (e.g. VLA/VLASS, ASKAP/EMU, MeerKAT/MIGHTEE)~\cite{so_science}.  Dusty star-forming galaxies seen by SO will include local galaxies ($z<0.1)$ and high redshift galaxies (approximately $2<z<4$), and strong lensed galaxies beyond this range~\cite{Marrone_2017}.
 
@@ -64,11 +61,11 @@ The resolution of SO will result in a catalog of extragalactic sources, includin
     \label{fig:so_inst}
 \end{figure}
 
-The Simons Observatory (SO) is a series of millimeter-wave telescopes designed to observe the Cosmic Microwave Background (CMB) temperature and polarization signals to an unprecedented sensitivity~\cite{gali18, so19}. With the combination of one Large Aperture Telescope (LAT)~\cite{xu/etal:2020c, zhu18, orlo18, coppi/etal:2018} and three Small Aperture Telescopes (SAT)~\cite{ali20}, the experiment will measure the temperature and polarization anisotropy of the cosmic microwave background with $\sim$\,70,000 background noise limited detectors operating at $\sim$\,100\,mK. 
+The Simons Observatory (SO) is a series of millimeter-wave telescopes designed to observe the Cosmic Microwave Background (CMB) temperature and polarization signals to an unprecedented sensitivity~\cite{gali18, so19}. With the combination of one Large Aperture Telescope (LAT)~\cite{xu/etal:2020c, zhu18, orlo18, coppi/etal:2018} and three Small Aperture Telescopes (SAT)~\cite{ali20}, the experiment will measure the temperature and polarization anisotropy of the cosmic microwave background with $\sim$\,70,000 background noise limited detectors operating at $\sim$\,100\,mK, covering six frequency bands from 27-270\,GHz (Table~\ref{tab:so}).
 
-The Simons Observatory was deployed in the Parque Astronomico located in the Atacama Desert in Chile. The telescope site is situated at an elevation of 5200 meters near the peak of Cerro Toco at $22 ^\circ$ 57' S, $67^\circ$47' W. The arid conditions and elevation at the site minimize contamination to millimeter wave signals from water vapor. 
+The Simons Observatory will be deployed in the Parque Astronomico located in the Atacama Desert in Chile. The telescope site is situated at an elevation of 5200 meters near the peak of Cerro Toco at $22 ^\circ$ 57' S, $67^\circ$47' W.  The arid conditions and elevation at the site minimize contamination to millimeter wave signals from water vapor. 
 
-\begin{table}[ht]
+\begin{table}[b]
     \centering
     \begin{tabular}{|l|l|l|l|} \hline
         \textbf{ Parameter} &  \textbf{LF} &  \textbf{MF}  &  \textbf{UHF}  \\ \hline \hline
@@ -83,14 +80,12 @@ The Simons Observatory was deployed in the Parque Astronomico located in the Ata
 
 \subsection{Large Aperture Telescope}
 
-The primary mirror is 6\,m in diameter and constructed out of 77 individual adjustable panels, while the secondary mirror is 6\,m in diameter and constructed out of 69 adjustable panels \cite{gali18}.
+The Large Aperture Telescope (LAT) will map roughly 40\% of the sky at arcminute resolution~\cite{xu/etal:2020c}.   Figure~\ref{fig:so_inst} shows a cross-section and ray-trace of the LAT.  The primary mirror is 6\,m in diameter and constructed out of 77 individual adjustable panels, while the secondary mirror is 6\,m in diameter and constructed out of 69 adjustable panels \cite{gali18}.
 
-Figure~\ref{fig:so_inst} shows a cross-section of the LAT Receiver, which houses up to thirteen optics tubes~\cite{Xu_2021}.
-
-Chapter~\ref{ch:ot_holo} presents radio holography measurements of the LAT optics tube, where I characterize the optical performance of the LAT Receiver optics tube.
+Light from the sky is then reflected into the LAT Receiver (LATR), which houses up to thirteen optics tubes~\cite{Xu_2021}.  The LATR optics tubes re-image the optics onto the detector arrays (three detector arrays per optics tube).  Chapter~\ref{ch:ot_holo} presents radio holography measurements of the LAT optics tube, where I characterize the optical performance of the LAT Receiver optics tube.
 
 \subsection{Small Aperture Telescope}
 
-The Small Aperture Telescope (SAT) optical design is a 0.42\,m diameter refractive telescope.  Three SATs will measure the largest angular scales visible from the Atacama Desert.
+In Chapter~\ref{ch:sat_holo}, I present radio holography measurements of the SAT optics tube.  The Small Aperture Telescope (SAT) optical design is a 0.42\,m diameter refractive telescope.  Three SATs will measure the largest angular scales visible from the Atacama Desert.  In total, the three SAT's will hold roughly 30,000 cryogenic detectors, where the SAT is targeting to characterize the CMB on degree angular scales.
 
-In Chapter~\ref{ch:sat_holo}, I present radio holography measurements of the SAT optics tube.
+Light enters through a 3\,mm thick ultra-high molecular weight polyethylene hexagonal window with an anti-reflection coating~\cite{zhu18}.  A Cryogenic Half-Wave Plate (CHWP) polarization modulator then reconstructs the polarization of the CMB at 40\,K.  A 1\,K Lyot stop is the first cold optical element, and is followed by the SAT refractor.  Three anti-reflection coated silicon lenses~\cite{Datta:13,golec20} re-image the light onto seven hexagonal detector arrays.   Photons are then coupled onto the detectors by individual feedhorns.  The focal plane of each optics tube houses seven hexagonal detector arrays and are cooled to 100\,mK.  

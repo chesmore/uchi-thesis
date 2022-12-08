@@ -1,6 +1,6 @@
 \chapter{The Simons Observatory: Characterizing the Large Aperture Telescope Receiver with Radio Holography}
 \label{ch:ot_holo}
-The following was published in Applied Optics in 2022~\cite{chesmore2022}.
+The following was published in Applied Optics in 2022~\cite{chesmore2022}, with Section~\ref{sec:crosspol} added after publication.  The paper was selected as Editor's Pick and given a press release here~\cite{SOLATpress}.
 \section{Introduction}
 
 Simons Observatory (SO) will observe the cosmic microwave background (CMB) temperature and polarization signals using multiple millimeter-wave telescopes~\cite{gali18, so19}.  One Large Aperture Telescope (LAT)~\cite{Niemack:16, Gudmundsson:21,Parshley_2018} and three Small Aperture Telescopes (SAT)~\cite{ali20} together will measure the CMB anisotropies.  SO will provide new constraints on inflationary signals, neutrino mass, and particles beyond the standard model while further improving our understanding of dark energy and galaxy evolution and the era of cosmic reionization~\citep{so19}. 
@@ -20,7 +20,7 @@ Within radio beam characterization, several techniques exist; 1) scalar beam pat
 
 Near-field holography allows us to study the wavefront as it emerges from the optics tube, based on the reciprocal theorem, from the cryostat.  Using Fresnel diffraction (FD)~\cite{Goodman2005-ne}, these measured fields can be propagated through the optical system to determine the spilled power past the mirrors of the telescope and the far-field beam pattern of the telescope fed by this receiver.  Moreover, these beams are useful for the identification and mitigation of optical problems within the receiver (i.e. optical aberrations, focus, scattered power, etc.).  These measurements enable a detailed verification of system-level optical performance prior to the deployment of a receiver on a telescope.
 
-In Section~\ref{sec:optics_tube} we describe the optical design and components of the SO optics tube.  In Section~\ref{sec:meas_method} we describe the measurement approach including the cryogenic receiver (\ref{sec:meas_method}.\ref{sec:cryo_rec}) and holography hardware (\ref{sec:meas_method}.\ref{sec:meas_hardware}) required for measuring beam maps (full details can be found in Appendix~\ref{sec:appendix_hardware}).  In Section~\ref{sec:results} we present the measured beam maps.   Section~\ref{sec:prop_fields} discusses analysis methods to propagate the measured beams into the far-field using FD.  We present characterization of the optics tube with and without an infrared-blocking filter in Section~\ref{sec:filter}.  Section~\ref{sec:code} details the publicly available code.  We conclude with a discussion of future applications of this approach in Section~\ref{sec:discussion}.  
+In Section~\ref{sec:optics_tube} we describe the optical design and components of the SO optics tube.  In Section~\ref{sec:latot_meas_method} we describe the measurement approach including the cryogenic receiver (\ref{sec:cryo_rec}) and holography hardware (\ref{sec:meas_hardware}) required for measuring beam maps (full details can be found in Appendix~\ref{sec:appendix_hardware}).  In Section~\ref{sec:results} we present the measured beam maps.   Section~\ref{sec:prop_fields} discusses analysis methods to propagate the measured beams into the far-field using FD.  We present characterization of the optics tube with and without an infrared-blocking filter in Section~\ref{sec:filter}.  Section~\ref{sec:solat_code} details the publicly available code.  We conclude with a discussion of future applications of this approach in Section~\ref{sec:discussion}.  
 
 \section{SO Large Aperture Telescope Optics Tubes Design}
 \label{sec:optics_tube}
@@ -106,7 +106,7 @@ The performance of the LAT optical system is assessed in detail by using the amp
 To determine the amount of power spilled to 300\,K, we propagate the measured fields forward and onto the plane of the secondary mirror (approximately 12\,m away from the measurement plane.  This is carried out by using the Fourier relationship between the near-field $E(x,y)$ and far-field $B(\theta_x,\theta_y)$ beams \cite{McIntosh2016,alma_holog}:
 
 \begin{equation}
-    B(\theta_x,\theta_y) = \int_{\text{aperture}} E(x,y) e^{ i \frac{2\pi}{\lambda} (\theta_x x + \theta_y y )} dx dy 
+    B(\theta_x,\theta_y) = \int_{\text{aperture}} E(x,y) e^{ i \frac{2\pi}{\lambda} (\theta_x x + \theta_y y )} dx \, dy 
     \label{eq:fft}
 \end{equation}
 where the complex electric field $E(x,y)$ is integrated over the area of the aperture, and $\lambda$ is the wavelength.
@@ -128,18 +128,19 @@ The holography source emits its signal out of a rectangular feedhorn with a fini
 
 We account for this effect with forward modeling, which is described in Appendix~\ref{sec:forward_model}.  To fully simulate the far-field beam of the LAT including the optics tube, we first simulate the optics tube using \verb|solat-optics| as described in~\cite{holog_sim_model}.  This produces the near-field beam at the front of the optics tube, which is then propagated into the far-field the same way the measured near-field beams are propagated through the virtual telescope.  The resulting far-fields after diffraction spike removal are shown in Figure~\ref{fig:farfields}.  These plots are band averaged, including data from 80-110\,GHz in the F90 band and 130-170\,GHz in the F150 band.  The radial binned far-field holography data are compared to simulations.  These comparisons show that the holography data are consistent with the predicted F90(150) FWHM is 2.18(1.38) arcmin and with low ellipticity with no unexpected features such as the "little-buddies" seen in the ACTPol experiment \cite{2021arXiv211212226L,Gudmundsson:21}.
 
-\section{Filter Removal}
-\label{sec:filter}
-We have described the holography results from the final instrument configuration.  However, in the initial SO configuration, which contained an additional filter (1K Low-Pass Edge (LPE) filter in Figure~\ref{fig:latrt}), we found extra signal outside the main beam from the window (hexagon at ~-20dB) at all frequencies.  While these side-lobes did not significantly change the spilled power to 300\,K, they would have reduced optical efficiency and led to an enhancement of near side-lobes of the on-sky beam.
-
-To study the frequency dependence of side-lobe power, we computed the integrated fractional power outside the main beam.  We define the main beam radius as $13.5$\,cm, where the beam drops below -20\,dB.   Figure~\ref{fig:filter_info}B shows the integrated fractional power outside the main beam as a function of frequency, and also the measured reflectivity of the 1\,K 6.8\,cm$^{-1}$ LPE filter~\cite{10.1117/12.673162}.
-
 \begin{figure*}[t]
     \centering
     \includegraphics[width = .95\textwidth]{Figures/filter_fig.pdf}
     \caption{A) Time-reversed ray-trace of the SO LAT Optics Tube (OT) with one filter (orange), near the second lens.  With 0\% on-axis reflectivity of the filter, rays(blue) emerge from the focal plane and exit the OT window.  With an on-axis reflectivity of 5.64\,\% (average LPE filter reflectivity in the full band), rays reflected off of the filter(red) go back to the reflective focal plane (copper and reflective), and then propagate out the front of the window.  This is verified in the simulation, as the main beam in front of the OT shows the shape of the focal plane at -25\,dB.  \,\,B) In orange is the measured reflectivity (1-transmission) of the 6.8\,cm$^{-1}$ LPE filter, which is placed at the 1-K stage in the optics tube.  The red(blue) line shows the measured integrated fractional power outside the main beam at each frequency with(without) the filter in the optics tube.  \,\,C) Band-averaged near-field beam maps with and without the filter in the optics tube.  With the filter, beam maps show extra scattering in the top parts of the map, through the upper portion of the LATRt hexagonal window (hexagonal power around the main beam at roughly -20\,dB due to reflection).}
     \label{fig:filter_info}
 \end{figure*}
+\section{Filter Removal}
+\label{sec:filter}
+We have described the holography results from the final instrument configuration.  However, in the initial SO configuration, which contained an additional filter (1K Low-Pass Edge (LPE) filter in Figure~\ref{fig:latrt}), we found extra signal outside the main beam from the window (hexagon at ~-20dB) at all frequencies.  While these side-lobes did not significantly change the spilled power to 300\,K, they would have reduced optical efficiency and led to an enhancement of near side-lobes of the on-sky beam.
+
+To study the frequency dependence of side-lobe power, we computed the integrated fractional power outside the main beam.  We define the main beam radius as $13.5$\,cm, where the beam drops below -20\,dB.   Figure~\ref{fig:filter_info}B shows the integrated fractional power outside the main beam as a function of frequency, and also the measured reflectivity of the 1\,K 6.8\,cm$^{-1}$ LPE filter~\cite{10.1117/12.673162}.
+
+
 
 Comparing the side-lobe power to the reflectivity measurements of all filters in the optics tube, we noticed the closest resemblance to the 1\,K LPE filter.  To investigate the effect of a reflective 1\,K LPE filter, a simulation in Zemax~\cite{zeemax} shows the expected measured signal due to reflectivity of a filter (Fig. ~\ref{fig:filter_info}A).  The simulation predicts that rays are reflected off the filter and end up outside the main beam as the rays exit the LATRt window.
 
@@ -147,12 +148,13 @@ After removing the LPE filter from the optics tube and repeating the holography 
   
 \section{Cross-Polarization}
 \label{sec:crosspol}
-Because the holography source is linearly polarized, we measure the polarization modulation of the optics tube.  The source emits the TM-mode out of the rectangular waveguide, which is measured by the coherent receiver at the back of the optics tube.  To modulate the polarization of the signal entering the optics tube, we use a polarization grid[CITE GRID ARTICLE].  The grid is made of.... 
+Because the holography source is linearly polarized, we measure the polarization modulation of the optics tube.  The source emits the TM-mode out of the rectangular waveguide, which is measured by the coherent receiver at the back of the optics tube.  To modulate the polarization of the signal entering the optics tube, we use a polarization grid which separates the two linear polarizations.
 
-\begin{figure}[t]
+\begin{figure}[t!]
     \centering
-    \includegraphics[width = .6\textwidth]{Figures/polgrid.jpeg}
-    \caption{Polarization measurement setup on the LATRt.  The dielectric polarizing grid sits over the holography receiver's beam path and rotates about the vertical axis, polarizing the source as it enters the cryostat.  A hexagonal aluminum plate covers the rest of the window and is secured in place with aluminum tape.}
+    \includegraphics[height = .4\textwidth]{Figures/polgrid.jpeg}
+    \includegraphics[height = .46\textwidth]{Figures/holo_pol_data.pdf}
+    \caption{Left: Polarization measurement setup on the LATRt.  The dielectric polarizing grid sits over the holography receiver's beam path and rotates about the vertical axis, polarizing the source as it enters the cryostat.  A hexagonal aluminum plate covers the rest of the window and is secured in place with aluminum tape.  Right: Polarized beam power (band-averaged from 85-120\,GHz) as a function of grid rotation, measured with the holography setup described in Section~\ref{sec:latot_meas_method}.  Co-polarization\,(blue) holds the source waveguide aligned with the receiver orientation.  Cross-polarization\,(green) uses a $90^{\circ}$ waveguide to make the source aligned perpendicular to the receiver orientation.  The polarization model (Eq.~\ref{eq:holo_model}) is fit using an MCMC and with no instrument polarization.}
     \label{fig:polgrid_setup}
 \end{figure}
 
@@ -165,14 +167,6 @@ We separate the polarization in the model as three sources of polarization modul
 \end{equation}
 where $\theta$ is the rotation of the polarizing grid, $\phi_d$ is the angle of the detector, $\epsilon$ is the cross-polarization of the detector, and $\eta_g$ is the efficiency of the polarizing grid.  The receiver is already slightly rotated from perfect alignment from the source, since the tester-array required slightly tilted holes to mount the receiver.  Therefore, we include this in our polarization model as the parameter $\phi_d$.  We find a degeneracy between the instrument polarization parameters and therefor exclude them in the fit.  The source is modelled as its Stokes parameters $\vec{S}_{s}$, with intensity $I=1$ and linear polarization $Q=\pm 1$ (switch the sign of $Q$ when waveguide twist is added to the output of the source horn).  The model is further derived in Appendix~\ref{app:pol}.  
 
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[height = .6\textwidth]{Figures/holo_pol_data.pdf}
-    % \includegraphics[height = .4\textwidth]{Figures/holo_crosspol_params.pdf}
-    \caption{Polarized beam power (band-averaged from 85-120\,GHz) as a function of grid rotation, measured with the holography setup described in Section~\ref{sec:latot_meas_method}.  Co-polarization\,(blue) holds the source waveguide aligned with the receiver orientation.  Cross-polarization\,(green) uses a $90^{\circ}$ waveguide to make the source aligned perpendicular to the receiver orientation.  The polarization model (Eq.~\ref{eq:holo_model}) is fit using an MCMC and with no instrument polarization.}
-    \label{fig:holo_crosspol_data}
-\end{figure}
-
 \subsection{Results}
 Figure~\ref{fig:holo_crosspol_params} shows the measured power (co- and cross-polarized) as a function of grid tilt, for both co- and cross-polarized sources.  We measure the received power at 85-120\,GHz in 5\,GHz increments, and at grid tilts from 0-360$^{\circ}$, in $10^{\circ}$ increments.  From the data, we use an MCMC to constrain the detector tilt $\phi_{\text{det}}$, grid efficiency $\eta_{\text{grid}}$, and cross polarization $\epsilon$.  Error is estimated as the standard deviation across the mid-frequency band $f$:
 
@@ -184,9 +178,8 @@ Figure~\ref{fig:holo_crosspol_params} shows the constrained parameters obtained 
 
 \begin{figure}[ht]
     \centering
-    % \includegraphics[height = .4\textwidth]{Figures/holo_pol_data.pdf}
-    \includegraphics[height = .7\textwidth]{Figures/holo_crosspol_params.pdf}
-    \caption{Constrained parameters from polarization model (Eq.~\ref{eq:holo_model}), detector angle $\theta_{\text{det}}$, grid efficiency $\eta_{\text{grid}}$, and cross polarization $CP$.}
+    \includegraphics[height = .8\textwidth]{Figures/holo_crosspol_params.pdf}
+    \caption{Constrained parameters from polarization model (Eq.~\ref{eq:holo_model}), detector angle $\phi_{\text{det}}$, grid efficiency $\eta_{\text{grid}}$, and cross polarization $\epsilon$.}
     \label{fig:holo_crosspol_params}
 \end{figure}
 
