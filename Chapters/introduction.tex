@@ -20,17 +20,17 @@ In 1965 at Bell Labs, Arno Penzias and Robert Wilson serendipitously detected "n
     I(\nu,T) = \frac{2h\nu^2}{c^2}\frac{1}{e^{\frac{h\nu}{k_B T}} -1}
     \label{eq:blackbody}
 \end{equation}
-The temperature power spectrum of the cosmic microwave background (CMB) was measured to be a near-perfect black-body (Eq.~\ref{eq:blackbody}), with a mean temperature of~\cite{burke_graham-smith_wilkinson_2019}:
+The temperature spectrum of the cosmic microwave background (CMB) was measured to be a near-perfect black-body (Eq.~\ref{eq:blackbody}), with a mean temperature of~\cite{burke_graham-smith_wilkinson_2019}:
 \begin{equation}
     T_{\text{CMB}} = 2.725\,K
 \end{equation}
-The power spectrum lies in the infra-red range of the electromagnetic spectrum, and peaks at a wavelength $\lambda = 1.5\,\text{mm}$ (Figure~\ref{fig:cobe_power_spectra}). 
+The spectrum lies in the infra-red range of the electromagnetic spectrum, and peaks at a wavelength $\lambda = 1.5\,\text{mm}$ (Figure~\ref{fig:cobe_power_spectra}). 
 
 This near-perfect black-body is understood to originate during the early universe by the rapid collision of photons with free electrons, to keep radiation in thermal equilibrium with hot dense matter.  As the universe expanded and cooled, however, this spectrum has kept its same form~\cite{weinberg_cosmo}.  Because it formed during the early universe, the CMB is a backlight into not only early universe properties, but also late universe physics such as large-scale structure and dark matter.  The CMB, therefore, carries a wealth of information about the fundamental physics of our universe.
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width = .95\textwidth]{Figures/cobe_power_spec.pdf}
+    \includegraphics[width = \textwidth]{Figures/cobe_power_spec.pdf}
     \caption{Right: Spectrum of the CMB from the COBE satellite~\cite{1994ApJ...420..439M}.  The deviation from an ideal blackbody is magnified $\times\,400$ in the bottom panel.  Left: First-year maps from the COBE Differential Microwave Radiometer in 1992~\cite{1992ApJ...396L...1S}.}
     \label{fig:cobe_power_spectra}
 \end{figure}
@@ -104,28 +104,66 @@ with the time-independent $w$~\cite{weinberg_cosmo}.  For example, in the case o
 \begin{equation}
     \frac{\ddot{a}}{a} = - \frac{4\pi G}{3 c^2} (\epsilon + 3 P)
 \end{equation}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/universe.jpg}
+    \caption{Timeline of the history of the universe as we understand it. Credit: NASA~\cite{NASApic}.}
+    \label{fig:universe_timeline}
+\end{figure}
+\section{The Case for Cosmic Inflation}
+Three pillars provide evidence for the Big Bang Theory, whereupon our universe came into existence.
+
+\noindent
+\textbf{The Expanding Universe}: As we've previously discussed in this chapter, the universe is predicted to be currently expanding.  This has been studied and proven by observations of late-universe objects like galaxies.  By measuring the velocity and distance of an object, scientists determined (using the Hubble Law) objects in the past were closer together, and today are farther apart.  
+
+\noindent
+\textbf{The Cosmic Microwave Background}:
+Radiation from a source of known temperature is described by a black-body spectrum.  We've introduced the CMB as radiation from the early universe.  We've also introduced the CMB as a blackbody spectrum.  It can be shown that, in an expanding universe, the blackbody will maintain its shape, its temperature will decrease as the wavelength shifts lower.  All the while, the blackbody will maintain its original shape.  Therefore, the CMB serves as evidence of a dense hot radiation source before the universe expanded, with a consistent black-body shape.
+
+\noindent
+\textbf{Abundance of Light Elements}:  Such an abundance of light elements in today's universe suggests a hot, dense beginning to the universe.  As the universe cooled and expanded, light particles formed by a fusion process called Big Bang Nucleosynthesis (BBN).  The amount of light particles measured today are in agreement with predictions made by BBN.
+
+These three pillars indicate a valid understanding of cosmology, but this cosmology remains incomplete.  Problems which remain are listed below.
+The theory of inflation has the potential to explain the mentioned puzzles.
+
+\begin{enumerate}
+    \item Flatness problem:  Measurements of the observable universe present a nearly flat spatial geometry ($\Omega_{\text{total}}=1$).  This would imply a flat geometry at the initial moments of our universe as well.  But for what reason would the universe begin with a flat geometry?  Inflation answers this by suggesting our universe might have curvature, but this rapid expansion blows up any curvature such that the tiny amount we can observe appears flat. 
+    \item Horizon problem:  The sky appears remarkably (and statistically) uniform in all directions.  The CMB confirms this, as we measure this radiation to be uniform to one part in $100,000$.  The particle horizon distance is only $2^{\circ}$, so how could the entire sky be so nearly uniform?  Inflation solves this because such an accelerated expansion creates a paradigm where all the observed sky has a chance to come into causal contact.
+    \item Magnetic monopole problem:  Magnetic monopoles are analogous to electrons, which would emit a magnetic charge.  However, we have never measured a single monopole in our universe, nor do we know that they exist.  Meanwhile, the Grand Unified Theory (GUT) predicts an extremely low density of magnetic monopoles; GUT predicts one monopole per Hubble radius.  Inflation solves this by dilluting the expected number of monopoles thus explaining why we have not measured a single one.
+\end{enumerate}
+\section{$\Lambda$CDM Cosmology}
+Today, the universe is described by the $\Lambda$CDM model, which assumes a flat universe which is expanding at an accelerating rate, and is dominated by cold dark energy and cold dark matter.  The $\Lambda$CDM model neatly models the universe in six parameters: the baryonic density $\Omega_b\,h^2$, the cold dark matter density $\Omega_c\,h^2$, $\ln(10^{10}A_s)$, the spectral index of inflation $n_s$, the size of the acoustic horizon at decoupling 100\,$\theta_{*}$, and the reionization optical depth $\tau$. 
+
+\textcolor{red}{ADD SENTENCES HERE...}
+
 \section{The CMB Temperature Power Spectra}
 The cosmic microwave background carries rich science in its temperature and polarization spectra.  The CMB power spectra can be decomposed into spherical harmonics, which result in power spectra as a function of multipole moment $\ell$, where $\ell\approx180/\theta$.  The temperature fluctuations of the CMB are decomposed into spherical harmonics:
 \begin{equation}
 \frac{\delta T}{T}(\theta,\phi) = \sum_{\ell=2}^{\infty} \sum_{m=-\ell}^{\ell} a_{\ell m} Y_{\ell m}(\theta,\phi)
     \label{eq:cmb_temp}
 \end{equation}
+
 where $\ell$ and $m$ are multipoles of the spherical harmonic $Y_{\ell m}$, $a_{\ell m}$ are expansion coefficients, and $\theta$ and $\phi$ represent the angular position on the sky.  The coefficients $a_{\ell m}$ are independent variables, and relate to the CMB's angular power spectra via:
 \begin{equation}
     C_\ell^{TT} = \frac{1}{2\ell +1} \sum_{m=-\ell}^{m=\ell} |a_{\ell m}|^2
 \end{equation}
+
 This is the temperature power spectrum of the CMB.  Figure~\ref{fig:measured_cmb_spec} shows the measured CMB temperature power spectrum from the Atacama Cosmology Telescope, the South Pole Telescope, and WMAP~\cite{Das_2014}.
 \begin{figure}[t]
     \centering
-    \includegraphics[width = .75\textwidth]{Figures/temp_power_spectrum.pdf}
+    \includegraphics[width = .8\textwidth]{Figures/temp_power_spectrum.pdf}
     \caption{The CMB temperature power spectra measured by WMAP (yellow), the South Pole Telescope (blue) and the Atacama Cosmology Telescope (purple)~\cite{Das_2014}.  The temperature anisotropies of the CMB will be measured with the Simons Observatory and CMB-S4, two upcoming cosmology experiments, with further precision.}
     \label{fig:measured_cmb_spec}
 \end{figure}
-The shape of the CMB power spectra unlocks properties of the early universe.  For example, the first peak in the power spectrum at around $\ell\approx220$ corresponds to the angle at which we observe the sound horizon, or the distance that sound can travel between the big bang and recombination.  The measurement of this power spectrum's morphology can also determine physical matter ang baryon densities.  The dark energy properties of our universe can additionally be constrained by the power spectrum peak, as the dark energy and matter densities jointly alter the distance to last scattering.  The smaller angular scale distortions are in part due to an inhomogeneous universe at the time of last scattering ($z\approx 1100$). 
+
+The shape of the CMB power spectra unlocks properties of the early universe.  For example, the first peak in the power spectrum at around $\ell\approx220$ corresponds to the angle at which we observe the sound horizon, or the distance that sound can travel between the big bang and recombination.  The measurement of this power spectrum's morphology can also determine physical matter ang baryon densities.  The dark energy properties of our universe can additionally be constrained by the power spectrum peak, as the dark energy and matter densities jointly alter the distance to last scattering.  The smaller angular scale distortions are in part due to an inhomogeneous universe at the time of last scattering ($z\approx 1100$).  
+
+\textcolor{red}{IN PROGRESS}Additional parameters which impact the shape of the power spectrum include $N_{\text{eff}}$ and sum of neutrino masses...
 
 \section{The Polarized CMB}
 
-The CMB is predicted to be polarized, due to Compton scattering by free electrons during the era of recombination~\cite{}.  Measuring this polarization would indicate the beginning of reionization and further have the potential to uncover effects of primordial gravitational waves.  Just as the CMB's temperature spectrum is decomposed in spherical harmonics, we also decompose the polarized components.  We refer to the CMB's polarization signals as "E-modes" and "B-modes" after their likeness to curl-free (electric) and divergence-free (magnetic) fields (Figure~\ref{fig:e_b_pol}).
+The CMB is predicted to be polarized, due to Compton scattering by free electrons during the era of recombination~\cite{weinberg_cosmo}.  Measuring this polarization would indicate the beginning of reionization and further have the potential to uncover effects of primordial gravitational waves.  Just as the CMB's temperature spectrum is decomposed in spherical harmonics, we also decompose the polarized components.  We refer to the CMB's polarization signals as "E-modes" and "B-modes" after their likeness to curl-free (electric) and divergence-free (magnetic) fields (Figure~\ref{fig:e_b_pol}).
 \begin{figure}
     \centering
     \includegraphics[width = .45\textwidth]{Figures/EB_pol.pdf}
@@ -141,6 +179,7 @@ Let's now define the polarization signal basis of E- and B-modes.  The electric 
     \label{eq:e_photon}
 \end{equation}
 The Stokes parameters make up the basis of a photon's polarization, which is obtained from the electric field $\Vec{E}$, with parameters: intensity $I$, linear polarization $Q$, diagonal polarization $U$, and circular polarization $V$ (Eq.~\ref{eq:e_photon} and Eq.~\ref{eq:stokes}).
+
 \begin{equation}
 \begin{split}
     I & = |E_x|^2 + |E_y|^2 \\
@@ -150,8 +189,6 @@ The Stokes parameters make up the basis of a photon's polarization, which is obt
 \end{split}
 \label{eq:stokes}
 \end{equation}
-
-
 
 Just as the temperature power spectrum is decomposed into spherical harmonics, we express the polarization of the CMB in terms of spin-2 (where $a^*_{-2,\ell m} = a_{2,\ell m}$) spherical harmonics:
 \begin{equation}
@@ -173,24 +210,23 @@ The E- and B-modes of the CMB are then defined as
 \end{equation}
 It follows that the CMB's polarized spectra are then defined as
 \begin{equation}
-    C_{ell}^{XY} = \frac{1}{2\ell+1}\sum_m \langle a_{\ell m}^{X} a_{\ell m}^{Y*} \rangle 
+    C_{\ell}^{XY} = \frac{1}{2\ell+1}\sum_m \langle a_{\ell m}^{X} a_{\ell m}^{Y*} \rangle 
 \end{equation}
 Here, $X$ and $Y$ can either be E-mode, B-mode, or temperature T spectra of the CMB.
 
 \section{Why Care About Beams?}
-Every camera has a "beam" (or optical response) which determines the optical performance (how your picture will turn out).  The smaller your beam, the higher the resolution of your picture.  The camera can make out those tiny features.  The Field-of-View (FOV) determines how wide your picture can be.  The sensitivity of your camera's detector determines how grainy the picture comes out.  All of these optical properties are defined by the camera's beam.  A telescope is no different; the beam of the instrument determines the optical performance at a given angular scale.  
+Every camera has a "beam" (or optical response) which determines the optical performance (how your picture will turn out).  The smaller your beam, the higher the resolution of your picture.   The Field-of-View (FOV) determines how wide your picture can be.  The sensitivity of your camera's detector determines how grainy the picture comes out.  All of these optical properties are defined by the camera's beam.  To take a picture of the CMB, the telescope is our camera; the beam of the instrument determines the optical performance at a given angular scale.  
 
-This not only affects the immediate quality of our CMB maps, but also impacts the ability to study cosmological science.  Let's consider two cosmological parameters: the spectral index of inflation $n_s$, and the number of relativistic species $N_{eff}$.  The spectral index of inflation $n_s$ describes how fluctuations vary with angular scale.  Figure~\ref{fig:cmb_ns} shows the CMB power spectra at three different values of $n_s$ and at two different values of $N_{eff}$.  At small angular scales (large $\ell$ values), slight variations of $n_s$ change the slope of the power spectrum (Figure~\ref{fig:cmb_ns}).
+This not only affects the immediate quality of our CMB maps, but also impacts the ability to study cosmological science.  Let's consider two cosmological parameters: the spectral index of inflation $n_{\text{s}}$, and the number of relativistic species $N_{\text{eff}}$.  The spectral index of inflation $n_{\text{s}}$ describes how fluctuations vary with angular scale.  Figure~\ref{fig:cmb_ns} shows the CMB power spectra at three different values of $n_{\text{s}}$ and at two different values of $N_{\text{eff}}$.  At small angular scales (large $\ell$ values), slight variations of $n_{\text{s}}$ change the slope of the power spectrum (Figure~\ref{fig:cmb_ns}).
 
 \begin{figure}[t!]
     \centering
-    \includegraphics[width = .99\textwidth]{Figures/spectrabeams.png}
-    \caption{The simulated CMB power spectrum at varying spectral index of inflation $n_s$, and varying relativistic species $N_{eff}$.  Simulations are provided by CAMB.}
+    \includegraphics[width = \textwidth]{Figures/beam_neff.pdf}
+    \caption{The simulated CMB power spectrum at varying spectral index of inflation $n_\text{s}$, and varying relativistic species $N_{\text{eff}}$.  Simulations are made with CAMB~\cite{camb_online}.}
     \label{fig:cmb_ns}
 \end{figure}
 
-
-Entire classes of inflationary models can be ruled out by constraining $n_s$.  Achieving this goal, however, requires precise beam calibration.  Further, characterizing the polarization leakage from the telescope's beam is critical to map the tiniest signals of the CMB's polarization.  For this reason, this work focuses on beam calibration, both for the Simons Observatory and the Atacama Cosmology Telescope.
+Entire classes of inflationary models can be ruled out by constraining $n_{\text{s}}$.  Achieving this goal, however, requires precise beam calibration.  Further, characterizing the polarization leakage from the telescope's beam is critical to map the tiniest signals of the CMB's polarization.  For this reason, this work focuses on beam calibration, both for the Simons Observatory and the Atacama Cosmology Telescope.
 
 \section{Status of the Field}
 \begin{table}[b]
@@ -200,7 +236,7 @@ Entire classes of inflationary models can be ruled out by constraining $n_s$.  A
          $100\Omega_b h^2$ &  2.241 $\pm$ 0.015 &2.153$\pm$0.030 \\
          $100\Omega_c h^2$ & 11.97 $\pm$ 0.14 & 11.78$\pm$ 0.38\\
          $\Omega_\Lambda$ & 0.6867 $\pm$ 0.0084 & 0.696$\pm$0.022\\
-         $n_s$ & 0.9668 $\pm$ 0.0044 & 1.008$\pm$0.0047\\
+         $n_{\text{s}}$ & 0.9668 $\pm$ 0.0044 & 1.008$\pm$0.0047\\
          $H_0$\,[km/s/Mpc] & 67.51 $\pm$0.61 & 67.9$\pm$1.5\\ 
          $t_0$ [Gyr] & 13.791 $\pm$ 0.025 & 13.832$\pm$0.047\\
          \hline
@@ -211,7 +247,7 @@ Entire classes of inflationary models can be ruled out by constraining $n_s$.  A
 
 Since the detection by Penzias and Wilson in 1965, the cosmology community has made leaps to constrain the black-body of the CMB.  The Cosmic Background Explorer (COBE) was the first to measure the CMB power spectrum from space.  Since COBE, the measurement of the black-body of the CMB has increased in precision, with experiments like WMAP, Planck, for example.  The South Pole Telescope and the Atacama Cosmology Telescope, two ground-based telescopes, have pushed the measurement further with increased resolution mapping of the sky.
 
-In the coming years, cosmologists aim to detect the tiniest signals of the polarized CMB.  An ongoing challenge in cosmology instrumentation has been characterizing the polarization spectra of the CMB.  Specifically, the B-mode polarization of the CMB offers a unique window into early-universe physics~\cite{}.  Because scalar perturbations generate E-mode polarization, a measurement of the B-mode polarization directly quantifies the scalar-to-tensor ratio $r$.  The BB-power spectra has been reported by the Polarbear, South Pole Telescope and ACTPol collaborations~\cite{}.
+In the coming years, cosmologists aim to detect the tiniest signals of the polarized CMB.  An ongoing challenge in cosmology instrumentation has been characterizing the polarization spectra of the CMB.  Specifically, the B-mode polarization of the CMB offers a unique window into early-universe physics~\cite{weinberg_cosmo}.  Because scalar perturbations generate E-mode polarization, a measurement of the B-mode polarization directly quantifies the scalar-to-tensor ratio, $r$.  The BB-power spectra has been reported by the Polarbear, South Pole Telescope and ACTPol collaborations~\cite{planck_data,choi_2020,PARAde_2014}.
 
 \section{Outline of Thesis}
 
@@ -227,6 +263,6 @@ Chapter~\ref{ch:sat_holo} presents additional near-field radio holography measur
 
 Chapter~\ref{ch:holosim} presents Holosim-ML: a Python code for beam simulation and analysis of radio holography data from complex optical systems.  This code uses machine learning to efficiently determine the position of hundreds of mirror adjusters on multiple mirrors with few micrometer accuracy.  I apply this approach to the example of the Simons Observatory 6\,m telescope.  The ML framework makes the analysis of these measurements from many receiver positions straightforward to analyze.  I present an example of the SO dual reflector optical system and demonstrated that this approach can yield $<5\,\mu m$ alignment errors, the requirement for SO science goals.
 
-In Chapter~\ref{ch:actbeams}, I analyze maps from the Atacama Cosmology Telescope Data Release 6.  From the maps, I select point sources and stack them in order to determine the beam of the instrument.  This is compared to the current method to determine the ACT beam by analyzing planet maps.  We find...
+In Chapter~\ref{ch:actbeams}, I analyze maps from the Atacama Cosmology Telescope Data Release 6.  From the maps, I select point sources and stack them in order to determine the beam of the instrument.  This is compared to the current method to determine the ACT beam by analyzing planet maps.  \textcolor{red}{IN PROGRESS}We find...
 
 Lastly, in Chapter~\ref{ch:conclusion}, I summarize the results from this work and discuss the future of precision cosmology.

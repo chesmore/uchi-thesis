@@ -73,7 +73,7 @@ The second source polarization was obtained by adding a waveguide twist directly
     \end{bmatrix}^T
 \end{equation}
 \subsection{Polarizing Grid}
-The signal is first modulated by the polarized grid prior to entering the optics tube.  The purpose of the grid is to transmit one polarization and reflect the other.  However, in the case of an imperfect polarizing grid, some of the $2^{nd}$ polarization may also transmit (a fraction of the $1^{st}$ polarization).  Therefore, we define the Jones matrix as the following, where the majority of the signal along the $x$-axis is transmitted ($t_x > t_y$):
+The signal is first modulated by the polarized grid prior to entering the optics tube.  The purpose of the grid is to transmit one polarization and reflect the other.  However, in the case of an imperfect polarizing grid, some of the $2^{\text{nd}}$ polarization may also transmit (a fraction of the $1^{\text{st}}$ polarization).  Therefore, we define the Jones matrix as the following, where the majority of the signal along the $x$-axis is transmitted ($t_x > t_y$):
 \begin{equation}
     J_{g} = \begin{bmatrix}
     t_x & 0 \\
@@ -100,16 +100,17 @@ Lastly, we rotate the grid via the $M_{\text{rot}}(\theta)$ matrices:
 \begin{equation}
     M_{g}(\theta,\eta_{g}) = M_{\text{rot}}^T(\theta) \cdot M_{g}(\eta_{g})\cdot M_{\text{rot}}(\theta)
 \end{equation}
-\subsection{Generic Instrument}
+\subsection{Optics Tube (Generic Instrument)}
+To model the polarization modulation from the optics tube, we consider a simple Jones matrix:
 \begin{equation}
-    J = \begin{bmatrix}
+    J_{\text{OT}} = \begin{bmatrix}
     1 & 0 \\
     0 & A e^{i\phi}\\
   \end{bmatrix}
 \end{equation}
 Converting this to a Mueller matrix yields:
 \begin{equation}
-    M_{\text{IP}} = \frac{1}{2}\begin{bmatrix}
+    M_{\text{OT}} = \frac{1}{2}\begin{bmatrix}
     1+A^2 & 1-A^2 & 0& 0\\
     1-A^2 & 1+A^2 & 0& 0\\
     0 & 0 & 2A\cos\phi & 2A\sin\phi\\
@@ -118,7 +119,7 @@ Converting this to a Mueller matrix yields:
 \end{equation}
 We define the instrument's polarization as $\lambda_P = \frac{1}{2}\sqrt{1-A^2}$.  Here's we only consider $\phi=0$ or else we would find $A<1$, which isn't physical in our setup.  Our Mueller matrix becomes:
 \begin{equation}
-    M_{\text{IP}} = \frac{1}{2}\begin{bmatrix}
+    \vec{M_{\text{OT}}}= \frac{1}{2}\begin{bmatrix}
     1-\lambda_P & \lambda_P & 0& 0\\
     \lambda_P & 1-\lambda_P & 0& 0\\
     0 & 0 & \sqrt{1-2\lambda_P} & 0\\
@@ -155,7 +156,14 @@ To simplify this down to one parameter, we define $\epsilon_0^2 = \chi$.  We rew
 \end{equation}
 Because the power out from the detector $P_{\text{out}}$ is the $I$ component of the Stoke's parameters, we then get the final $\vec{S}_{\text{out}}$ with:
 \begin{equation}
-    \vec{S}_{d} = \begin{bmatrix}
+    \vec{S}_{d}(\phi_d,\epsilon) = \begin{bmatrix}
     1 & 0 & 0 & 0
-  \end{bmatrix} \cdot M_{d} \cdot M_{\text{rot}}(\phi)
+  \end{bmatrix} \cdot M_{d} \cdot M_{\text{rot}}(\phi_d)
 \end{equation}
+
+\section{Putting It All Together}
+Combining all components of the model, we fit the following to our polarization holography data:
+\begin{equation}
+    P_{\text{d}}(\theta) = \vec{S}_{d}(\phi_{d},\epsilon)\cdot \vec{M}_{\text{OT}}\cdot \vec{M}_{g}(\theta,\eta_{g})\cdot \vec{S}_{s}
+\end{equation}
+where we fit for detector tilt angle $\phi_d$, detector cross-polarization $\epsilon$, and grid efficiency $\eta_g$.

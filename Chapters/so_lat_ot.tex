@@ -11,7 +11,7 @@ Testing these aspects of the optics tube performance in the lab is challenging. 
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width = .8\textwidth]{Figures/lat15.pdf}
+    \includegraphics[width = \textwidth]{Figures/lat15.pdf}
     \caption{The Simons Observatory (SO) Large Aperture Telescope (LAT), featuring a segmented primary and secondary mirror.  The mirror's focus is hidden inside the conical baffle near the front of the receiver.  The receiver can hold up to thirteen optics tubes.}
     \label{fig:lat}
 \end{figure}
@@ -29,7 +29,7 @@ The LAT is a crossed-Dragone telescope with a 6\,m pupil diameter (Fig.~\ref{fig
 
 \begin{figure}
     \centering
-    \includegraphics[width = .9\textwidth]{Figures/LATR_OT_Tester_20190221_3.pdf}
+    \includegraphics[width = \textwidth]{Figures/LATR_OT_Tester_20190221_3.pdf}
     \caption{The Simons Observatory LATR optics tube.  Light enters the optics tube from the right through an ultra-high-molecular-weight polyethylene (UHMWPE) window, and travels through a series of Infrared-Blocking filters (IR), including one alumina IR filter, and passes through the 4\,K Low-Pass Edge mesh filter (LPE). The light is focused on the detector arrays on the left by the three lenses, with two additional LPE filters near the 1\,K and 100\,mK stages.  The components within the optics tube are further described in~\cite{xu/etal:2020c}.}
     \label{fig:latrt}
 \end{figure}
@@ -59,17 +59,17 @@ A second identical receiver was also connected for redundancy, but not used in t
 \label{sec:meas_hardware}
 
 Figure~\ref{fig:setup} shows a schematic overview of the LATR tester (LATRt) holography hardware.  Two millimeter-wave sources are used to measure the full SO Mid-Frequency (MF) band: F90 (80-120\,GHz) and F150 (130-170\,GHz).  Only one is mounted at a given time (one of which has a multiplication factor of 8, and the other with 12).  These sources are broadcast into the receiver using standard gain feed horns held close to the window (4.5\,cm in F90 and 11.5\,cm in F150 due to the different attenuator waveguide lengths).  We therefore expect different measured beam sizes between the two sets of frequencies, since the beam expands as it leaves the optics tube.
- 
-A motorized two-dimensional  stage holds the source and is mounted on a support structure above the LATRt.  During a measurement, the source (frequency is fixed) is moved over a $50\times50$\,cm range with 0.25\,cm steps (black arrows in Figure~\ref{fig:setup}).   One map takes roughly 12 hours to complete.
 
-A common local oscillator (LO2 in Figure~\ref{fig:setup}) is fed to two harmonic mixers: 1) picked off from the source and 2) at the output of the cryogenic receiver.  The IF signal from both mixers in the 0-125\,MHz band is amplified and passed to a digital correlator (Casper ROACH2 ~\cite{roach2}) which computes the complex correlation between the two signals~\cite{ches18}.  The FPGA on the ROACH2 board outputs the amplitude and the phase of the correlated output, subdivided into a number of 100\,kHz wide bins.  Only the bin associated with the IF frequency is used in subsequent analysis.  The software to program and analyze output from the FPGA is made public on the \textit{McMahonCosmologyGroup} GitHub page in a package called \verb|holog-exp|~\cite{holog-exp}.  Appendix~\ref{sec:appendix_hardware} provides further details to the hardware of the holography setup.
-
-\begin{figure}[hb!]
+ \begin{figure}[t]
     \centering
-    \includegraphics[width = .9\textwidth]{Figures/nearfields.pdf}
+    \includegraphics[width = \textwidth]{Figures/nearfields.pdf}
     \caption{Near-field band-averaged MF1 and MF2 beams, simulated and measured with radio holography. Left panel: Radially binned.  Right panel: 2D simulated and measured near-field beams.}
     \label{fig:nearfields}
 \end{figure}
+
+A motorized two-dimensional  stage holds the source and is mounted on a support structure above the LATRt.  During a measurement, the source (frequency is fixed) is moved over a $50\times50$\,cm range with 0.25\,cm steps (black arrows in Figure~\ref{fig:setup}).   One map takes roughly 12 hours to complete.
+
+A common local oscillator (LO2 in Figure~\ref{fig:setup}) is fed to two harmonic mixers: 1) picked off from the source and 2) at the output of the cryogenic receiver.  The IF signal from both mixers in the 0-125\,MHz band is amplified and passed to a digital correlator (Casper ROACH2 ~\cite{roach2}) which computes the complex correlation between the two signals~\cite{ches18}.  The FPGA on the ROACH2 board outputs the amplitude and the phase of the correlated output, subdivided into a number of 100\,kHz wide bins.  Only the bin associated with the IF frequency is used in subsequent analysis.  The software to program and analyze output from the FPGA is made public on the \textit{McMahonCosmologyGroup} GitHub page in a package called \verb|holog-exp|~\cite{holog-exp}.  Appendix~\ref{sec:appendix_hardware} provides further details to the hardware of the holography setup.
 
 \begin{figure}[H]
   \centering
@@ -95,7 +95,7 @@ The shape of the main beam was found to be in good agreement with simulations at
 
 \begin{figure*}[ht]
     \centering
-    \includegraphics[width = .98\textwidth]{Figures/ff_secondary.pdf}
+    \includegraphics[width = \textwidth]{Figures/ff_secondary.pdf}
     \caption{All beam maps propagated at the secondary illumination of the Large Aperture Telescope.  The spilled power to 300\,K is calculated by integrating power outside the boundary of the secondary (red line) with respect to total integrated power of the map.}
     \label{fig:secondary}
 \end{figure*}
@@ -119,7 +119,7 @@ To propagate the measured near-fields into the far-field, we use a virtual teles
 
 \begin{figure*}[ht!]
     \centering
-    \includegraphics[width = .9\textwidth]{Figures/MF_ff.pdf}
+    \includegraphics[width = \textwidth]{Figures/MF_ff.pdf}
     \caption{Top row: Using FD, the LATRt measurements are propagated through the LAT from the near-focal plane, to the far-field.  Bottom row: Radial profile of the measured(simulated) far-field beams in the F90 and F150 bands, plotted in red(black).  The lack of diffraction rings in the radial average is explained by the convolution of the measurement(simulation) due to the rectangular source aperture physically in the setup (artificially in the model, see Appendix~\ref{sec:forward_model}).}
     \label{fig:farfields}
 \end{figure*}
@@ -130,7 +130,7 @@ We account for this effect with forward modeling, which is described in Appendix
 
 \begin{figure*}[t]
     \centering
-    \includegraphics[width = .95\textwidth]{Figures/filter_fig.pdf}
+    \includegraphics[width = \textwidth]{Figures/filter_fig.pdf}
     \caption{A) Time-reversed ray-trace of the SO LAT Optics Tube (OT) with one filter (orange), near the second lens.  With 0\% on-axis reflectivity of the filter, rays(blue) emerge from the focal plane and exit the OT window.  With an on-axis reflectivity of 5.64\,\% (average LPE filter reflectivity in the full band), rays reflected off of the filter(red) go back to the reflective focal plane (copper and reflective), and then propagate out the front of the window.  This is verified in the simulation, as the main beam in front of the OT shows the shape of the focal plane at -25\,dB.  \,\,B) In orange is the measured reflectivity (1-transmission) of the 6.8\,cm$^{-1}$ LPE filter, which is placed at the 1-K stage in the optics tube.  The red(blue) line shows the measured integrated fractional power outside the main beam at each frequency with(without) the filter in the optics tube.  \,\,C) Band-averaged near-field beam maps with and without the filter in the optics tube.  With the filter, beam maps show extra scattering in the top parts of the map, through the upper portion of the LATRt hexagonal window (hexagonal power around the main beam at roughly -20\,dB due to reflection).}
     \label{fig:filter_info}
 \end{figure*}
@@ -139,8 +139,6 @@ We account for this effect with forward modeling, which is described in Appendix
 We have described the holography results from the final instrument configuration.  However, in the initial SO configuration, which contained an additional filter (1K Low-Pass Edge (LPE) filter in Figure~\ref{fig:latrt}), we found extra signal outside the main beam from the window (hexagon at ~-20dB) at all frequencies.  While these side-lobes did not significantly change the spilled power to 300\,K, they would have reduced optical efficiency and led to an enhancement of near side-lobes of the on-sky beam.
 
 To study the frequency dependence of side-lobe power, we computed the integrated fractional power outside the main beam.  We define the main beam radius as $13.5$\,cm, where the beam drops below -20\,dB.   Figure~\ref{fig:filter_info}B shows the integrated fractional power outside the main beam as a function of frequency, and also the measured reflectivity of the 1\,K 6.8\,cm$^{-1}$ LPE filter~\cite{10.1117/12.673162}.
-
-
 
 Comparing the side-lobe power to the reflectivity measurements of all filters in the optics tube, we noticed the closest resemblance to the 1\,K LPE filter.  To investigate the effect of a reflective 1\,K LPE filter, a simulation in Zemax~\cite{zeemax} shows the expected measured signal due to reflectivity of a filter (Fig. ~\ref{fig:filter_info}A).  The simulation predicts that rays are reflected off the filter and end up outside the main beam as the rays exit the LATRt window.
 
@@ -178,8 +176,8 @@ Figure~\ref{fig:holo_crosspol_params} shows the constrained parameters obtained 
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[height = .8\textwidth]{Figures/holo_crosspol_params.pdf}
-    \caption{Constrained parameters from polarization model (Eq.~\ref{eq:holo_model}), detector angle $\phi_{\text{det}}$, grid efficiency $\eta_{\text{grid}}$, and cross polarization $\epsilon$.}
+    \includegraphics[height = .8\textwidth]{Figures/pol_params.pdf}
+    \caption{Constrained parameters from polarization model (Eq.~\ref{eq:holo_model}), detector angle $\phi_{\text{det}}$, grid efficiency $\eta_{\text{grid}}$, and cross polarization $\epsilon$.  The dashed lines show the $16^{\text{th}}$, $50^{\text{th}}$, and $84^{\text{th}}$ quantiles of the fit.  We find a cross polarization of less than 1\%, a detector tilt of roughly $-31\deg$, and a grid efficiency of roughly 97\%.  }
     \label{fig:holo_crosspol_params}
 \end{figure}
 

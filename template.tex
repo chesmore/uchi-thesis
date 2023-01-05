@@ -61,11 +61,7 @@
 %% Use these commands to set a dedication and epigraph text
 % \dedication{Dedication text}
 % deducation text 
-\epigraph{“Freedom is the freedom to say that two plus two make four. 
-
-If that is granted, all else follows.”
-
--George Orwell}
+\epigraph{}
 \usepackage{caption}
 %\captionsetup{font=footnotesize}
 \usepackage{pdfpages}
@@ -106,8 +102,7 @@ If that is granted, all else follows.”
 The Cosmic Microwave Background (CMB) carries the imprints of the conditions in the early universe and the large-scale structure it has traversed as it travels to our telescopes. This radiation from the early universe serves as a window into the physics of our universe. From the CMB, we can study primordial gravitational waves, large scale structure formation, sum of neutrino masses, dark energy, dark matter, and fundamental physics. Achieving these ambitious science goals requires equally ambitious instrumentation.
 CMB-S4 and ongoing stage 3 ground-based CMB experiments are designed to observe the CMB temperature and polarization signals to an unprecedented sensitivity. A combination of three Large Aperture Telescopes (LATs) and eighteen Small Aperture Telescopes (SATs) will measure the temperature and polarization anisotropy of the CMB with $\approx$500,000 background noise-limited detectors operating at $\approx$100\,mK, covering frequencies from $\approx$20 to $\approx$300\,GHz.
 
-In order to measure the tiniest signals of the CMB, we must control optical systematics and advance detector sensitivity to unprecedented levels. I will discuss the techniques to control optical systematics, design highly sensitive detectors and feedhorn arrays, and characterize their performance. Using a holography imaging setup as a beam mapper, I will evaluate the performance of the optical properties of novel absorbers I developed, and beam map a complete cryogenic optical system. I developed software to model these systems,  including hardware imperfections, demonstrating how systematics propagate into measurements; the software also uses machine learning to correct such systematic errors by correcting alignment of mirrors. 
-
+In order to measure the tiniest signals of the CMB, we must control optical systematics and advance detector sensitivity to unprecedented levels. I will discuss the techniques to control optical systematics, design highly sensitive detectors and feedhorn arrays, and characterize their performance. Using a holography imaging setup as a beam mapper, I will evaluate the performance of the optical properties of novel absorbers I developed, and beam map a complete cryogenic optical system. I developed software to model these systems,  including hardware imperfections, demonstrating how systematics propagate into measurements; the software also uses machine learning to correct such systematic errors by correcting alignment of mirrors.  Lastly, I will present a novel approach for characterizing the on-sky beam with maps from Atacama Cosmology Telescope Data Release 6.  Understanding the beam of the instrument is critical for characterizing the angular response of the instrument, and therefore critical for achieving the ambitious science goals in ACT and beyond.  I will present how stacking point sources from existing CMB maps to determine the instrument beam compares to the existing method of mapping planets.
 
 \mainmatter
 
@@ -131,46 +126,45 @@ In order to measure the tiniest signals of the CMB, we must control optical syst
 
 \acknowledgments
 
-
-\begin{itemize}
-        \item jeff
-        \item co-advisors: sara, adri katie, pato
-        \item jon G, ed wollack,
-        \item LATRt team: carlos, shreya, tommy, joey, maya, taylor, ezekiel
-\end{itemize}
+% \begin{itemize}
+%         \item jeff
+%         \item co-advisors: sara, adri katie, pato
+%         \item jon G, ed wollack,
+%         \item LATRt team: carlos, shreya, tommy, joey, maya, taylor, ezekiel
+% \end{itemize}
     
-Working with junior members of the Simons Observatory was such a privilege, and I've made many deep friendships. The SAT holography measurements would not be possible without the team at University of California San Diego: \textbf{Remington Gerras}, \textbf{Joseph Seibert}, \textbf{Michael} \textbf{JB} \textbf{Max} \textbf{Tran} and \textbf{Dr. Kam Arnold}.  Thank you for working so hard during those two weeks and being so wonderful to work with.  
+% Working with junior members of the Simons Observatory was such a privilege, and I've made many deep friendships. The SAT holography measurements would not be possible without the team at University of California San Diego: \textbf{Remington Gerras}, \textbf{Joseph Seibert}, \textbf{Michael} \textbf{JB} \textbf{Max} \textbf{Tran} and \textbf{Dr. Kam Arnold}.  Thank you for working so hard during those two weeks and being so wonderful to work with.  
 
-Thank you to my fellow beam-fanatics, \textbf{Alexandre Adler} and \textbf{Nadia Dachlythra}, for giving me the most fun experience in Stockholm and for being so incredibly supportive through the years.  I consider you brilliant scientists and wonderful friends.   
+% Thank you to my fellow beam-fanatics, \textbf{Alexandre Adler} and \textbf{Nadia Dachlythra}, for giving me the most fun experience in Stockholm and for being so incredibly supportive through the years.  I consider you brilliant scientists and wonderful friends.   
 
-Many members I never worked with but developed friendships regardless: \textbf{Sanah}, \textbf{Lauren Sanders}, \textbf{Anna Kofman}, \textbf{Jenna}, \textbf{Julia Robe}.  
+% Many members I never worked with but developed friendships regardless: \textbf{Sanah}, \textbf{Lauren Sanders}, \textbf{Anna Kofman}, \textbf{Jenna}, \textbf{Julia Robe}.  
 
-\begin{itemize}
-        \item Kesten
-        \item Barber
-        \item Gary
-        \item Sara Youlton, Hayley R., Kyle and Mitch
-\end{itemize}
-U Michigan: \begin{itemize}
-        \item Myron Campbell
-        \item Hannah Ruth
-        \item Liz, Nora, Jazmine, Jessica
-        \item Andrew
-    \end{itemize}
+% \begin{itemize}
+%         \item Kesten
+%         \item Barber
+%         \item Gary
+%         \item Sara Youlton, Hayley R., Kyle and Mitch
+% \end{itemize}
+% U Michigan: \begin{itemize}
+%         \item Myron Campbell
+%         \item Hannah Ruth
+%         \item Liz, Nora, Jazmine, Jessica
+%         \item Andrew
+%     \end{itemize}
     
-UChicago\begin{itemize}
-        \item Tim Gwen, Paul and science policy group
-        \item kavi, arijana, abby, shreya karia patty andrew.
-        \item office: John Andrea Rebecca putri 
-    \end{itemize}
-Family: \begin{itemize}
-        \item A la mia famiglia italiana: Grazie a i miei genitori italiani \textbf{Patrizia Martineli} e \textbf{Tarcisio Pompili} per avermi accolto nella vostra famiglia.
-        \item Marta
-        \item To my \textbf{Mom} and \textbf{Dad}, thank you for loving me unconditionally and encouraging me to pursue a higher education.
-        \item To my nephews and nieces: \textbf{Bentley}: you are the smartest, most inquisitive kid I've ever met.  Thank you, \textbf{Lily}, for being so excited to talk to me on the phone and always asking "where's the puppy" even though we don't have one.  One day I will! And you will be the first person I call.  Grazie, \textbf{Valerio} e \textbf{Flavio}, per aver giocato a Minecraft con me (anche se il mio italiano è pessimo e distruggo le cose).
-        \item To my "PACA" family: Thank you to my cousins, \textbf{Ariana} and \textbf{Caitlin}, for being the cool Seattle girls I've always looked up to.  I was such a dorky kid, but you always spoke to me with kindness and made me feel valuable.
-        \item Auntie Ann and Uncle Peter
-        \item Matteo
-    \end{itemize}
+% UChicago\begin{itemize}
+%         \item Tim Gwen, Paul and science policy group
+%         \item kavi, arijana, abby, shreya karia patty andrew.
+%         \item office: John Andrea Rebecca putri 
+%     \end{itemize}
+% Family: \begin{itemize}
+%         \item A la mia famiglia italiana: Grazie a i miei genitori italiani \textbf{Patrizia Martineli} e \textbf{Tarcisio Pompili} per avermi accolto nella vostra famiglia.
+%         \item Marta
+%         \item To my \textbf{Mom} and \textbf{Dad}, thank you for loving me unconditionally and encouraging me to pursue a higher education.
+%         \item To my nephews and nieces: \textbf{Bentley}: you are the smartest, most inquisitive kid I've ever met.  Thank you, \textbf{Lily}, for being so excited to talk to me on the phone and always asking "where's the puppy" even though we don't have one.  One day I will! And you will be the first person I call.  Grazie, \textbf{Valerio} e \textbf{Flavio}, per aver giocato a Minecraft con me (anche se il mio italiano è pessimo e distruggo le cose).
+%         \item To my "PACA" family: Thank you to my cousins, \textbf{Ariana} and \textbf{Caitlin}, for being the cool Seattle girls I've always looked up to.  I was such a dorky kid, but you always spoke to me with kindness and made me feel valuable.
+%         \item Auntie Ann and Uncle Peter
+%         \item Matteo
+%     \end{itemize}
 
 \end{document}
