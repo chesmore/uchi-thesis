@@ -27,8 +27,8 @@ In \S\ref{sec:obs} we describe the observations and catalog used to stack point 
 
 \begin{figure*}[t]
     \centering
-    \includegraphics[width = \textwidth]{Figures/ptsrc_map.png}
-    \caption{Spatial distribution of point sources from catalog(grey) and used in stacking(colored).  The color bar shows the flux of the special(ML) sources, which are plotted as triangles(circles).}
+    \includegraphics[width = \textwidth]{Figures/flux_map.pdf}
+    \caption{Spatial distribution of all point sources in the catalog(grey) and the selected point sources used in stacking(colored).  The color bar shows the flux of the special(ML) sources, which are plotted as triangles(circles).}
     \label{fig:ptsrc_map}
 \end{figure*}
 
@@ -70,8 +70,9 @@ We subdivide the remaining point sources into two categories: Special and Max-Li
 
 \begin{figure*}[t]
     \centering
-    \includegraphics[width=\textwidth]{Figures/inpainting.png}
-    \caption{Example inpainting-subtracted method for F150 PA4.  Top: PAX F090 beam and Bottom: PAX F150 beam...}
+    \includegraphics[height=.35\textwidth]{Figures/inpaint1.pdf}
+    \includegraphics[height=.35\textwidth]{Figures/inpaint2.pdf}
+    \caption{Inpainting-subtracted method as described in Section~\ref{subsec:stacking} for F090 PA5.  Top row: Stacked beam without inpainting subtraction (left) and stacked beam including inpainting-subtracted method (right).  Bottom: Inpainting signal which is subtracted during the stacking procedure for F090 PA5 (note the linear scale colorbar).  This shows the large angular-scale signal which is removed from the stacked beam with the inpainting method.}
     \label{fig:example_maps}
     \vspace{1em}
 \end{figure*}
@@ -95,11 +96,11 @@ The above procedure will not bias the point source signal as long as the signal 
 \begin{equation}
     s_i^{,} = s_i - s_{i,l}
 \end{equation}
-The final step is weighing each stamp and stacking them together.  We employ an inverse-variance weighting, where the weight is always calculated from the intensity $I_i$ stamp, and the same weight is applied the $Q_i$ and $U_i$ stamps.  The variance $\sigma^2$ is calculated between $r_{in}$ and $r_{out}$ of the stamp, where $r_{in}$ is defined as the radius where the Uranus-derived beam drops below $-35$\,dB (both $s_i^{,}$ and $s_p$ peak-normalized), and $r_{out}=\frac{4}{3}r_{in}$.  The weight of the stamp $w_i$ is then the inverse variance of $I$ within $r_{in}$ and $r_{out}$.  Once the above is calculated for all stamps in the set, the stack is calculated by:
+The final step is weighing each stamp and stacking them together.  We employ an inverse-variance weighting, where the weight is always calculated from the intensity $I_i$ stamp, and the same weight is applied the $Q_i$ and $U_i$ stamps.  The variance $\sigma^2$ is calculated between $r_{\text{in}}$ and $r_{\text{out}}$ of the stamp, where $r_{\text{in}}$ is defined as the radius where the Uranus-derived beam drops below $-35$\,dB (both $s_i^{,}$ and $s_p$ peak-normalized), and $r_{\text{out}}=\frac{4}{3}r_{\text{in}}$.  The weight of the stamp $w_i$ is then the inverse variance of $I$ within $r_{\text{in}}$ and $r_{\text{out}}$.  Once the above is calculated for all stamps in the set, the stack is calculated by:
 \begin{equation}
     \bar{s} = \frac{\sum_i s_i w_i }{\sum_i w_i}
 \end{equation}
-Figure~\ref{fig:example_maps} shows two example outputs of the stacking, for PA5 F090 and F150.  
+Figure~\ref{fig:example_maps} shows an example output of the stacking, for PA5 F090.  
 
 \subsection{Bias From Stacking}
 \label{subsec:bias}
@@ -113,16 +114,16 @@ Error of the radial profiles is obtained by simulating and stacking 100 maps wit
 
 \subsection{Beam Window Functions}
 \label{subsec:window}
-\textcolor{red}{REWRITE THIS SECTION...}
-In spherical harmonic space, the beam information is encoded in the harmonic transform $b_{\ell}$ and the window function $w_{\ell} = b_{\ell}^2$, which describes the instrument's response to different multipoles, $\ell$. This window function is an essential component of the DR4 power spectrum analysis in \cite{choi_2020}.
 
-The harmonic transform $b_{\ell}$ is the Legendre transform, or more accurately the Legendre polynomial transform, of the beam radial profile:
+The window function $w_{\ell}$ quantifies the response of an instrument across angular scales, or multipoles $\ell$, which is encoded in the instrument's beam.  Because the CMB spectra is presented in spherical harmonic $\ell$-space, we similarly will compute the instrument's window function in $\ell$-space.  The window function is defined as
+\begin{equation}
+    w_\ell = b_\ell^2 \; ,
+\end{equation}
+where $b_\ell$ is a Legendre Polynomial transform of the instrument's beam (the full derivation of the Legendre transform is presented in~\cite{Lungu_2022}): 
 \begin{equation}
 b_{\ell} = \frac{2\pi}{\Omega}\int_{-1}^{1} B(\theta)P_{\ell}(\cos\theta)\; d(\cos\theta) \; .
 \label{eq:legendre}
 \end{equation}
-
-For small beams, such as that of ACT, this is effectively a Fourier transform. The derivation of the Legendre transform and details about how the transform is computed are presented in~\cite{Lungu_2022}.
 
 We use $b_{\ell}$ instead of $B_{\ell}$ to indicate the division by $\Omega$, which normalizes $b_{\ell}$ to unity at $\ell = 0$ (as $P_0 = 1$). $b_{\ell}$ is dimensionless, whereas $B_{\ell} = \Omega b_{\ell}$ has units of $\mathrm{sr}$.  We extrapolate the model beyond the fit radius of 10$^{\prime}$ when computing the transform.  This is necessary to capture the low-$\ell$ part of the window function, and to account for the part of the beam solid angle that is beyond the range we fit.
 
@@ -150,7 +151,7 @@ where the $\sqrt{4 \pi / (2 \ell + 1)}$ factor converts from spherical harmonic 
 
 \begin{figure*}[t!]
     \centering
-    \includegraphics[width=\linewidth]{Figures/simmap.png}
+    \includegraphics[width=\linewidth]{Figures/simmap.pdf}
     \caption{Example of a simulated map used to characterize the stacking bias.  This example is for PA5 in the F090, zoomed in to an area of $2\deg\times2\deg$.  Top left: Point-source map using the input catalog RA and DEC coordinates.  Top right:  Simulated CMB.  Bottom left:  Simulated noise~\cite{atkins}.  Bottom right: Final simulated map after combining the previous three components.  This process is done for each PA and F-band, and repeated 100 times to estimate radial profile errors.
     }
     \label{fig:sim_map}
