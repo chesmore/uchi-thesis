@@ -16,19 +16,19 @@ Previous work to characterize the ACT instrument beam have done so with planet m
 \vspace{1em}
     \centering
     \includegraphics[width=\linewidth]{Figures/pt_src_dist.png}
-    \caption{Distribution of the total number of point sources that were in the catalog (faded colors) and ultimately became part of the final beam analysis (solid colors) for all arrays combined, shown by observing seasons from 2017--19.
+    \caption{Distribution of the total number of point sources that were in the catalog (greys) and ultimately became part of the final beam analysis (colored) for all arrays combined, shown by observing seasons from 2017--19.  Point sources used in the stacking are separated into Special(red dots) and ML(gradient hexagonal bins) sources (the two types of sources are described in \S\ref{subsubsec:type_sel}).
     }
     \label{fig:ptsrc_select}
     \vspace{1em}
 \end{figure*}
 
 The paper is organized as follows. 
-In \S\ref{sec:obs} we describe the observations and catalog used to stack point sources and characterize the ACT beams.  In \S\ref{sec:stack} we explain the stacking process, starting from an input map and producing a stacked beam profile.  In \S\ref{sec:sim_pipe} we describe the steps of the map simulation pipeline, then going from simulated point-source maps to a model of the ACT beams and their covariance.  In \S\ref{sec:act_results} we present the results from the stacking method, including the stacked temperature to polarization leakage, and the temperature beam radial profiles.  Finally, in \S\ref{sec:act_disc} we discuss assumptions made in the analysis and future directions for ACT beam characterization.
+In \S\ref{sec:observations} we describe the observations and catalog used to stack point sources and characterize the ACT beams.  In \S\ref{sec:stack} we explain the stacking process, starting from an input map and producing a stacked beam profile.  In \S\ref{sec:sim_pipe} we describe the steps of the map simulation pipeline, then going from simulated point-source maps to a model of the ACT beams and their covariance.  In \S\ref{sec:act_results} we present the results from the stacking method, including the stacked temperature to polarization leakage, and the temperature beam radial profiles.  Finally, in \S\ref{sec:act_disc} we discuss assumptions made in the analysis and future directions for ACT beam characterization.
 
 \begin{figure*}[t]
     \centering
     \includegraphics[width = \textwidth]{Figures/flux_map.pdf}
-    \caption{Spatial distribution of all point sources in the catalog(grey) and the selected point sources used in stacking(colored).  The color bar shows the flux of the special(ML) sources, which are plotted as triangles(circles).}
+    \caption{Spatial distribution of all point sources in the catalog(grey) and the selected point sources used in stacking(colored).  The color bar shows the flux of the special(ML) sources, which are plotted as triangles(circles).  The regions of the map with no used point sources indicate regions which are masked out prior to stacking.  The mask ensures that the stacked point sources are in the same regions of the sky used in cosmology science.}
     \label{fig:ptsrc_map}
 \end{figure*}
 
@@ -66,20 +66,20 @@ Figure~\ref{fig:ptsrc_select} shows the number of point sources used in each ban
 
 \subsubsection{Special vs. ML Sources}
 \label{subsubsec:type_sel}
-We subdivide the remaining point sources into two categories: Special and Max-Likelihood (ML) point sources.  When making the maps, as described in Section~\ref{sec:observations}, point sources are treated with the two differing methods, and thus we want to consider the two groups individually when stacking to note any differences this treatment may have caused.  The final distribution of selected point sources is shown in Figure~\ref{fig:ptsrc_select}.
+We subdivide the remaining point sources into two categories: Special and Max-Likelihood (ML) point sources.  When making the maps, as described in \S\ref{sec:observations}, point sources are treated with the two differing methods, and thus we want to consider the two groups individually when stacking to note any differences this treatment may have caused.  The final distribution of selected point sources is shown in Figure~\ref{fig:ptsrc_select}.
 
 \begin{figure*}[t]
     \centering
     \includegraphics[height=.35\textwidth]{Figures/inpaint1.pdf}
     \includegraphics[height=.35\textwidth]{Figures/inpaint2.pdf}
-    \caption{Inpainting-subtracted method as described in Section~\ref{subsec:stacking} for F090 PA5.  Top row: Stacked beam without inpainting subtraction (left) and stacked beam including inpainting-subtracted method (right).  Bottom: Inpainting signal which is subtracted during the stacking procedure for F090 PA5 (note the linear scale colorbar).  This shows the large angular-scale signal which is removed from the stacked beam with the inpainting method.}
+    \caption{Inpainting-subtracted method as described in \S\ref{subsec:stacking} for F090 PA5.  Top row: Stacked beam without inpainting subtraction (left) and stacked beam including inpainting-subtracted method (right).  Bottom: Inpainting signal which is subtracted during the stacking procedure for F090 PA5 (note the linear scale colorbar).  This shows the large angular-scale signal which is removed from the stacked beam with the inpainting method.}
     \label{fig:example_maps}
     \vspace{1em}
 \end{figure*}
 
 \subsection{Stacking}
 \label{subsec:stacking}
-This section describes the stacking procedure with the selected sources.  Each stamp $s_i$ is re-projected to the same geometry prior to stacking.  Each stamp is cut from the map and re-projected to a tangent plane using a bi-cubic interpolation.  Re-projecting to a tangent plane ensures stacking multiple sources from different declinations are not stretched by different amounts (as a result of the CAR pixelization of the input map).  The bicubic interpolation introduces a small bias resembling a low-pass filter, which we investigate in Section~\ref{sec:sim_pipe}.  We will show this bias is small enough to neglect.
+This section describes the stacking procedure with the selected sources.  Each stamp $s_i$ is re-projected to the same geometry prior to stacking.  Each stamp is cut from the map and re-projected to a tangent plane using a bi-cubic interpolation.  Re-projecting to a tangent plane ensures stacking multiple sources from different declinations are not stretched by different amounts (as a result of the CAR pixelization of the input map).  The bicubic interpolation introduces a small bias resembling a low-pass filter, which we investigate in \S\ref{sec:sim_pipe}.  We will show this bias is small enough to neglect.
 
 %Because we want our final product to be the beam of the telescope, we employ a large-scale structure removal procedure such that all we are left with is the beam.  First, we use a method we call "inpainting".  
 Before stacking the reprojected stamps, we subtract an estimate of the large-scale correlated noise component of the stamp. The correlated noise, coming mainly from the CMB and atmosphere, is relatively bright compared to the point sources (at around the -20 dB level for even the brightest point sources), making it crucial to remove it prior to stacking.  If left in the stamps, the correlated noise is not averaged down enough during stacking as a result of the small number of high signal-to-noise sources in the stack. The resulting stacks show a large amount of noise variance that prohibits measurements of the non-central parts of the beam. We only perform the subtraction on the Stokes $I$ component of the stamps, the Stokes $Q$ and $U$ components have a relatively small amount of correlated noise, making the subtraction procedure unnecessary.
@@ -90,7 +90,7 @@ We refer to the subtraction method as ``inpaint-subtraction''. This procedure ma
 \end{equation}
 Here, $s$ denotes the input stamp and $S^{-1}$ denotes the covariance matrix of the correlated noise, modelled as a ``$1/f$'' spectrum in harmonic space: $1/ (1 + \ell / \ell_{\mathrm{knee}}^{-3})$ with $\ell_{\mathrm{knee}} = 2000$. This is a rough approximation of the actual covariance matrix of the correlated noise, but it works sufficiently well for our purpose. The $M^{-1}$ matrix is modelled in the pixel-domain, where it sets all pixels in the region around the point source to zero, and all pixels outside the region to a small, but nonzero value. The conjugate gradient method solves Equation~\ref{eq:inpaint} in roughly 10-20 steps, yielding $s_l$: a version of the stamp with an inpainted inner region that is smoothly connected to the outer region. The result of the inpainting-subtraction is shown in Figure~\ref{fig:example_maps}.
 
-The above procedure will not bias the point source signal as long as the signal is zero in the unmasked outer region. In that case the information available for inpainting, i.e.\ the outer region, is independent of the point source and thus the inpainting-subtraction is unbiased by construction. However, due to the extended structure of the beam, the point source signal is not quite zero at the edges of the stamp where we define the outer region. As a result, the inpainting solution will not be perfectly uncorrelated to the point source signal, which means that once the inpainted stamp is subtracted, a small amount of the point source signal is also subtracted. This type of bias is similar to the one explained in the ACT DR4 beam paper~\cite{Lungu_2022}. To minimize the bias, we start the outer region at the radius at which the fiducial Uranus-derived beam becomes smaller than $10^{-4}$ compared to its peak value. Using the simulations in Section~\ref{sec:sim_pipe} we validate that the remaining bias is small enough to ignore.
+The above procedure will not bias the point source signal as long as the signal is zero in the unmasked outer region. In that case the information available for inpainting, i.e.\ the outer region, is independent of the point source and thus the inpainting-subtraction is unbiased by construction. However, due to the extended structure of the beam, the point source signal is not quite zero at the edges of the stamp where we define the outer region. As a result, the inpainting solution will not be perfectly uncorrelated to the point source signal, which means that once the inpainted stamp is subtracted, a small amount of the point source signal is also subtracted. This type of bias is similar to the one explained in the ACT DR4 beam paper~\cite{Lungu_2022}. To minimize the bias, we start the outer region at the radius at which the fiducial Uranus-derived beam becomes smaller than $10^{-4}$ compared to its peak value. Using the simulations in \S\ref{sec:sim_pipe} we validate that the remaining bias is small enough to ignore.
  
  The above inpainting procedure returns our point-source-free stamp, $s_{i,l}$.  We then subtract $s_{i,l}$ from our original stamp, $s_i$:
 \begin{equation}
@@ -104,48 +104,44 @@ Figure~\ref{fig:example_maps} shows an example output of the stacking, for PA5 F
 
 \subsection{Bias From Stacking}
 \label{subsec:bias}
-To study this bias, a set of simulated observations are processed through the stacking process.  The full simulation pipeline is described in Section~\ref{sec:sim_pipe}.
+To study this bias, a set of simulated observations are processed through the stacking process.  The full simulation pipeline is described in \S\ref{sec:sim_pipe}.
 
 \subsection{Radial Profiles}
 \label{subsec:profs}
 Maps are binned into a symmetrized radial profile with bins of varying width, out to a radius of 20$^{\prime}$(15$^{\prime}$) for F090 and F150(F220), independently for each detector array, and F-band.  The bins are chosen to be logarithmic in radius.  We ultimately want to compare the stacked profiles to the Uranus-derived beams.  To do so, we first convert the Uranus-derived beams to a 2D stack matching the stamp geometry of the stacked beam.  We then radially bin the new Uranus-derived beam with the same bins used on the stacks.
 
-Error of the radial profiles is obtained by simulating and stacking 100 maps with the simulation pipeline described in Section~\ref{sec:sim_pipe} and Section~\ref{sec:stack}.  The covariance matrix of these 100 simulated radial profiles estimates the error of our "true" stacked profiles at each binned radius.
+Error of the radial profiles is obtained by simulating and stacking 100 maps with the simulation pipeline described in \S\ref{sec:sim_pipe} and \S\ref{sec:stack}.  The covariance matrix of these 100 simulated radial profiles estimates the error of our "true" stacked profiles at each binned radius.
 
 \subsection{Beam Window Functions}
 \label{subsec:window}
 
 The window function $w_{\ell}$ quantifies the response of an instrument across angular scales, or multipoles $\ell$, which is encoded in the instrument's beam.  Because the CMB spectra is presented in spherical harmonic $\ell$-space, we similarly will compute the instrument's window function in $\ell$-space.  The window function is defined as
 \begin{equation}
-    w_\ell = b_\ell^2 \; ,
+    w_\ell = B_\ell^2 \; ,
 \end{equation}
 where $b_\ell$ is a Legendre Polynomial transform of the instrument's beam (the full derivation of the Legendre transform is presented in~\cite{Lungu_2022}): 
 \begin{equation}
-b_{\ell} = \frac{2\pi}{\Omega}\int_{-1}^{1} B(\theta)P_{\ell}(\cos\theta)\; d(\cos\theta) \; .
+B_{\ell} = \frac{2\pi}{\Omega}\int_{-1}^{1} B(\theta)P_{\ell}(\cos\theta)\; d(\cos\theta) \; .
 \label{eq:legendre}
 \end{equation}
 
-We use $b_{\ell}$ instead of $B_{\ell}$ to indicate the division by $\Omega$, which normalizes $b_{\ell}$ to unity at $\ell = 0$ (as $P_0 = 1$). $b_{\ell}$ is dimensionless, whereas $B_{\ell} = \Omega b_{\ell}$ has units of $\mathrm{sr}$.  We extrapolate the model beyond the fit radius of 10$^{\prime}$ when computing the transform.  This is necessary to capture the low-$\ell$ part of the window function, and to account for the part of the beam solid angle that is beyond the range we fit.
+Each $B_\ell$ is fixed at $\ell=1050$ for F090 and $\ell=1525$ for F150 and F220.  This $\ell$ range is the calibration value at which the ACT maps are calibrated to Planck, therefore we set the ratios of stacks to Uranus-derived beams to unity at this angular scale.
 
-%\begin{equation}
-%\label{eq:trans_e_b}
-%    \{\tilde{E}(\ell), \tilde{B}(\ell)\} = -2\pi\int \{\tilde{Q}_r(\theta),\tilde{U}_r(\theta) \} J_2(\ell\theta)\;\theta\;d\theta \; .
-%\end{equation}
-
-
-We start the construction of the leakage beams by decomposing the Stokes $Q$ and $U$ stamps into $E$- and $B$-mode spherical harmonic coefficients~\cite{challinor_2000}:
+We quantify the leakage beams, or temperature power which has "leaked" into the Q and U polarization maps, by decomposing the Stokes $Q$ and $U$ stamps into $E$- and $B$-mode spherical harmonic coefficients~\cite{challinor_2000}:
 \begin{equation}
 \label{eq:pol_beam_coeffs}
 b^{E}_{\ell m} \pm \mathrm{i} b^{B}_{\ell m} = - \int \mathrm{d}\Omega(\hat{n}) (Q \pm \mathrm{i} U)(\hat{n})\, {}_{\pm 2}Y^*_{\ell m}(\hat{n})
 \end{equation}
-Here ${}_{\pm 2}Y^*_{\ell m}$ are the spin-$\pm2$ spherical harmonic coefficients and the integral is taken over the whole sphere. $Q$ and $U$ represent the Stokes $Q$ and $U$ components of the stack rotated from the equator (where the stacks are centered) to the north pole of the standard spherical coordinate system. The rotation is done using the \texttt{pixell} library and takes into account the mixing of $Q$ and $U$ under rotations. Similar to the reprojection mentioned in Section~\ref{subsec:stacking} the rotation also makes use of bicubic interpolation. Again, through the simulations we have validated that the resulting smoothing does not introduce a significant bias.
 
-The $E$- and $B$-mode spherical harmonic coefficients from Equation~\ref{eq:pol_beam_coeffs} now have to be converted into the $T\rightarrow E$ and $T\rightarrow B$ leakage beams. To do so we only take into account the symmetric part of the beam, i.e.\ the $m=0$ coefficients. The asymmetric part of the leakage beam, corresponding to the $m\neq0$  coefficients, are expected to average away in the maps due to the crosslinking scan pattern of the telescope~\cite{Lungu_2022}. We thus model the leakage beams as:
+Here ${}_{\pm 2}Y_{\ell m}$ are the spin-$\pm2$ spherical harmonic coefficients and the integral is taken over the whole sphere. $Q$ and $U$ represent the Stokes $Q$ and $U$ components of the stack rotated from the equator (where the stacks are centered) to the north pole of the standard spherical coordinate system. The rotation is done using the \texttt{pixell}~\footnote{\url{https://github.com/simonsobs/pixell}} library and takes into account the mixing of $Q$ and $U$ under rotations.  Similar to the reprojection mentioned in \S\ref{subsec:stacking} the rotation also makes use of bicubic interpolation. Again, through the simulations, we have validated that the resulting smoothing does not introduce a significant bias.
+
+The $T\rightarrow E$ and $T\rightarrow B$ leakage beams are obtained from the $E$- and $B$-mode spherical harmonic coefficients in Equation~\ref{eq:pol_beam_coeffs}.  Here, we only present the symmetric part of the beam, i.e.\ the $m=0$ coefficients, though our analysis can also be used to study higher modes ($m=1,2$).  
+The symmetric part of the leakage beam is modeled as:
 \begin{equation}
 B^{T\rightarrow E/B}_{\ell} = b^{E/B}_{\ell 0} \sqrt{\frac{4 \pi}{2 \ell + 1}}
 \end{equation}
-where the $\sqrt{4 \pi / (2 \ell + 1)}$ factor converts from spherical harmonic coefficients to Legendre polynomial coefficients, which have the appropriate normalization. 
-
+Where the $\sqrt{4 \pi / (2 \ell + 1)}$ factor converts from spherical harmonic coefficients to Legendre polynomial coefficients, which have the appropriate normalization. 
+% We also include non-symmetric coefficients ($m\neq0$) in our analysis because we want to test whether the asymmetric leakage is averaged out (due to cross-linking) or if it persists.  
 \section{Simulation Pipeline}
 \label{sec:sim_pipe}
 
@@ -157,25 +153,25 @@ where the $\sqrt{4 \pi / (2 \ell + 1)}$ factor converts from spherical harmonic 
     \label{fig:sim_map}
 \end{figure*}
 
-We simulate a stacked profile to validate our stacking pipeline and to estimate statistical uncertainty on the radial profiles presented in Section~\ref{sec:act_results}.  We first simulate a map by combining simulated point sources (referencing the catalog) along with a simulated CMB and foregrounds, and additionally adding simulated noise.  An example of a simulated map (box area of $\pm2\deg$ is shown in Figure~\ref{fig:sim_map}.  The four quadrants show the three main components of the simulated maps, followed by the total simulated map as the prior three are combined.  Here, we detail the construction of the simulations.
+We simulate a stacked profile to validate our stacking pipeline and to estimate statistical uncertainty on the radial profiles presented in \S\ref{sec:act_results}.  We first simulate a map by combining simulated point sources (referencing the catalog) along with a simulated CMB and foregrounds, and additionally adding simulated noise.  An example of a simulated map (box area of $\pm2\deg$ is shown in Figure~\ref{fig:sim_map}.  The four quadrants show the three main components of the simulated maps, followed by the total simulated map as the prior three are combined.  Here, we detail the construction of the simulations.
 
 \subsection{Point Source Map Simulation}
 \label{subsec:sim_ptsrc}
-A point source map is simulated using the input catalog, and point source selection described in Section~\ref{subsubsec:cat_sel}.  The Uranus-derived beam defines the shape of the point sources in the simulated map.  Fluxes of each point source are obtained from the catalog and converted to the units of the data maps ($\mu K_\text{CMB}$) using the fiducial beam solid angle and center frequency of the passbands.
+A point source map is simulated using the input catalog, and point source selection described in \S\ref{subsubsec:cat_sel}.  The Uranus-derived beam defines the shape of the point sources in the simulated map.  Fluxes of each point source are obtained from the catalog and converted to the units of the data maps ($\mu \text{K}_\text{CMB}$) using the fiducial beam solid angle and center frequency of the passbands.
 
 The fiducial beam profile, fluxes and coordinates are then given to the \verb|pixell.sim_objects| function that outputs a simulated point source map with matching point sources and map shape as the catalog and DR6 map. We choose to apply to the simulated map a pixel window function that matches that of the data maps for ease of comparison.
 
 \subsection{CMB Simulation}
 \label{subsec:sim_cmb}
-The second component of the simulation is diffuse sky signal comprised of the CMB and (extra-)Galactic foregrounds.  This signal is critical in the simulation because the CMB is a significant source of noise in our stacked profiles at intermediate angular scales.  To accurately estimate the uncertainty and bias introduced by the inpaint-subtraction method described in Section~\ref{subsec:stacking}, we must include the CMB in our simulations.
+The second component of the simulation is diffuse sky signal comprised of the CMB and (extra-)Galactic foregrounds.  This signal is critical in the simulation because the CMB is a significant source of noise in our stacked profiles at intermediate angular scales.  To accurately estimate the uncertainty and bias introduced by the inpaint-subtraction method described in \S\ref{subsec:stacking}, we must include the CMB in our simulations.
 
 We use the DR4 $C_\ell^{TT}$ power spectra to draw Gaussian realizations of the diffuse sky signal. An example of this simulated signal is shown in the top right of Figure~\ref{fig:sim_map}.  This simulation also contains foregrounds, which are an important contribution at high multipoles.
 
 \begin{figure*}[t]
     \centering
     \includegraphics[width=\textwidth]{Figures/profiles_sims.png}
+    \caption{Mean simulated radial profile at each F-band and PA, averaged over 100 simulations.  Mean simulated profiles are shown for Special(red) and ML(blue) sources, with error bars calculated from the covariant matrix of the 100 profiles.  Each profile is then compared to the corresponding Uranus-derived beam(black) in the bottom panel of each plot.  This shows the bias from the stacking procedure is minimal and can be neglected in the subsequent analysis.}
     \label{fig:simprofs}
-    \caption{Mean simulated radial profile at each F-band and PA.}
 \end{figure*}
 
 \subsection{Noise Simulation}
@@ -186,7 +182,7 @@ The ACT map-based noise simulations will be fully described in an upcoming paper
 
 As the map-based simulations at the time of this analysis only describe the noise on large angular scales ($\ell<5000$), we manually fill in the noise on small angular scales.  We then splice together two noise simulations in $\ell$-space, such that the white noise term occupies the lower $\ell$-space and map-based noise dominates the high $\ell$-space.  An example patch of the noise map is shown in the bottom left of Figure~\ref{fig:sim_map}.
 
-Figure YYY shows the mean simulated profile at each PA and F-band compared to the Uranus-derived beam.
+Figure~\ref{fig:simprofs} shows the mean simulated profile (over 100 simulations) at each PA and F-band compared to the Uranus-derived beam, plotted in black.  From this averaged simulated beam, we determine the stacking procedure to have negligible bias on the resulting beam profile.
 
 \section{Results}
 \label{sec:act_results}
@@ -195,7 +191,7 @@ Here, we detail the resulting temperature and temperature-to-polarization leakag
 \begin{figure*}[t]
     \centering
     \includegraphics[width=\textwidth]{Figures/profiles_noP_15.pdf}
-    \caption{The average radial profile of the simulated observations for PA5 at 150 GHz, comparing the azimuthal averages of the input 2D beam model and the beam of the stacked point sources. 
+    \caption{Stacked radial profile at each F-band and PA.  Profiles are shown for Special(red) and ML(blue) sources, with error bars calculated from the covariant matrix of 100 simulated stacked beams.  Each profile is then compared to the corresponding Uranus-derived beam(black) in the bottom panel of each plot.
     }
     \label{fig:profiles}
 \end{figure*}
@@ -210,47 +206,44 @@ The stacked profiles are shown in Figure~\ref{fig:profiles}.  Each profile shows
 \label{subsubsec:null_mainbeam}
 
 To study the spatial variation of point sources, we conducted a "null test" where we stacked four categories of point sources: high and low, RA and DEC.  We separate the catalog in half by considering the median RA and DEC, such that the four categories are $\text{RA}_{\text{low}}$, $\text{RA}_{\text{high}}$, $\text{DEC}_{\text{low}}$ and $\text{DEC}_{\text{low}}$ (separated by their median values). 
- Figure~\ref{fig:bells} shows the resulting window functions $B_{\ell}$ for each F-band and PA.
+ Figure~\ref{fig:bells} shows the resulting window functions $B_{\ell}$ for each F-band and PA.  The red line in each sub-plot show the full map's $B_{\ell}$ for comparison.
 
-From this test, we find the special sources have spatial dependence where the $\text{DEC}_{\text{low(high)}}$ and $\text{RA}_{\text{high(low)}}$ match in window function, but differ from its opposite.  \textcolor{red}{Sentence explaining this effect or how it is consistent with other analyses.}
+From this test, we find the special sources have spatial dependence where the $\text{DEC}_{\text{low(high)}}$ and $\text{RA}_{\text{high(low)}}$ match in window function, but differ from its opposite.  Specifically, the Special sources consistently show larger power at high $\ell$'s in the $\text{DEC}_{\text{low}}$ and $\text{RA}_{\text{high}}$ than the Uranus-derived profiles, indicating a tighter beam in these regions of the sky.  This effect is most prominent in the F090 PA5/6 and F150 PA4 profiles.  The ML sources, however, do not show this effect, as we note less varation between the profiles when separated by regions of the sky.
 
 \begin{figure*}
     \centering
-    \includegraphics[width=\textwidth]{Figures/Bells_ratio_planet.pdf}
-    \caption{Window function of stacked point sources, separated by RA and DEC, which we consider as a null test.  The full map stacked is plotted in red.}
+    \includegraphics[width=.9\textwidth]{Figures/Bells_ratio_planet.pdf}
+    \caption{Window function of stacked point sources, separated by high and low RA and DEC, which we consider as a null test.  The top two rows are Special sources, and the bottom two rows are the ML sources.  Each ratio is normalized to $B_\ell =1$ at $\ell=YYY$.  The full map stacked is plotted in red.  This test presents a spatial variance of rthe stacks.}
     \label{fig:bells}
 \end{figure*}
 
 \subsection{Temperature to Polarization Leakage Beam}
 \label{subsec:polbeam}
-
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width = \textwidth]{Figures/polbeams.png}
+    \caption{Polarization leakage from stacked F150 PA4 beam, for the ML sources.  Top row: Q polarized beam.  Bottom row: U polarized beam. 
+    Left column: stacked map, Middle column: modeled polarization leakage, Right column: difference between stacked and modeled beams.}
+    \label{fig:polmodel}
+\end{figure*}
 Here, we present the polarized beams of the stacked point sources to determine polarization leakage in the instrument.  The leakage is relatively small compared to the magnitude of the temperature beam, however the sensitivity of ACT DR6 data is such that this leakage needs to be accounted for in the analysis.  Previously, observations of Uranus were used to build an $\ell$-space T-to-P leakage function for a given frequency and array in the instrument.  Here, we test this method by comparing the leakage to our new method of stacking.
 
 \begin{figure*}[t]
     \centering
-    \includegraphics[width = \textwidth]{Figures/polbeams.png}
-    \caption{Polarization leakage from stacked F150 PA4 beam, for the ML sources.  The left column shows the stacked map, the middle column is the modeled polarization leakage, and the right column is the difference between them.}
-    \label{fig:polmodel}
-\end{figure*}
-
-
-
-\begin{figure*}
-    \centering
     \includegraphics[width = \textwidth]{Figures/leakage.pdf}
-    \caption{Polarization leakage from stacked}
+    \caption{Polarization leakage, $B^{T\xrightarrow[]{}P}_{\ell}$, from stacked and Uranus-derived profiles.  Leakage beams are separated by Special(dashed-dotted) and ML(dashed) sources, with leakage from the planet profile(solid) plotted for comparison.  Stacked polarization leakage is consistent with leakage estimation from planet-derived profiles, indicating the planet profiles are a sufficient estimation for use on CMB maps.}
     \label{fig:leakage}
 \end{figure*}
 
 Figure~\ref{fig:polmodel} shows an example of the stacked polarization leakage beam, the modeled beam, and the residual for F150 PA4. Note that the quadrupole shape of the model is due to the reprojection to the stack geometry: although we model the leakage beam as azimuthally symmetric when located on the pole of the standard spherical coordinate system, the symmetric shape turns into a quadrupole shape when rotated to the stack geometry location, which is centered on the equator. From the window functions, we obtain the window functions of each array's T$\xrightarrow[]{}$E and T$\xrightarrow[]{}$B leakage (Figure~\ref{fig:leakage}).
 
-
+We find broad agreement between the Uranus-derived and stacked polarization beams.  This provides evidence that the planet-derived leakage estimation is appropriate for use in actual CMB maps.  Furthermore, there is no statistically significanty deviation between the special and ML stacked leakage beam (any deviation is within the estimated error margin).
 \section{Discussion}
 \label{sec:act_disc}
+In this paper, we have presented the analysis of the ACT beams for DR6 using a novel point source stacking method, which includes data from 2017--19.  We describe the full point-source stacking method, including the use of an inpainting method to remove large-scale structures and improve the signal-to-noise of the resulting stacked profiles.
 
-\subsection{Beam Products}
-\label{subsec:prods}
+The temperature beams show an increase in power at high $\ell$ scales when compared to the Uranus-derived profile, as well as a spatial variance when the stacks are separated by location on the sky.  This effect is especially significant for Special sources and requires further investigation to determine the exact source of such spatial variation.
 
-\subsection{Conclusion}
-\label{subsec:concl}
-In this paper, we have presented the analysis of the ACT beams for DR6, which includes data from 2017--19. ...
+Polarization leakage as determined by the stacks is not significantly different from the predicted leakage by the Uranus-derived profile.  Any difference of leakge between ML and Special profiles is within their respective error estimates and therefor we consider them to be in agreement.  This indicates the planet-derived leakage estimation is sufficient for usage on CMB maps.
+
+We believe point source stacking is a robust method for leakage estimation and instrument profile characterization.  This is especially useful to verify the planet-derived profiles commonly used to carry out cosmology science on CMB maps.
