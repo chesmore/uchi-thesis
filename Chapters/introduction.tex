@@ -137,7 +137,7 @@ Today, the universe is described by the $\Lambda$CDM model, which assumes a flat
 \begin{equation}
     \epsilon_\Lambda = \frac{c^2}{8\pi G}\Lambda 
 \end{equation}
-The $\Lambda$CDM model neatly models the universe in six parameters: the baryonic density $\Omega_b\,h^2$, the cold dark matter density $\Omega_c\,h^2$, $\ln(10^{10}A_s)$, the spectral index of inflation $n_s$, the size of the acoustic horizon at decoupling 100\,$\theta_{*}$, and the reionization optical depth $\tau$.  Further, the standard model assumes a constant number of neutrino $N_{\text{eff}}$ and sum of neutrino masses $\sigma m_\nu$.The most up-to-date values are listed in Table~\ref{tab:cosmology_recent_results}.
+The $\Lambda$CDM model neatly models the universe in six parameters: the baryonic density $\Omega_b\,h^2$, the cold dark matter density $\Omega_c\,h^2$, $\ln(10^{10}A_s)$, the spectral index of inflation $n_s$, the size of the acoustic horizon at decoupling 100\,$\theta_{*}$, and the reionization optical depth $\tau$.  Further, the standard model assumes a constant number of neutrino $N_{\text{eff}}$ and sum of neutrino masses $\Sigma m_\nu$. The most up-to-date values are listed in Table~\ref{tab:cosmology_recent_results}.  All of these parameters impact the shape of the CMB spectra which we measure today.
 
 \section{The CMB Temperature Power Spectra}
 The cosmic microwave background carries rich science in its temperature and polarization spectra.  The CMB power spectra can be decomposed into spherical harmonics, which result in power spectra as a function of multipole moment $\ell$, where $\ell\approx180/\theta$.  The temperature fluctuations of the CMB are decomposed into spherical harmonics:
@@ -160,8 +160,6 @@ This is the temperature power spectrum of the CMB.  Figure~\ref{fig:measured_cmb
 \end{figure}
 
 The shape of the CMB power spectra unlocks properties of the early universe.  For example, the first peak in the power spectrum at around $\ell\approx220$ corresponds to the angle at which we observe the sound horizon, or the distance that sound can travel between the big bang and recombination.  The measurement of this power spectrum's morphology can also determine physical matter and baryon densities.  The dark energy properties of our universe can additionally be constrained by the power spectrum peak, as the dark energy and matter densities jointly alter the distance to last scattering.  The smaller angular scale distortions are in part due to an inhomogeneous universe at the time of last scattering ($z\approx 1100$).  
-
-\textcolor{red}{IN PROGRESS}Additional parameters which impact the shape of the power spectrum include $N_{\text{eff}}$ and sum of neutrino masses...
 
 \section{The Polarized CMB}
 
@@ -231,7 +229,7 @@ This not only affects the immediate quality of our CMB maps, but also impacts th
 Entire classes of inflationary models can be ruled out by constraining $n_{\text{s}}$.  Achieving this goal, however, requires precise beam calibration on these small angular scales.  Further, characterizing the polarization leakage from the telescope's beam is critical to map the tiniest signals of the CMB's polarization.  For this reason, this work focuses on beam calibration, both for the Simons Observatory and the Atacama Cosmology Telescope.
 
 \section{Status of the Field}
-\begin{table}[b]
+\begin{table}[b!]
     \centering
     \begin{tabular}{|c|c|c|}\hline 
          Parameter & Planck 2018 Release & ACT 2020 Release \\ \hline
@@ -245,7 +243,7 @@ Entire classes of inflationary models can be ruled out by constraining $n_{\text
          $t_0$ [Gyr] & 13.791 $\pm$ 0.025 & 13.832$\pm$0.047\\
          \hline
     \end{tabular}
-    \caption{The most recent cosmological parameters as from the 2018 Planck release~\cite{planck2020} and the 2020 ACT release~\cite{aiola_2020}.  Dark Energy density, $\Omega_\Lambda$, the age of the Universe in Gyr, $t_0$.}
+    \caption{The most recent cosmological parameters as from the 2018 Planck release~\cite{planck2020} and the 2020 ACT release~\cite{aiola_2020}.  Baryonic and cold dark matter densities $\Omega_b$, $\Omega_c$, dark energy density $\Omega_\Lambda$ spectral index of inflation $n_{\text{s}}$, acoustic horizon at decoupling $\theta_*$, reionization depth $\tau$, and the age of the Universe in Gyr, $t_0$.}
     \label{tab:cosmology_recent_results}
 \end{table}
 
@@ -255,9 +253,9 @@ In the coming years, cosmologists aim to detect the tiniest signals of the polar
 
 \section{Outline of Thesis}
 
-First, I overview two ground-based cosmology experiments in Chapter~\ref{ch:instruments}: the Atacama Cosmology Telescope (ACT) and the Simons Observatory (SO).  This work focuses on the development and characterization of optical components for the Simons Observatory.  In the final chapter of this work, I characterize the optical performance of ACT.
+First, I overview two ground-based cosmology experiments in Chapter~\ref{ch:instruments}: the Atacama Cosmology Telescope (ACT) and the Simons Observatory (SO).  This work focuses on the development and characterization of optical components for the SO.  In the final chapter of this work, I characterize the optical performance of ACT.
 
-In Chapter~\ref{ch:mma}, I present an overview of the meta-material absorbers used in the Simons Observatory Large Aperture Telescope optics tubes to control stray light.  I also present the characterization of their optical properties using a radio holography receiver.  These tiles are comprised of an outer metamaterial layer, which approximates a lossy gradient index anti-reflection coating. They are fabricated via injection molding commercially-available carbon-loaded polyurethane (25\% by mass). The injection molding technology enables mass production at low cost.  Room temperature optical measurements verify their control of reflectance to less than 1\% up to 65$^{\circ}$ angles of incidence, and control of wide angle scattering below 0.01\%.
+In Chapter~\ref{ch:mma}, I present an overview of the meta-material absorbers used in the SO Large Aperture Telescope optics tubes to control stray light.  I also present the characterization of their optical properties using a radio holography receiver.  These tiles are comprised of an outer metamaterial layer, which approximates a lossy gradient index anti-reflection coating. They are fabricated via injection molding commercially-available carbon-loaded polyurethane (25\% by mass). The injection molding technology enables mass production at low cost.  Room temperature optical measurements verify their control of reflectance to less than 1\% up to 65$^{\circ}$ angles of incidence, and control of wide angle scattering below 0.01\%.
 
 The characterization of optical components is continued in Chapter~\ref{ch:si}, where I characterize the reflectivity and loss tangent measured in the W-band (80-125\,GHz) and D-band (125-180\,GHz) in two samples of float zone silicon with intrinsic stoichiometry - one irradiated by neutrons, which increases the resistivity by introducing crystalline defects, and the other unperturbed.  I find the loss tangent $\tan\delta$ of $2.8\times10^{-4}$ and $1.5\times10^{-5}$ for neutron-irradiated silicon and intrinsic silicon, respectively, both with an index of refraction of 3.41.  The results demonstrate the applicability of silicon as a warm optical component in millimeter-wave receivers.  The depth of the reflection nulls provides a sensitive measurement of dielectric losses.
 
@@ -265,8 +263,8 @@ In Chapter~\ref{ch:ot_holo}, I present near-field radio holography measurements 
 
 Chapter~\ref{ch:sat_holo} presents additional near-field radio holography measurements, this time on the Small Aperture Telescope (SAT) optics tube.  Using the identical holography setup as described in Chapter~\ref{ch:ot_holo}, I present preliminary characterization of the SAT's optical performance; more specifically, I predict two key performance parameters: 1) the beam profile in the near-field and 2) the far-field beam pattern of the telescope expected from the receiver.
 
-Chapter~\ref{ch:holosim} presents Holosim-ML: a Python code for beam simulation and analysis of radio holography data from complex optical systems.  This code uses machine learning to efficiently determine the position of hundreds of mirror adjusters on multiple mirrors with few micrometer accuracy.  I apply this approach to the example of the Simons Observatory 6\,m telescope.  The ML framework makes the analysis of these measurements from many receiver positions straightforward to analyze.  I present an example of the SO dual reflector optical system and demonstrated that this approach can yield $<5\,\mu m$ alignment errors, the requirement for SO science goals.
+Chapter~\ref{ch:holosim} presents Holosim-ML: a Python code for beam simulation and analysis of radio holography data from complex optical systems.  This code uses machine learning to efficiently determine the position of hundreds of mirror adjusters on multiple mirrors with few micrometer accuracy.  I apply this approach to the example of the SO 6\,m telescope.  The ML framework makes the analysis of these measurements from many receiver positions straightforward to analyze.  I present an example of the SO dual reflector optical system and demonstrated that this approach can yield $<5\,\mu m$ alignment errors, the requirement for SO science goals.
 
-In Chapter~\ref{ch:actbeams}, I analyze maps from the Atacama Cosmology Telescope Data Release 6.  From the maps, I select point sources and stack them in order to determine the temperature and temperature-to-polarization beams of the instrument.  This method is compared to the planet-derived beams of ACT.  \textcolor{red}{IN PROGRESS}We find...
+In Chapter~\ref{ch:actbeams}, I analyze maps from the Atacama Cosmology Telescope Data Release 6.  From the maps, I select point sources and stack them in order to determine the temperature and temperature-to-polarization beams of the instrument.  This method is compared to the planet-derived beams of ACT.  We find the temperature-to-polarization leakage beams are consistent between the two methods, indicating that the planet-derived beams are sufficient for subsequent cosmology analysis.  We also find a spatial dependence of the point sources in the window functions, which we investigate and present several explanations for what might be causing this effect.
 
 Lastly, in Chapter~\ref{ch:conclusion}, I summarize the results from this work and discuss the future of precision cosmology.

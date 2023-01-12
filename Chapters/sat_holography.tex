@@ -1,9 +1,9 @@
 \chapter{The Simons Observatory: Characterizing the Small Aperture Telescope with Radio Holography}
 \label{ch:sat_holo}
-This chapter presents holography measurements of the Simons Observatory Small Aperture Telescope at the University of California, San Diego, and preliminary characterization of its optical performance.  This work was made possible by the collaboration of Tommy Alford, Kathleen Harrington and Jeff McMahon from the University of Chicago, and Remington Gerras, Joe Seibert, Tran, Tsan, JB LLoyd, Michael Randall, and Kam Arnold from the University of California, San Diego.
+This chapter presents holography measurements of the Simons Observatory Small Aperture Telescope at the University of California, San Diego, and preliminary characterization of its optical performance.  This work was made possible by the collaboration of Tommy Alford, Kathleen Harrington and Jeff McMahon from the University of Chicago, Remington Gerras from the University of Southern California, and Joe Seibert, Tran, Tsan, JB LLoyd, Michael Randall, and Kam Arnold from the University of California, San Diego.
 
 \section{Introduction}
-The Simons Observatory (SO) will employ three Small Aperture Telescopes (SATs) to measure the largest angular scales visible from the Atacama Desert in Chile.  One SAT has an aperture diameter of 0.42\,m and will measure roughly 10\% with more than 300,000 bolometer detectors across the three SATs~\cite{2020SPIE11445E7LK}.  Each SAT contains two frequency bands; Mid-Frequency bands are centered at 93 and 145\,GHz, Ultra-High-Frequency bands are centered at 225 and 280\,GHz, and Low-Frequency bands are centered at 27 and 39\,GHz.  
+The Simons Observatory (SO) will employ three Small Aperture Telescopes (SATs) to measure the largest angular scales visible from the Atacama Desert in Chile.  One SAT has an aperture diameter of 0.42\,m and will measure roughly 10\% of the sky with more than 300,000 bolometer detectors across the three SATs~\cite{2020SPIE11445E7LK}.  Among the three SAT's are three frequency bands -- each with 10,000 detectors: Low-Frequency (LF) bands are centered at 27 and 39\,GHz, Mid-Frequency (MF) bands are centered at 93 and 145\,GHz, and Ultra-High-Frequency (UHF) bands are centered at 225 and 280\,GHz
 
 Mapping the three frequency bands will allow for the separation of the CMB from galactic foregrounds (sourced from synchrotron and dust radiation).  The primary goal of the SATs is to measure the primordial tensor-to-scalar ratio, $r$, to within $\sigma(r) = 0.003$, which is one of SO's many ambitious science goals~\cite{ali20}.  Another ambitious science goal is to characterize the tiny polarization signal of the CMB.  Primordial B-mode spectra peaks at $\ell\approx90$ (or roughly $2^{\circ}$), and therefore precision measurements at large angular scales are critical.
 
@@ -12,7 +12,7 @@ We present the laboratory testing of the MF Small Aperture Telescope using the t
 \begin{figure*}[t!]
     \centering
     \includegraphics[width = \textwidth]{Figures/sat_optics.pdf}
-    \caption{Left: Cross-section of the Small Aperture Telescope (SAT) optics tube.  Light enters through the high-density polyethylene window and through the cryogenic half-wave plate (CHWP).  The lenses re-image the beam onto the focal plane, where the holography detector measures power and phase at a given source position.  Right: SAT cryostat used in holography testing (Photo credit: Remington Gerras).}
+    \caption{Left: Cross-section of the Small Aperture Telescope (SAT) optics tube.  Light enters through the high-density polyethylene window (UHMWPE) and through the cryogenic half-wave plate (CHWP).  The lenses re-image the beam onto the focal plane, where the holography detector measures power and phase at a given source position.  Right: SAT cryostat used in holography testing (Photo credit: Remington Gerras).}
     \label{fig:sat_optics}
 \end{figure*}
 
@@ -29,7 +29,7 @@ In Section~\ref{sec:sat_optics_tube} we describe the optical design and componen
     \label{fig:sat_fpa}
 \end{figure}
 
-Here we provide a brief overview of the SAT optics, starting at the window of the telescope and ending at the detectors.  The full SAT design is described in~\cite{ali20,2020SPIE11445E7LK}.
+Here we provide a brief overview of the SAT optics, starting at the window of the telescope and ending at the detectors.  The full SAT design is described in~\cite{ali20,2020SPIE11445E7LK} and shown in Figure~\ref{fig:sat_optics}.
 
 
 Light enters through a 3\,mm thick ultra-high molecular weight polyethylene hexagonal window with an anti-reflection coating~\cite{zhu18}.  A Cryogenic Half-Wave Plate (CHWP) polarization modulator then reconstructs the polarization of the CMB at 40\,K.  For the duration of these holography measurements, the CHWP is held at a fixed angular orientation.  A 1\,K Lyot stop is the first cold optical element, and is followed by the SAT refractor.
@@ -57,7 +57,7 @@ Two identical receivers are installed in the focal plane for redundancy.  Two 0-
 \subsection{Holography System}
 \label{sec:sat_meas_hardware}
 
-Figure~\ref{fig:setup} shows a schematic overview of the holography hardware.  Two millimeter-wave sources are used to measure the full SO MF band: F90 (80-120\,GHz) and F150 (130-170\,GHz).  Only one source is mounted at a given time.  These source is broadcast into the receiver using standard gain feed horns held close to the window ($\approx10$\,cm) (Figure~\ref{fig:sat_hardware}).
+Figure~\ref{fig:setup} shows a schematic overview of the holography hardware.  Two millimeter-wave sources are used to measure the full SO MF band: F90 (80-120\,GHz) and F150 (130-170\,GHz).  Only one source is mounted at a given time.  The source is broadcast into the receiver using standard gain feed horns held close to the window ($\approx10$\,cm) (Figure~\ref{fig:sat_hardware}).
 
 A motorized two-dimensional stage holds the source and is mounted on a support structure above the SAT.  During a measurement, the source (frequency is fixed) is moved over a $80\times80$\,cm range with 1\,cm steps.  One map takes roughly 2 hours to complete.
 
@@ -113,12 +113,12 @@ The performance of the SAT optical system is assessed in detail by using the amp
 \end{equation}
 where the complex electric field $E(x,y)$ is integrated over the area of the aperture, $\theta_x$ and $\theta_y$ are the on-sky angular coordinates, and $\lambda$ is the wavelength.  
 
-The resulting (preliminary) far-fields are shown in Figure~\ref{fig:farfields_sat}.  The measured beam size $26.02\pm $YYY arcmin are consistent with the predicted F90 FWHM of 24.95 arcmin.
+The resulting (preliminary) far-fields are shown in Figure~\ref{fig:farfields_sat}.  The measured beam size $26.02^{\prime}\pm YYY^{\prime}$ is consistent with the predicted F90 FWHM of $24.95^{\prime}$.
 
 \section{Conclusion}
 \label{sec:sat_discussion}
 
-We have presented holography measurements of the SO SAT optics tube and analysis methods determining its optical performance.  We further provide an open-source package for simulating near-field holography measurements and propagating the measurements into the far-field using Fourier optics.  From these data, we characterize the optical performance of the LATR optics tube.  We compare near- and far-field measurements to simulations.  After propagating the beams to the far-field, we find the SAT beam FWHM to be ($26.02\pm $YYY) in the F90 band.
+We have presented holography measurements of the SO SAT optics tube and analysis methods determining its optical performance.  We further provide an open-source package for simulating near-field holography measurements and propagating the measurements into the far-field using Fourier optics.  From these data, we characterize the optical performance of the SAT MF optics tube.  We compare near- and far-field measurements to simulations.  After propagating the beams to the far-field, we find the SAT beam FWHM to be ($26.02^{\prime}\pm YYY^{\prime}$) in the F90 band, within the expected beam size of $24.95^{\prime}$, and is sufficient to accomplish SO's science goals at these angular scales.
 
 We also provide \verb|sosat-optics|, an open-source software package, which models the SAT holography measurements and is customizable to include arbitrary optics and adaptable for other optics experiments~\cite{sat_sim_model}.  The approach demonstrated here follows the successful characterization of the Large Aperture Telescope Receiver tester, and is broadly applicable to other millimeter-wave optical systems~\cite{chesmore2022}.  The ability to characterize the optical performance and systematics of the optics tube allowed us to determine the SAT optics is in focus and that the beam is within requirement for SO science. 
 
