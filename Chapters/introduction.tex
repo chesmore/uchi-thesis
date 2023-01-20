@@ -15,7 +15,7 @@
 % \newcommand{\enquote}[1]{``#1"}
 %----------------------------------------------------------------------------------------
 
-In 1965 at Bell Labs, Arno Penzias and Robert Wilson serendipitously detected "noise" with their microwave antenna.  This noise was isotropic (same in all directions) and homogenous (same in all locations), and was ultimately the measurement of the cosmic microwave background; radiation from the early universe.
+In 1965 at Bell Labs, Arno Penzias and Robert Wilson serendipitously detected ``noise" with their microwave antenna.  This noise was isotropic (same in all directions) and homogenous (same in all locations), and was ultimately the measurement of the Cosmic Microwave Background; radiation from the early universe.
 \begin{equation}
     I(\nu,T) = \frac{2h\nu^2}{c^2}\frac{1}{e^{\frac{h\nu}{k_B T}} -1}
     \label{eq:blackbody}
@@ -26,7 +26,7 @@ The temperature spectrum of the cosmic microwave background (CMB) was measured t
 \end{equation}
 The spectrum lies in the infra-red range of the electromagnetic spectrum, and peaks at a wavelength $\lambda = 1.5\,\text{mm}$ (Figure~\ref{fig:cobe_power_spectra}). 
 
-This near-perfect black-body is understood to originate during the early universe by the rapid collision of photons with free electrons, to keep radiation in thermal equilibrium with hot dense matter.  As the universe expanded and cooled, however, this spectrum has kept its same form~\cite{weinberg_cosmo}.  Because it formed during the early universe, the CMB is a backlight into not only early universe properties, but also late universe physics such as large-scale structure and dark matter.  The CMB, therefore, carries a wealth of information about the fundamental physics of our universe.
+This near-perfect black-body is understood to originate during the early universe by the rapid collision of photons with free electrons (Thompson scattering), to keep radiation in thermal equilibrium with hot dense matter.  As the universe expanded and cooled, however, this spectrum has kept its same form~\cite{weinberg_cosmo}.  Because it formed during the early universe, the CMB is a backlight into not only early universe properties, but also late universe physics such as large-scale structure and dark matter.  The CMB, therefore, carries a wealth of information about the fundamental physics of our universe.
 
 \begin{figure}[t]
     \centering
@@ -36,7 +36,7 @@ This near-perfect black-body is understood to originate during the early univers
 \end{figure}
 
 \section{The Expanding Universe}
-The evolution of the universe can be described using an extension of Einstein's equations.  To measure distances in an expanding universe, we employ the metric $ds$, which depends on the curvature of the surface:
+The evolution of the universe can be described using an extension of Einstein's equations.  To measure distances in an expanding universe, we employ the metric $ds$, which depends on the curvature of the space, with curvature $\kappa$:
 \begin{equation}
     ds^2 = -c^2dt^2 + a(t)^2[dr^2 + S_\kappa (r^2)d\Omega^2]\text{ ,}
 \end{equation}
@@ -54,7 +54,7 @@ Here we consider the scale of the universe as a function of time $a(t)$, which r
 \begin{equation}
     a(t) = \frac{1}{a+z}\text{ ,}
 \end{equation}
-where we set today's $a=1$.  If $a(t)$ is increasing, then the object is "red-shifted", or a decrease in frequency.  This relationship can be expanded for nearby sources:
+where we set today's $a=1$.  If $a(t)$ is increasing, then the object is ``red-shifted", or a decrease in frequency.  This relationship can be expanded for nearby sources:
 \begin{equation}
     a(t)\approx a(t_0)[1+(t-t_0)H_0+ \ldots ]
 \end{equation}
@@ -65,22 +65,22 @@ where we've introduced the Hubble Constant $H_0$.  The Hubble Constant quantifie
 
 \section{The Three Equations of the Universe}
 
-The dynamics of the universe are neatly described by three equations, which connect its curvature to the energy density $\epsilon$ and pressure $P$.
+The dynamics of the universe are neatly described by three equations, which connect its curvature to the energy density $\rho$ and pressure $P$.
 
 \noindent
 \textbf{Friedmann Equation}:  Stemming from Einstein's relativistic field equations, the Friedmann equation describes a homogenous and isotropic universe:  
 \begin{equation}
-    \bigg ( \frac{\Dot{a}}{a} \bigg ) = \frac{8\pi G}{3c^2}\epsilon(t) - \frac{\kappa c^2}{R_0}\frac{1}{a(t)}
+    \bigg ( \frac{\Dot{a}}{a} \bigg ) = \frac{8\pi G}{3c^2}\rho(t) - \frac{\kappa c^2}{R_0}\frac{1}{a(t)}
 \end{equation}
-where $\epsilon$ is the energy density, $G$ is the gravitational constant, $c$ is the speed of light, $\kappa$ is the curvature parameter, and $R_0$ is the radius of curvature at present time $t=0$.  The energy density is evolving, and made up of matter ($\epsilon_m=\epsilon_{m0}a^{-3}$), radiation ($\epsilon_r=\epsilon_{r0}a^{-4}$), and a cosmological constant ($\epsilon_{\Lambda}=\epsilon_{\Lambda 0}$), thus the Friedman equation takes the form:
+where $\rho$ is the energy density, $G$ is the gravitational constant, $c$ is the speed of light, $\kappa$ is the curvature parameter, and $R_0$ is the radius of curvature at present time $t=0$.  The energy density is evolving, and made up of matter ($\rho_m=\rho_{m0}a^{-3}$), radiation ($\rho_r=\rho_{r0}a^{-4}$), and a cosmological constant ($\rho_{\Lambda}=\rho_{\Lambda 0}$), thus the Friedman equation takes the form:
 \begin{equation}
     \frac{H^2}{H_0^2} = \frac{\Omega_{r0}}{a^4} + \frac{\Omega_{m0}}{a^3} + \Omega_{\Lambda 0} + \frac{1-\Omega_0}{a^2}
 \end{equation}
-where we normalize the energy density $\epsilon$ by the critical density $\epsilon_c(t)$, where $\epsilon_c(t) = \frac{3c^2}{8\pi G}$~\cite{ryden_2016}.  This results in the new variable:
+where we normalize the energy density $\rho$ by the critical density $\rho_c(t)$, where $\rho_c(t) = \frac{3c^2}{8\pi G}$~\cite{ryden_2016}.  This results in the new variable:
 \begin{equation}
-    \Omega(t) = \frac{\epsilon(t)}{\epsilon_c(t)}
+    \Omega(t) = \frac{\rho(t)}{\rho_c(t)}
 \end{equation}
-The $\Lambda$CDM model assumes a flat $\Omega(t)=1$ universe, comprised of baryonic $\Omega_b h^2$ and cold dark matter $\Omega_c h^2$ densities.  We will discuss this model further in the next sections.
+The $\Lambda$CDM model assumes a flat $\Omega(t)=1$ universe, comprised mostly of baryonic $\Omega_b h^2$ and cold dark matter $\Omega_c h^2$ densities.  We will discuss this model further in the next sections.
 
 \noindent
 \textbf{Fluid Equation}:  Energy conservation can also be applied to describe the dynamics of the universe via the first law of thermodynamics (Eq.~\ref{eq:thermo1}).  This implies the sum of gravitational potential and kinetic energy of expansion is conserved~\cite{ryden_2016}.
@@ -89,20 +89,20 @@ The $\Lambda$CDM model assumes a flat $\Omega(t)=1$ universe, comprised of baryo
     \label{eq:thermo1}
 \end{equation}
 \begin{equation}
-    \dot{\epsilon} + \frac{3\dot{a}}{a}(\epsilon + P) = 0
+    \dot{\rho} + \frac{3\dot{a}}{a}(\rho + P) = 0
     \label{eq:fluid_universe}
 \end{equation}
 \noindent
-Solving the fluid equation (with $P=w\epsilon$) yields the equation of state:
+Solving the fluid equation (with $P=w\rho$) yields the equation of state:
 \begin{equation}
-    \epsilon \propto a^{-3-3w}
+    \rho \propto a^{-3(1+w)}
 \end{equation}
-with the time-independent $w$~\cite{weinberg_cosmo}.  For example, in the case of a cold matter dominated universe (e.g. dust, $P = 0$) $\epsilon\propto a^{-3}$, and in a hot matter universe (e.g. radiation, $P=\epsilon/3$) $\epsilon\propto a^{-4}$.
+with the time-independent $w$~\cite{weinberg_cosmo}.  For example, in the case of a cold matter dominated universe (e.g. dust, $P = 0$) $\rho\propto a^{-3}$, and in a hot matter universe (e.g. radiation, $P=\rho/3$) $\rho\propto a^{-4}$.
 
 \noindent
 \textbf{Acceleration Equation}: Combining the first two equations, which constrain an energy conserved universe, yields the acceleration equation describing how our universe expands over time.  
 \begin{equation}
-    \frac{\ddot{a}}{a} = - \frac{4\pi G}{3 c^2} (\epsilon + 3 P)
+    \frac{\ddot{a}}{a} = - \frac{4\pi G}{3 c^2} (\rho + 3 P)
 \end{equation}
 
 \begin{figure}
@@ -135,18 +135,18 @@ The theory of inflation has the potential to explain the mentioned puzzles.
 \section{$\Lambda$CDM Cosmology}
 Today, the universe is described by the $\Lambda$CDM model, which assumes a flat universe ($\Omega_{\text{tot}}=1$) which is expanding at an accelerating rate, and is dominated by cold dark energy and cold dark matter.  Further, the $\Lambda$CDM model assumes dark energy taking the form of a cosmological constant $\Lambda$, which is expressed as a constant energy density:
 \begin{equation}
-    \epsilon_\Lambda = \frac{c^2}{8\pi G}\Lambda 
+    \rho_\Lambda = \frac{c^2}{8\pi G}\Lambda 
 \end{equation}
 The $\Lambda$CDM model neatly models the universe in six parameters: the baryonic density $\Omega_b\,h^2$, the cold dark matter density $\Omega_c\,h^2$, $\ln(10^{10}A_s)$, the spectral index of inflation $n_s$, the size of the acoustic horizon at decoupling 100\,$\theta_{*}$, and the reionization optical depth $\tau$.  Further, the standard model assumes a constant number of neutrino $N_{\text{eff}}$ and sum of neutrino masses $\Sigma m_\nu$. The most up-to-date values are listed in Table~\ref{tab:cosmology_recent_results}.  All of these parameters impact the shape of the CMB spectra which we measure today.
 
 \section{The CMB Temperature Power Spectra}
-The cosmic microwave background carries rich science in its temperature and polarization spectra.  The CMB power spectra can be decomposed into spherical harmonics, which result in power spectra as a function of multipole moment $\ell$, where $\ell\approx180/\theta$.  The temperature fluctuations of the CMB are decomposed into spherical harmonics:
+The cosmic microwave background carries rich science in its temperature and polarization spectra.  The CMB temperature spectrum can be decomposed into spherical harmonics, which result in power spectra as a function of multipole moment $\ell$, where $\ell\approx180/\theta$ and $\theta$ is angular scale on the sky.  The temperature fluctuations of the CMB are decomposed into spherical harmonics:
 \begin{equation}
 \frac{\delta T}{T}(\theta,\phi) = \sum_{\ell=2}^{\infty} \sum_{m=-\ell}^{\ell} a_{\ell m} Y_{\ell m}(\theta,\phi)
     \label{eq:cmb_temp}
 \end{equation}
 
-where $\ell$ and $m$ are multipoles of the spherical harmonic $Y_{\ell m}$, $a_{\ell m}$ are expansion coefficients, and $\theta$ and $\phi$ represent the angular position on the sky.  The coefficients $a_{\ell m}$ are independent variables, and relate to the CMB's angular power spectra via:
+where $\ell$ and $m$ are multipoles of the spherical harmonic $Y_{\ell m}$, $a_{\ell m}$ are expansion coefficients, and $\theta$ and $\phi$ represent the angular position on the sky.  You'll notice the first summation of Equation~\ref{eq:cmb_temp} begins at $\ell=2$ rather than $\ell=0$; the $\ell=1$ coefficient corresponds to the earth's motion with respect to the CMB, and the $\ell=0$ coefficient is the mean temperature of the CMB, so we neglect those terms.  The coefficients $a_{\ell m}$ are independent variables, and relate to the CMB's angular power spectra via:
 \begin{equation}
     C_\ell^{TT} = \frac{1}{2\ell +1} \sum_{m=-\ell}^{m=\ell} |a_{\ell m}|^2
 \end{equation}
@@ -159,11 +159,11 @@ This is the temperature power spectrum of the CMB.  Figure~\ref{fig:measured_cmb
     \label{fig:measured_cmb_spec}
 \end{figure}
 
-The shape of the CMB power spectra unlocks properties of the early universe.  For example, the first peak in the power spectrum at around $\ell\approx220$ corresponds to the angle at which we observe the sound horizon, or the distance that sound can travel between the big bang and recombination.  The measurement of this power spectrum's morphology can also determine physical matter and baryon densities.  The dark energy properties of our universe can additionally be constrained by the power spectrum peak, as the dark energy and matter densities jointly alter the distance to last scattering.  The smaller angular scale distortions are in part due to an inhomogeneous universe at the time of last scattering ($z\approx 1100$).  
+The shape of the CMB power spectra unlocks properties of the early universe.  For example, the first peak in the power spectrum at around $\ell\approx220$ corresponds to the angle at which we observe the sound horizon, or the distance that sound can travel between the big bang and recombination.  The measurement of this power spectrum's morphology can also determine physical matter and baryon densities.  The dark energy properties of our universe can additionally be constrained by the power spectrum peak, as the dark energy and matter densities jointly alter the distance to last scattering\textcolor{red}{[CITE THIS and maybe explain]}.  The smaller angular scale distortions are in part due to an inhomogeneous universe at the time of last scattering ($z\approx 1100$).  
 
 \section{The Polarized CMB}
 
-The CMB is predicted to be polarized, due to Compton scattering by free electrons during the era of recombination~\cite{weinberg_cosmo}.  Measuring this polarization would indicate the beginning of reionization and further have the potential to uncover effects of primordial gravitational waves.  Just as the CMB's temperature spectrum is decomposed in spherical harmonics, we also decompose the polarized components.  We refer to the CMB's polarization signals as "E-modes" and "B-modes" after their likeness to curl-free (electric) and divergence-free (magnetic) fields (Figure~\ref{fig:e_b_pol}).
+The CMB is predicted to be polarized, due to Thompson scattering by free electrons during the era of recombination~\cite{weinberg_cosmo,Page_2007}.  Measuring this polarization would indicate the beginning of reionization and further have the potential to uncover primordial gravitational waves.  Just as the CMB's temperature spectrum is decomposed in spherical harmonics, we also decompose the polarized components.  We refer to the CMB's polarization signals as ``E-modes" and ``B-modes" after their likeness to curl-free (electric) and divergence-free (magnetic) fields (Figure~\ref{fig:e_b_pol}).
 \begin{figure}
     \centering
     \includegraphics[width = .45\textwidth]{Figures/EB_pol.pdf}
@@ -171,7 +171,7 @@ The CMB is predicted to be polarized, due to Compton scattering by free electron
     \label{fig:e_b_pol}
 \end{figure}
 
-The E-modes are produced by the density perturbations via Thompson scattering from a local quadrupole.  For this reason, the EE spectra peaks when scattering is highest, and when velocity is highest, between the two temperature spectrum peaks.  Primordial gravitational waves produce B-modes through Thompson scattering.  Further, the large-scale structure gravitationally lenses CMB photons traveling through, adding to the B-mode polarization spectra.
+The E-modes are produced by the density perturbations via Thompson scattering from a local quadrupole.  For this reason, the EE spectra peaks when scattering is highest, and when velocity is highest, between the two temperature spectrum peaks.  Primordial gravitational waves produce B-modes through Thompson scattering.  Further, the large-scale structure gravitationally lenses CMB photons traveling through, adding to the B-mode polarization spectra.  The scalar-to-tensor ratio, $r$, is directly determined through measurements of the B-mode polarization, as scalar perturbations generate E-mode polarization.
 
 Let's now define the polarization signal basis of E- and B-modes.  The electric field of a photon travelling in the $\hat{z}$-direction is described by
 \begin{equation}
@@ -190,7 +190,7 @@ The Stokes parameters make up the basis of a photon's polarization, which is obt
 \label{eq:stokes}
 \end{equation}
 
-Just as the temperature power spectrum is decomposed into spherical harmonics, we express the polarization of the CMB in terms of spin-2 (where $a^*_{-2,\ell m} = a_{2,\ell m}$) spherical harmonics:
+The CMB should not carry any circular polarization, but can occur due to secondary mechanisms which take place after the surface of last scattering.  Just as the temperature power spectrum is decomposed into spherical harmonics, we express the polarization of the CMB in terms of spin-2 (where $a^*_{-2,\ell m} = a_{2,\ell m}$) spherical harmonics:
 \begin{equation}
 (Q \pm iU) = \sum_{\ell m}^{\pm 2} a^{\pm 2}_{\ell ,m} Y_{\pm2,\ell m} \text{ ,}
 \end{equation}
@@ -212,10 +212,10 @@ It follows that the CMB's polarized spectra are then defined as
 \begin{equation}
     C_{\ell}^{XY} = \frac{1}{2\ell+1}\sum_m \langle a_{\ell m}^{X} a_{\ell m}^{Y*} \rangle 
 \end{equation}
-Here, $X$ and $Y$ can either be E-mode, B-mode, or temperature T spectra of the CMB.
+Here, $X$ and $Y$ can either be E-mode, B-mode, or temperature T spectra of the CMB, indicating cross-correlated spectra.
 
 \section{Why Care About Beams?}
-Every camera has a "beam" (or optical response) which determines the optical performance (how your picture will turn out).  The smaller your beam, the higher the resolution of your picture.   The Field-of-View (FOV) determines how wide your picture can be.  The noise of your camera's detector determines how grainy the picture comes out.  All of these optical properties are defined by the camera's beam.  To take a picture of the CMB, the telescope is our camera; the beam of the instrument determines the optical performance at a given angular scale.  
+Every camera has a ``beam" (or optical response) which determines the optical performance (how your picture will turn out).  The smaller your beam, the higher the resolution of your picture.   The Field-of-View (FOV) determines how wide your picture can be.  The noise of your camera's detector determines how grainy the picture comes out.  All of these optical properties are defined by the camera's beam.  To take a picture of the CMB, the telescope is our camera; the beam of the instrument determines the optical performance at a given angular scale.  
 
 This not only affects the immediate quality of our CMB maps, but also impacts the ability to study cosmological science.  Let's consider two cosmological parameters: the spectral index of inflation $n_{\text{s}}$, and the number of relativistic species $N_{\text{eff}}$.  The spectral index of inflation $n_{\text{s}}$ describes how fluctuations vary with angular scale.  Figure~\ref{fig:cmb_ns} shows the CMB power spectra at three different values of $n_{\text{s}}$ and at two different values of $N_{\text{eff}}$.  At small angular scales (large $\ell$ values), slight variations of $n_{\text{s}}$ change the slope of the power spectrum (Figure~\ref{fig:cmb_ns}).
 
@@ -267,4 +267,4 @@ Chapter~\ref{ch:holosim} presents Holosim-ML: a Python code for beam simulation 
 
 In Chapter~\ref{ch:actbeams}, I analyze maps from the Atacama Cosmology Telescope Data Release 6.  From the maps, I select point sources and stack them in order to determine the temperature and temperature-to-polarization beams of the instrument.  This method is compared to the planet-derived beams of ACT.  We find the temperature-to-polarization leakage beams are consistent between the two methods, indicating that the planet-derived beams are sufficient for subsequent cosmology analysis.  We also find a spatial dependence of the point sources in the window functions, which we investigate and present several explanations for what might be causing this effect.
 
-Lastly, in Chapter~\ref{ch:conclusion}, I summarize the results from this work and discuss the future of precision cosmology.
+Lastly, in Chapter~\ref{ch:conclusion}, I summarize the results from this work and discuss their implications for the future of precision cosmology.

@@ -50,7 +50,7 @@ A second identical receiver was also connected for redundancy, but not used in t
 
 \begin{figure}
     \centering
-    \includegraphics[width = .95\textwidth]{Figures/LATRt_isometric.pdf}
+    \includegraphics[width = \textwidth]{Figures/LATRt_isometric.pdf}
     \caption{Schematic of holography setup.  Two local oscillators (LOs) supply frequencies (LO1 and $\text{LO2} = \text{LO1} + f_{\text{off}}$), one of which is multiplied by the active multiplier factor $M$ , while the other serves to down convert the reference and modulated signals into the intermediate frequency.}
     \label{fig:setup}
 \end{figure}
@@ -76,8 +76,8 @@ A common local oscillator (LO2 in Figure~\ref{fig:setup}) is fed to two harmonic
   \savebox{\myimage}{\rule{550pt}{150pt}}% Image to be included
   \rotatebox{90}{% Rotate 90 CCW
     \begin{minipage}{\wd\myimage}
-      \includegraphics[width = .95\textwidth]{Figures/MF_amp.pdf}
-      \includegraphics[width = .95\textwidth]{Figures/MF_phi.pdf}
+      \includegraphics[width = \textwidth]{Figures/MF_amp.pdf}
+      \includegraphics[width = \textwidth]{Figures/MF_phi.pdf}
     \caption{Holography beam map measurements in the mid-frequency band.  Top: Power at each measured frequency (peak-normalized in each map). The hexagonal side-lobes in the power beam maps are higher in power than the signal-to-noise of the system (45\,dB).  Bottom: Wrapped phase at each measured frequency.}
     \label{fig:beam_measurements_all}
     \end{minipage}}
@@ -86,9 +86,9 @@ A common local oscillator (LO2 in Figure~\ref{fig:setup}) is fed to two harmonic
 \section{Results and Interpretation}
 \label{sec:results}
 \subsection{Near-Field Beam Maps}
-Figure~\ref{fig:beam_measurements_all} shows the power and phase of the beam maps at each frequency for which the measurement was carried out.   A variable attenuator at the output of the source was used to optimize the amount of signal entering the optics tube, to ensure power was not too high such that the measurement was saturated, but to also ensure the signal was high enough for signal-to-noise greater than 45\,dB.  As stated in Section ~\ref{sec:meas_method}.\ref{sec:meas_hardware}, the F90 source hangs closer to the window than the F150 source (due to different attenuator lengths), and for this reason, we expect the F90 beams to be smaller than the F150 beams.
+Figure~\ref{fig:beam_measurements_all} shows the power and phase of the beam maps at each frequency for which the measurement was carried out.   A variable attenuator at the output of the source was used to optimize the amount of signal entering the optics tube, to ensure power was not too high such that the measurement was saturated, but to also ensure the signal was high enough for signal-to-noise greater than 45\,dB.  As stated in Section ~\ref{sec:meas_method}.\ref{sec:meas_hardware}, the F90 source hangs closer to the window than the F150 source (due to different attenuator lengths), and for this reason, we expect the F90 beams to be smaller than the F150 beams.  
 
-The shape of the main beam was found to be in good agreement with simulations at all frequencies.  The asymmetric feature seen in the main beam at 160 GHz is believed to be associated with an extra mode in the round wave-guide of the receiver.  Even with this feature, the radial profile is in very good agreement with the theoretical prediction (within 10\% at the -20dB level).   The hexagonal side-lobe seen in each beam map are associated with scattering from within the optics tube and out the hexagonal window.   The phase indicates the direction of propagation of the beam in space.  This suggests that the field of the near-field side-lobes is diverging (or propagating away from the center of the optical path) less quickly than that of the main beam.  
+Figure~\ref{fig:nearfields} shows the band-averaged near-fields compared to the simulated band-averaged beams.  The shape of the main beam was found to be in good agreement with simulations at all frequencies.  The asymmetric feature seen in the main beam at 160 GHz is believed to be associated with an extra mode in the round wave-guide of the receiver.  Even with this feature, the radial profile is in very good agreement with the theoretical prediction (within 10\% at the -20dB level) (Figure~\ref{fig:nearfields}).   The hexagonal side-lobe seen in each beam map are associated with scattering from within the optics tube and out the hexagonal window.   The phase indicates the direction of propagation of the beam in space.  This suggests that the field of the near-field side-lobes is diverging (or propagating away from the center of the optical path) less quickly than that of the main beam.  
 
 \subsection{Propagation of Fields}
 \label{sec:prop_fields}
@@ -100,7 +100,7 @@ The shape of the main beam was found to be in good agreement with simulations at
     \label{fig:secondary}
 \end{figure*}
 
-The performance of the LAT optical system is assessed in detail by using the amplitude and phase of the measured beams to calculate the fields as they propagate through a virtual telescope.  This enables calculation of the far-field beam of the telescope, and the amount of signal "spilled", or lost, at the LAT secondary mirror.  This represents a unique capability of holography measurements which is critical in assessing the overall performance of this system. 
+The performance of the LAT optical system is assessed in detail by using the amplitude and phase of the measured beams to calculate the fields as they propagate through a virtual telescope.  This enables calculation of the far-field beam of the telescope, and the amount of signal ``spilled", or lost, at the LAT secondary mirror.  This represents a unique capability of holography measurements which is critical in assessing the overall performance of this system. 
 
 \subsubsection{Fields at Secondary Illumination}
 To determine the amount of power spilled to 300\,K, we propagate the measured fields forward and onto the plane of the secondary mirror (approximately 12\,m away from the measurement plane.  This is carried out by using the Fourier relationship between the near-field $E(x,y)$ and far-field $B(\theta_x,\theta_y)$ beams \cite{McIntosh2016,alma_holog}:
@@ -126,7 +126,7 @@ To propagate the measured near-fields into the far-field, we use a virtual teles
 
 The holography source emits its signal out of a rectangular feedhorn with a finite size.  The resulting near-field beam is convolved by this rectangular aperture~\cite{Goodman2005-ne}.  This method of convolution is commonly used when analyzing fields measured with rectangular horn faces~\cite{1141856,Karimipour2019ShapingEW}.  Interpreting this measurement requires accounting for this effect, which amounts to a convolution of the electromagnetic field from the optics tube with the field pattern on the aperture of the feedhorn.  The impact of this convolution is to broaden the F90(150) far-field beam by 12.2(4.7)\% and to create square diffraction spikes in the raw far-field calculation~\cite{Goodman2005-ne}.
 
-We account for this effect with forward modeling, which is described in Appendix~\ref{sec:forward_model}.  To fully simulate the far-field beam of the LAT including the optics tube, we first simulate the optics tube using \verb|solat-optics| as described in~\cite{holog_sim_model}.  This produces the near-field beam at the front of the optics tube, which is then propagated into the far-field the same way the measured near-field beams are propagated through the virtual telescope.  The resulting far-fields after diffraction spike removal are shown in Figure~\ref{fig:farfields}.  These plots are band averaged, including data from 80-110\,GHz in the F90 band and 130-170\,GHz in the F150 band.  The radial binned far-field holography data are compared to simulations.  These comparisons show that the holography data are consistent with the predicted F90(150) FWHM is 2.18(1.38)$^{\prime}$ and with low ellipticity with no unexpected features such as the "little-buddies" seen in the ACTPol experiment \cite{2021arXiv211212226L,Gudmundsson:21}.
+We account for this effect with forward modeling, which is described in Appendix~\ref{sec:forward_model}.  To fully simulate the far-field beam of the LAT including the optics tube, we first simulate the optics tube using \verb|solat-optics| as described in~\cite{holog_sim_model}.  This produces the near-field beam at the front of the optics tube, which is then propagated into the far-field the same way the measured near-field beams are propagated through the virtual telescope.  The resulting far-fields after diffraction spike removal are shown in Figure~\ref{fig:farfields}.  These plots are band averaged, including data from 80-110\,GHz in the F90 band and 130-170\,GHz in the F150 band.  The radial binned far-field holography data are compared to simulations.  These comparisons show that the holography data are consistent with the predicted F90(150) FWHM is 2.18(1.38)$^{\prime}$ and with low ellipticity with no unexpected features such as the ``little-buddies" seen in the ACTPol experiment \cite{2021arXiv211212226L,Gudmundsson:21}.
 
 \begin{figure*}[t]
     \centering
@@ -163,7 +163,7 @@ We separate the polarization in the model as three sources of polarization modul
 \begin{equation}
     \vec{P}_{\text{out}}(\theta) = \vec{S}_{d}(\phi_{d},\epsilon)\cdot \vec{M}_{\text{OT}}\cdot \vec{M}_{g}(\theta,\eta_{g})\cdot \vec{S}_{s}
 \end{equation}
-where $\theta$ is the rotation of the polarizing grid, $\phi_d$ is the angle of the detector, $\epsilon$ is the cross-polarization of the detector, and $\eta_g$ is the efficiency of the polarizing grid.  The receiver is already slightly rotated from perfect alignment from the source, since the tester-array required slightly tilted holes to mount the receiver.  Therefore, we include this in our polarization model as the parameter $\phi_d$.  We find a degeneracy between the instrument polarization parameters and therefor exclude them in the fit.  The source is modelled as its Stokes parameters $\vec{S}_{s}$, with intensity $I=1$ and linear polarization $Q=\pm 1$ (switch the sign of $Q$ when waveguide twist is added to the output of the source horn).  The model is further derived in Appendix~\ref{app:pol}.  
+where $\theta$ is the rotation of the polarizing grid, $\phi_d$ is the angle of the detector, $\epsilon$ is the cross-polarization of the detector, and $\eta_g$ is the efficiency of the polarizing grid.  The receiver is already slightly rotated from perfect alignment from the source, since the tester-array required slightly tilted holes to mount the receiver.  Therefore, we include this in our polarization model as the parameter $\phi_d$.  We find a degeneracy between the instrument polarization parameters and therefor exclude them in the fit.  The source is modelled as its Stokes parameters $\vec{S}_{s}$, with intensity $I=1$ and linear polarization $Q=\pm 1$ (switch the sign of $Q$ when waveguide twist is added to the output of the source horn).  The model is derived in detail in Appendix~\ref{app:pol}.  
 
 \subsection{Results}
 Figure~\ref{fig:holo_crosspol_params} shows the measured power (co- and cross-polarized) as a function of grid tilt, for both co- and cross-polarized sources.  We measure the received power at 85-120\,GHz in 5\,GHz increments, and at grid tilts from 0-360$^{\circ}$, in $10^{\circ}$ increments.  From the data, we use an MCMC to constrain the detector tilt $\phi_{\text{det}}$, grid efficiency $\eta_{\text{grid}}$, and cross polarization $\epsilon$.  Error is estimated as the standard deviation across the mid-frequency band $f$:
@@ -183,7 +183,7 @@ Figure~\ref{fig:holo_crosspol_params} shows the constrained parameters obtained 
 
 \section{Public Code}
 \label{sec:solat_code}
-Here, we describe the software used for the holography data acquisition and analysis, all of which are made public.  The software is two-fold; 1) the \verb|solat-optics| module for simulating the near- and far-fields of the LAT telescope from the LATRt holography measurements and 2) Open Source Holography: a website detailing software and hardware to replicate the holography measurements.
+Here, we describe the software used for the holography data acquisition and analysis, all of which are made public.  The software is two-fold; 1) the \verb|solat-optics| module for simulating the near- and far-fields of the LAT telescope from the LATRt holography measurements and 2) Open Source Holography: a website detailing software and hardware to replicate the holography measurements~\cite{holog-exp}.
 
 \subsection{Optics Simulation}
 The \verb|solat-optics| code includes several modules: beam simulation of the LATR optics tube, propagation of measured fields to the secondary mirror, and to the far-field (dependencies:~\cite{2020NumPy-Array,2020SciPy-NMeth,hunter2007matplotlib,reback2020pandas,mpiPython,tqdm}).  This beam simulation includes the lens geometry and computes the beam in the near-field.  The code can be adapted to produce the beam as a function of angle, as was used in this paper, or as a function of position in the measurement plane.  
@@ -199,6 +199,6 @@ Refractive holography enables the testing of optical performance prior to deploy
 
 From these data, we characterize the optical performance of the LATR optics tube.  We compare near- and far-field measurements to simulations.  After propagating the beams to the plane of the LAT secondary mirror, we find sub-percent power spilled to 300\,K.  We further find the far-field measured beams to be 2.18(1.38)$^{\prime}$ FWHM in the F90(F150) band.
 
-We provide three open-source software packages.  The first developed for this work, (\verb|solat-optics|~\cite{holog_sim_model}), models the LATRt holography measurements and is customizable to include arbitrary optics and adaptable for other optics experiments.  The second, (\verb|holog-exp|~\cite{holog-exp}), details the hardware and data acquisition software required in this experiment.  And lastly, we publish the data and Python scripts for recreating all figures in this paper~\cite{knowledge}.
+We provide three open-source software packages.  The first developed for this work, (\verb|solat-optics|~\cite{holog_sim_model}), models the LATRt holography measurements and is customizable to include arbitrary optics and adaptable for other optics experiments.  The second, \verb|holog-exp|~\cite{holog-exp}, details the hardware and data acquisition software required in this experiment.  And lastly, we publish the data and Python scripts for recreating all figures in this paper~\cite{knowledge}.
 
 The approach demonstrated here is broadly applicable to the characterization of millimeter-wave optical systems.  The ability to characterize the optical performance and systematics of the optics tube allowed us to determine one source of spurious reflections, and avoid systematics during future observations. 

@@ -2,6 +2,10 @@
 \label{ch:si}
 The following was published in the proceedings from the 8th ESA Workshop on Millimetre-Wave Technology and Applications in 2018~\cite{ches18}.
 \section{Introduction}
+Many millimeter wave experiments use cold optical components to minimize noise contributions due to this thermal emission. However, in many cases, it is advantageous to include warm silicon components in optical designs. For example, in the ALMA Band 1 receivers include a warm lens that also acts as the window into the cryostat. The original design uses a plastic (high density polyethylene) lens that contributes one-third of the overall receiver noise budget. Substitution of a lens with lower dielectric losses could therefore make a substantial impact on the sensitivity of this instrument.
+
+Silicon is a potentially attractive material for such applications. Datta et al. 2013 showed that silicon can be machined to produce very high quality anti-reflective (AR) meta-surfaces to reduce the reflected power from the natural 30\% to levels in the few tenths of a percent range~\cite{Datta:13}. The key development required is identification of a source of silicon with low dielectric losses at room temperature.
+
 Dielectric loss and its associated thermal emission is a key driver for sensitivity in millimeter wave receivers. A low loss implies low emission from a material, therefore limiting thermal noise propagating through to the detector. The
 contribution to the thermal noise due to loss,  $T_{\text{sys}}$, can be calculated as:
 \begin{equation}
@@ -9,15 +13,12 @@ contribution to the thermal noise due to loss,  $T_{\text{sys}}$, can be calcula
 \end{equation}
 where $T_{\text{comp}}$ is the physical temperature of the component, $L=\exp(2\pi n \tan(\delta)/\lambda_0)$ is the optical loss, $n$ is the index of refraction, $\tan(\delta)$ is the loss tangent, $t$ is the sample thickness, and $\lambda_0$ is the free-space wavelength. The noise due to loss can be reduced in two ways: lowering the temperature of the component, and using materials with lower intrinsic loss. 
 
-Many millimeter wave experiments use cold optical components to minimize noise contributions due to this thermal emission. However, in many cases, it is advantageous to include warm silicon components in optical designs. For example, in the ALMA Band 1 receivers include a warm lens that also acts as the window into the cryostat. The original design uses a plastic (high density polyethylene) lens that contributes one-third of the overall receiver noise budget. Substitution of a lens with lower dielectric losses could therefore make a substantial impact on the sensitivity of this instrument.
-
-Silicon is a potentially attractive material for such applications. Datta et al. 2013 showed that silicon can be machined to produce very high quality anti-reflective (AR) meta-surfaces to reduce the reflected power from the natural 30\% to levels in the few tenths of a percent range~\cite{Datta:13}. The key development required is identification of a source of silicon with low dielectric losses at room temperature.
-
 Since it was first reported in Parshin et al.~\cite{parshin} and included in the Lamb 1996 compendium of mm-wave material properties~\cite{lamb}, the promise of silicon as an intrinsically low-loss mm/sub-mm optical material has tantalized the astronomical community.   More recently, Krupka et al. 2016~\cite{KRUPKA201676} reported on the result of a loss tangent in Ka-band and Q-band ($\approx27-40$\,GHz) on the order of $\tan(\delta)\lesssim 10^{-5}$ at room temperature ($\approx300\,K$) for samples of proton-irradiated high purity FZ silicon, but measurements in W-band ($\approx$90\,GHz) and for neutron-irradiated samples are lacking. We address this here using coherent reflectometry measurements.
 
 In Section~\ref{sec:si_procedure} we detail the optical hardware and the receiver electronics used to measure the optical properties.  We also describe the two silicon samples analyzed in this work; intrinsic and neutron-doped silicon.  Section~\ref{subsec:mcmc} details the mathematical model and fitting method used to determine the optical properties from reflectivity data.  The resulting optical properties are presented in Section~\ref{sec:si_results}.  Lastly, we discuss implications of the results for optical performance of the telescope in Section~\ref{sec:si_conclusion}.
 \section{Procedure}
 \label{sec:si_procedure}
+Here we describe the hardware used to take the reflectivity measurements of both materials, including optical hardware and receiver electronics.
 \subsection{Optical Hardware}
 A feedhorn source sends a millimeter wave signal to a parabolic mirror, which sends a plane wave toward the sample, typically at a 10$^{\circ}$ angle of incidence. For these measurements, the sample is a dielectric slab immersed in air. A portion of the signal is reflected to the first air-dielectric boundary, and the remaining signal propagates through the sample, where it again partially reflects from the second dielectric-air boundary, leading to a Fabry-Perot interference in the dielectric cavity defined by the sample. The reflected signal propagates to a second mirror, followed by the receiver feed horn. The geometry is shown in Figure~\ref{fig:optical_setup}.
 
@@ -31,7 +32,7 @@ Two samples were provided by Topsil for testing. The samples as cut exhibited cu
 resulting thicknesses are reported in Table 1, and are accurate to scales $\ll \lambda_0$ measured with a micrometer. The silicon is made with Float Zone mono growth in an oxygen-free environment, reducing risk of generating thermal donors during
 high temperature processes~\cite{topsil}.
 \section{Reflectometry and Transmissivity}
-We measured the transmission and reflection of these samples. The data are shown in Figure~\ref{fig:si_data}.
+We measured the transmission and reflection of these samples. The data are shown in Figure~\ref{fig:si_data}.  Here we detail the model used to determine the optical properties of the samples, and the MCMC method used to fit the model to our data.
 \begin{figure}[t]
     \centering
     \includegraphics[width = \textwidth]{Figures/silicon_refl.pdf}
@@ -76,7 +77,7 @@ The error bars of loss values are calculated with two methods. The first method 
     \centering
 \begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}| }
  \hline
- Silicon & Neutron & Intrinsic\\
+ Silicon & Neutron & Intrinsic\\ \hline
  \hline
   $n$ & 3.415 & 3.412 \\
  \hline
@@ -85,7 +86,7 @@ The error bars of loss values are calculated with two methods. The first method 
   D\,[mm] & $13.68 \pm 0.1 $ & $13.56 \pm 0.1$\\
  \hline
 \end{tabular}
-    \caption{Optical properties of silicon. Properties extracted from the data when fit with the theoretical model. Properties $n$ is the index of refraction, D is the thickness of the sample, and $\tan(\delta)$ is the loss tangent.}
+    \caption{Optical properties of silicon. Properties extracted from the data when fit with the theoretical model. Properties $n$ is the index of refraction, D is the thickness of the sample in millimeters, and $\tan(\delta)$ is the loss tangent.}
     \label{tab:silicon}
 \end{table}
 
