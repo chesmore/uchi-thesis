@@ -2,6 +2,8 @@
 
 Author: Grace E. Chesmore
 
+Date of Defense: February 21, 2023
+
 ## Chapters
 - Introduction
 - Instrument Overview

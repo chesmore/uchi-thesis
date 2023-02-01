@@ -18,7 +18,7 @@
 \usepackage{graphicx}
 \usepackage{color,soul}
 \usepackage{lipsum}
-
+\usepackage{emoji}
 %Modify directory for loading graphics
 \graphicspath{{Figures/}}
 %Extra
@@ -88,7 +88,7 @@
     \textit{This thesis represents the motivations, results, and conclusions from the following works}:
     \\
     \begin{enumerate}
-        \item[X] \textit{The Atacama Cosmology Telescope: Beam Estimation for DR6 with Point Source Stacking}. G. E. Chesmore, et al. in progress.
+        \item[\cite{act_ptsrc}] \textit{The Atacama Cosmology Telescope: Beam Estimation for DR6 with Point Source Stacking}. G. E. Chesmore, et al. in progress.
         \item[\cite{chesmore2022}] \textit{The Simons Observatory: Characterizing the Large Aperture Telescope Receiver with Radio Holography}. G. E. Chesmore, et al. Applied Optics, 2022.
         \item[\cite{Chesmore:21}] \textit{The Simons Observatory: HoloSim-ML: machine learning applied to the efficient analysis of radio holography measurements of complex optical systems}. G. E. Chesmore, et al. Applied Optics, 2021.
         \item[\cite{Xu_2021}] \textit{The Simons Observatory: Metamaterial Microwave Absorber (MMA) and its Cryogenic Applications}. Z. Xu, G. E. Chesmore, et al. Applied Optics, 2021.
@@ -102,7 +102,7 @@
 The Cosmic Microwave Background (CMB) carries the imprints of the conditions in the early universe and the large-scale structure it has traversed as it travels to our telescopes. This radiation from the early universe serves as a window into the physics of our universe. From the CMB, we can study primordial gravitational waves, large scale structure formation, sum of neutrino masses, dark energy, dark matter, and fundamental physics. Achieving these ambitious science goals requires equally ambitious instrumentation.
 CMB-S4 and ongoing stage 3 ground-based CMB experiments are designed to observe the CMB temperature and polarization signals to an unprecedented sensitivity. A combination of three Large Aperture Telescopes (LATs) and eighteen Small Aperture Telescopes (SATs) will measure the temperature and polarization anisotropy of the CMB with $\approx$500,000 background noise-limited detectors operating at $\approx$100\,mK, covering frequencies from $\approx$20 to $\approx$300\,GHz.
 
-In order to measure the tiniest signals of the CMB, we must control optical systematics and advance detector sensitivity to unprecedented levels. I will discuss the techniques to control optical systematics, design highly sensitive detectors and feedhorn arrays, and characterize their performance. Using a holography imaging setup as a beam mapper, I will evaluate the performance of the optical properties of novel absorbers I developed, and beam map a complete cryogenic optical system. I developed software to model these systems,  including hardware imperfections, demonstrating how systematics propagate into measurements; the software also uses machine learning to correct such systematic errors by correcting alignment of mirrors.  Lastly, I will present a novel approach for characterizing the on-sky beam with maps from Atacama Cosmology Telescope Data Release 6.  Understanding the beam of the instrument is critical for characterizing the angular response of the instrument, and therefore critical for achieving the ambitious science goals in ACT and beyond.  I will present how stacking point sources from existing CMB maps to determine the instrument beam compares to the existing method of mapping planets.
+In order to measure the tiniest signals of the CMB, we must control optical systematics and advance detector sensitivity to unprecedented levels. I will discuss the techniques to control optical systematics, design highly sensitive detectors and feedhorn arrays, and characterize their performance. Using a holography imaging setup as a beam mapper, I will evaluate the performance of the optical properties of novel absorbers I developed, and beam map a complete cryogenic optical system. I developed software to model these systems,  including hardware imperfections, demonstrating how systematics propagate into measurements; the software also uses machine learning to correct such systematic errors by correcting alignment of mirrors.  Lastly, I will present a novel approach for characterizing the on-sky beam with maps from Atacama Cosmology Telescope Data Release 6.  Understanding the beam of the instrument is critical for characterizing the angular response of the instrument, and therefore critical for achieving the ambitious science goals in ACT and beyond.  I will present how stacking point sources from existing CMB maps, to determine the instrument beam, compares to the existing method of mapping planets.
 
 \mainmatter
 
@@ -126,45 +126,31 @@ In order to measure the tiniest signals of the CMB, we must control optical syst
 
 \acknowledgments
 
-% \begin{itemize}
-%         \item jeff
-%         \item co-advisors: sara, adri katie, pato
-%         \item jon G, ed wollack,
-%         \item LATRt team: carlos, shreya, tommy, joey, maya, taylor, ezekiel
-% \end{itemize}
-    
-% Working with junior members of the Simons Observatory was such a privilege, and I've made many deep friendships. The SAT holography measurements would not be possible without the team at University of California San Diego: \textbf{Remington Gerras}, \textbf{Joseph Seibert}, \textbf{Michael} \textbf{JB} \textbf{Max} \textbf{Tran} and \textbf{Dr. Kam Arnold}.  Thank you for working so hard during those two weeks and being so wonderful to work with.  
 
-% Thank you to my fellow beam-fanatics, \textbf{Alexandre Adler} and \textbf{Nadia Dachlythra}, for giving me the most fun experience in Stockholm and for being so incredibly supportive through the years.  I consider you brilliant scientists and wonderful friends.   
 
-% Many members I never worked with but developed friendships regardless: \textbf{Sanah}, \textbf{Lauren Sanders}, \textbf{Anna Kofman}, \textbf{Jenna}, \textbf{Julia Robe}.  
+I cannot thank my advisor and post-doc advisors enough.  First and foremost, thank you to \textbf{Jeff McMahon} for your mentorship and support throughout the years.  Thank you, \textbf{Sara Simon}, who started out as my post-doc and ended up my co-advisor at FNAL.  Having someone who I knew would always be there, and would always listen and try to help, was such a comfort.  You are an amazing researcher, and I've learned so much from you over the years.  Thank you to \textbf{Katie Harrington} for advising me and making the radio holography measurement possible.  You are so knowledgeable but also so patient when answering my questions.  I cannot imagine graduate school without you.  Grazie a \textbf{Martina Gerbino} per tutte le chiamate sul Skype (mentre tutti usavano Zoom).  Specialmente durante il COVID, le nostre telefonate sono state il momento clou della mia giornata e il tuo tutoraggio mi ha aiutato a superare momenti molto solitari.  Thank you to \textbf{Patricio Gallardo} for being my ``optics post-doc", as I've titled you.  I was pumped when I learned you'd be starting at the University of Chicago, because I had always held you in such high regard as a researcher.  I'm extremely grateful for you as a post-doc and friend.  Thank you to \textbf{Adri Duivenvoorden} for advising the final project of my thesis.  I think the project was such a success because of your attentiveness to the project.
 
-% \begin{itemize}
-%         \item Kesten
-%         \item Barber
-%         \item Gary
-%         \item Sara Youlton, Hayley R., Kyle and Mitch
-% \end{itemize}
-% U Michigan: \begin{itemize}
-%         \item Myron Campbell
-%         \item Hannah Ruth
-%         \item Liz, Nora, Jazmine, Jessica
-%         \item Andrew
-%     \end{itemize}
-    
-% UChicago\begin{itemize}
-%         \item Tim Gwen, Paul and science policy group
-%         \item kavi, arijana, abby, shreya karia patty andrew.
-%         \item office: John Andrea Rebecca putri 
-%     \end{itemize}
-% Family: \begin{itemize}
-%         \item A la mia famiglia italiana: Grazie a i miei genitori italiani \textbf{Patrizia Martineli} e \textbf{Tarcisio Pompili} per avermi accolto nella vostra famiglia.
-%         \item Marta
-%         \item To my \textbf{Mom} and \textbf{Dad}, thank you for loving me unconditionally and encouraging me to pursue a higher education.
-%         \item To my nephews and nieces: \textbf{Bentley}: you are the smartest, most inquisitive kid I've ever met.  Thank you, \textbf{Lily}, for being so excited to talk to me on the phone and always asking "where's the puppy" even though we don't have one.  One day I will! And you will be the first person I call.  Grazie, \textbf{Valerio} e \textbf{Flavio}, per aver giocato a Minecraft con me (anche se il mio italiano è pessimo e distruggo le cose).
-%         \item To my "PACA" family: Thank you to my cousins, \textbf{Ariana} and \textbf{Caitlin}, for being the cool Seattle girls I've always looked up to.  I was such a dorky kid, but you always spoke to me with kindness and made me feel valuable.
-%         \item Auntie Ann and Uncle Peter
-%         \item Matteo
-%     \end{itemize}
+I've been lucky in having several unofficial research advisors through the years, who have consulted me in my research, edited papers, and answered my questions.  \textbf{Ed Wollack}, every paper I've put out, you have thoroughly edited and picked apart the work, making the article more thorough and deepening my understanding of the topic.  You have been instrumental in my development as a science writer.  Thank you also to \textbf{Jon Gudmundsson} for giving me the opportunity to visit Stockholm University and learn from your group.  I've looked up to you as a researcher for the entirety of grad school, so visiting Stockholm University felt like the biggest honor of my career.  You were also instrumental in editing my publications, and always encouraged my love of optics.
+
+A highlight of grad school was working with the junior members of the Simons Observatory, many of which have become my good friends.  I am extremely grateful for my lab mates, \textbf{Carlos Sierra}, \textbf{Joey Golec}, \textbf{Shreya Sutariya}, \textbf{Tommy Alford}, \textbf{Maya Mallaby-Kay}, and \textbf{Taylor Baildon}.  You all supported me and helped me grow as a researcher, and I cannot thank you enough.
+
+The SAT holography measurements would not be possible without \textbf{Remington Gerras}, \textbf{Joseph Seibert}, \textbf{Michael Randall}, \textbf{JB (John) Lloyd}, \textbf{Max Silva-Feaver}, \textbf{Tran Tsan} and \textbf{Dr. Kam Arnold}.  Thank you for working so hard during those two weeks and being so wonderful to work with.  An especially big thank you to \textbf{Tommy Alford}, who travelled with me to San Diego for the radio holography of the SAT.  You are an amazing researcher and picked up holography way faster than I did.  I can't wait to see the things you accomplish in the coming years!
+
+Thank you to my fellow beam-fanatics, \textbf{Alexandre Adler} and \textbf{Nadia Dachlythra}, for hosting me at the Stockholm University and for being so incredibly supportive through the years.  Without a doubt, this was the most fun trip of grad school because of how immediately welcoming you both were.  You are brilliant scientists and wonderful friends.  Many members I never worked with directly, but developed friendships nonetheless.  I want to thank the following junior members for the support and friendship: \textbf{Sanah Bhimani}, \textbf{Lauren Sanders}, \textbf{Anna Kofman}, \textbf{Jenna Moore}, \textbf{Julia Robe}.
+
+I, of course, need to thank the educators, who came before graduate school, who encouraged me to pursue physics as a career.  Thank you to high school physics teachers: \textbf{Mr. Brown} and \textbf{Mr. Appel}.  You both were so patient as I often struggled through physics, but never discouraged me from pursuing science as a career.  Had it not been for your encouragement, I'm not sure that I would've gone for physics.  Thank you, \textbf{Dr. Kesten}, for reading over my REU and grad school applications.  You had so much faith that I would be successful in grad school, even when I wasn't sure.  A huge thank you to \textbf{Dr. Barber} for hiring me as a researcher after only one semester of physics.  I recall that first summer working full time in the lab, and feeling so fulfilled.  Lastly, thank you to \textbf{Gary Sloan}, for teaching me to be a machinist.  You made me so proud of my machining skills and constantly believed in me.  I am so grateful for all you've taught me.
+
+I'm extremely grateful for my Santa Clara University family.  \textbf{Hayley Raquer}, you really were my big sister in college and I continue to look up to you.  You have such a strong sense of self when I definitely did not, and you really took me in and lifted me up.  Thank you to my dear friend \textbf{Sara Youlton} for being my homework buddy in physics.  I was often intimidated, being the only girl in the class.  Even just venting to you and having you to talk to was such a saving grace and made me feel far less alone.  Lastly, thank you to \textbf{Mitch Bugaj} and \textbf{Kyle Bandaccari} for being the coolest lab-mates.  It was my first research experience, and you two treated me as an equal in the group right off the bat.  You constantly valued my input and believed in me as a researcher.  You set the bar for how I felt I deserved to be treated as a female in physics; I couldn't ask for a better first research experience.  Thank you.
+
+When I transferred to the University of Chicago, I found a whole community of friends, and I am so grateful for how they welcomed me.  Thank you to my office mates \textbf{John Hood}, \textbf{Rebecca Diesing}, \textbf{Andrea Bryandt}, and \textbf{Emily Simon}.  The office is a place I love to be, and it's because of all of you.  Thank you to \textbf{Putri Kusumo}, the first person I talked to at the University of Chicago, for helping me get settled and find my footing.  \textbf{Kavi Chintam}, you were basically my first Chicago friend and we clicked instantly.  Thank you for cracking me up constantly and being a friend throughout the years here.
+
+Thank you, \textbf{Abby Lee}, \textbf{Karia Gilbert}, and \textbf{Shreya Sutariya} for being such solid friends.  My fondest memories of grad school have been travelling, going out, or just hanging around the ERC with you all.  Thank you to \textbf{Arijana Ramic} and \textbf{Patty Hamilton}, my two dearest friends from high school, who are constantly cheering me on.  Even after years of not seeing each other, we jump back into friendship like it's only been a week.  And to \textbf{Andrew Gardner}, my Little, my comedic relief, thank you for keeping me young by sending me TikToks every single day.  I love my friends so much!  And to the girls in 311 Beakes Street: \textbf{Nora Bailey}, \textbf{Liz Henley}, \textbf{Jessica}, and \textbf{Jazmine}, thank you for being the COOLEST house-mates during my first year of grad school \emoji{house} Coming home to such a powerful and fun group of girls every day helped me keep perspective when the anxieties of school got high.  I love you all dearly.  And to my friend \textbf{Hanna Ruth}, thank you for your friendship throughout grad school.  We really are two peas in a pod, and I just think you're the coolest person ever.
+
+A tutta la mia famiglia italiana, \textbf{Federica Pompili}, \textbf{Patrizia Martineli} e \textbf{Tarcisio Pompili}, \textbf{Zia Rosa} e \textbf{Zio Daniele}, \textbf{Zia Antonella} e \textbf{Zia Stefania} e \textbf{Valentina}, \textbf{Rasha} e \textbf{Keira}, grazie per il tuo amore immediato.  Grazie ai miei genitori italiani, \textbf{Patrizia} e \textbf{Tarcisio}, per avermi accolto nella vostra famiglia.  Vi adoro.  A mia cugina e amica \textbf{Marta}, grazie per la nostra amicizia, che mi rende così felice.  Grazie, \textbf{Valerio} e \textbf{Flavio}, per aver giocato a Minecraft con me (anche se il mio italiano è pessimo e distruggo le cose).
+
+To my family, \textbf{Emma}, \textbf{Louis}, \textbf{Mom} and \textbf{Dad}, thank you for being a constant source of love and support in my life.  Thank you to my cousins, \textbf{Ariana Meyrich-Blomquist} and \textbf{Caitlin Meyrich-Blomquist}, for being the cool Seattle girls I've always looked up to.  To my nieces and nephews, \textbf{Bentley}, \textbf{Ashtyn}, \textbf{Lily} and \textbf{Lincoln}, ``auntie Grace" has and will always be my favorite title.  \textbf{Bentley}, I am so proud of who you are growing up to be.  Thank you for being the most fun nephew, asking lots of questions, and destroying me at Mario Kart.  It humbles me.  To my \textbf{Mom} and \textbf{Dad}, thank you for loving me unconditionally and encouraging me to pursue a higher education.  \textbf{Auntie Ann} and \textbf{Uncle Peter}, you have been like a second set of parents to me. 
+ I cherish the hours spent at your home in fleece jackets and slippers.  You are always so curious about my life and my research, and have always made me feel so valuable. Caffeine! \emoji{coffee} And \textbf{Auntie Ann}, our friendship is so special to me.  Our phone calls and kitchen table conversations have helped me grow into who I am and how I navigate the world.
+
+Graduate school has changed my life for the better in many ways, but perhaps the greatest was traveling to the conference where I met you, \textbf{Matteo}.  You've brought so much joy into my life, even while we waited for borders to open.  Thank you for truly the most constant support and love.  I look forward to spending my life with you.  Ti amo da matti \emoji{corn}
 
 \end{document}
